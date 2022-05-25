@@ -1,5 +1,5 @@
 <section>
-    <!-- Start Breadcrumb 
+    <!-- Start Breadcrumb
 ============================================= -->
 <div class="breadcrumb-area bg-gradient text-center">
     <!-- Fixed BG -->
@@ -12,6 +12,7 @@
                 <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i>{{ __('language.home') }}</a></li>
                     <li><a href="#">Pages</a></li>
+                    <li class="active">{{ __('language.about') }}</li>
                     <li class="active">{{ __('language.about') }}</li>
                 </ul>
             </div>
@@ -57,11 +58,11 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis. Sed est tortor, finibus et neque ut, tempus porttitor velit. Ut venenatis condimentum nisi, ultrices dignissim dui tincidunt sit amet. Donec laoreet.
                         </p>
-                        
+
                          <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis. Sed est tortor, finibus et neque ut, tempus porttitor velit. Ut venenatis condimentum nisi, ultrices dignissim dui tincidunt sit amet. Donec laoreet.
                         </p>
-                     
+
                         <a class="btn btn-md btn-gradient" href="#"><i class="fas fa-angle-right"></i> {{ __('language.sign-up') }}</a>
             </div>
 
@@ -70,7 +71,7 @@
 </div>
 <!-- End About -->
 
-<!-- Start Services 
+<!-- Start Services
 ============================================= -->
 <div class="department-area icon-only carousel-shadow default-padding bottom-less">
     <div class="container">
@@ -80,7 +81,7 @@
                     <h4>Services</h4>
                     <h2>{{ __('language.Solution-profession') }}</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis. Sed est tortor, finibus et neque ut, tempus porttitor velit. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis. Sed est tortor, finibus et neque ut, tempus porttitor velit.
                     </p>
                 </div>
             </div>
@@ -137,16 +138,16 @@
                     </div>
                 </div>
                 <!-- End Single Item -->
-          
-          
+
+
             </div>
         </div>
     </div>
 </div>
 <!-- End Services -->
 
-<!-- Start Choose Us 
-============================================= 
+<!-- Start Choose Us
+=============================================
 <div class="choose-us-area relative inc-list">
     <div class="row">
         <div class="col-lg-6 thumb bg-cover" style="background-image: url({{ asset('landing/assets/img/2440x1578.png') }});"></div>
@@ -158,7 +159,7 @@
                     <li>
                         <h5>More Experience</h5>
                         <p>
-                            Be confident in the treatment plan and your doctor’s abilities. 
+                            Be confident in the treatment plan and your doctor’s abilities.
                         </p>
                     </li>
                     <li>
@@ -176,7 +177,7 @@
                     <li>
                         <h5>Unparalleled expertise</h5>
                         <p>
-                            Don’t doubt that you are getting the expert care that you deserve. 
+                            Don’t doubt that you are getting the expert care that you deserve.
                         </p>
                     </li>
                 </ul>
@@ -187,8 +188,8 @@
 </div>  -->
 <!-- End Choose Us -->
 
-<!-- Start Team 
-============================================= 
+<!-- Start Team
+=============================================
 <div class="team-default-area bg-gray default-padding bottom-less">
     <div class="container">
         <div class="row">
@@ -206,7 +207,7 @@
     <div class="container">
         <div class="team-items text-center">
             <div class="row">
-                
+
                 <div class="single-item col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
@@ -228,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-               
+
                 <div class="single-item col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
@@ -250,7 +251,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="single-item col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
@@ -272,7 +273,7 @@
                         </div>
                     </div>
                 </div>
-               
+
                 <div class="single-item col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
@@ -294,15 +295,15 @@
                         </div>
                     </div>
                 </div>
-                 
+
             </div>
         </div>
     </div>
 </div> -->
 <!-- End Team -->
 
-<!-- Start Testomonials 
-============================================= 
+<!-- Start Testomonials
+=============================================
 <div class="testimonials-area overflow-hidden carousel-shadow default-padding">
     <div class="container">
         <div class="row align-center">
