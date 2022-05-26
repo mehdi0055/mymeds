@@ -10,6 +10,6 @@ class RdvAdmin extends Model
     use HasFactory;
 
     protected $table = "rdv_admins";
-    protected $fillable = ['name','email','phone','status','time','date'];
+    protected $fillable = ['name','email','phone','status','time','date','cancel'];
 
 }

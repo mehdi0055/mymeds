@@ -16,7 +16,6 @@ class HomeComponent extends Component
     public $time;
     public $date;
 
-
     public function updated($fields)
     {
         $this->validateOnly($fields,[
@@ -51,8 +50,11 @@ class HomeComponent extends Component
 
         RdvAdmin::create($datavalidate);
 
+        $rdvAdminId = RdvAdmin::latest()->first()->id;
+
         $subject = "Confirmation de votre rendez vous";
         $detailsClient = [
+            'id' => $rdvAdminId,
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
@@ -64,6 +66,7 @@ class HomeComponent extends Component
 
         $subject = "Nouveau rendez vous a été crée";
         $detailsAdmin = [
+            'id' => $rdvAdminId,
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
@@ -78,10 +81,6 @@ class HomeComponent extends Component
         $this->resetInput();
         $this->emit('success');
     }
-
-
-
-
 
     public function render()
     {

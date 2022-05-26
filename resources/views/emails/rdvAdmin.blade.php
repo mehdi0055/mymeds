@@ -155,7 +155,7 @@
                                                                 <tr>
                                                                     <td style="padding-right: 0px;padding-left: 0px;"
                                                                         align="center">
-                                                                        <a href="https://unlayer.com" target="_blank">
+                                                                        <a href="#" target="_blank">
                                                                             <img align="center" border="0"
                                                                                 src="{{ asset('landing/assets/img/image-5.png') }}"
                                                                                 alt="Logo" title="Logo"
@@ -313,7 +313,7 @@
 
                                                             <h3
                                                                 style="margin: 0px; color: #293c4b; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: 'Montserrat',sans-serif; font-size: 18px;">
-                                                                <strong>Hi {{ $details['name'] }},</strong>
+                                                                <strong>Bonjour {{ $details['name'] }},</strong>
                                                             </h3>
 
                                                         </td>
@@ -334,12 +334,15 @@
                                                                         style="font-size: 16px; line-height: 22.4px; font-family: Lato, sans-serif;">Just
 
                                                                         Ceci est un rappel amical confirmant votre
-                                                                        rendez-vous avec MYMED le <strong >{{ $details['date'] }}</strong>  a <strong>{{ $details['time'] }}</strong>.
+                                                                        rendez-vous avec MYMED le
+                                                                        <strong>{{ $details['date'] }}</strong> a
+                                                                        <strong>{{ $details['time'] }}</strong>.
 
                                                                         Si vous avez des questions, ou si vous avez
                                                                         besoin de reporter ou d'annuler, veuillez
                                                                         appeler notre bureau au +212 625 214 252 ou
-                                                                        envoyez-nous un e-mail <strong>support@mymed.ma</strong> . </span></p>
+                                                                        envoyez-nous un e-mail
+                                                                        <strong>support@mymed.ma</strong> . </span></p>
                                                                 <p style="font-size: 14px; line-height: 140%;">&nbsp;
                                                                 </p>
 
@@ -381,20 +384,24 @@
                                                                             de client :
                                                                         </strong></span><span>{{ $details['name'] }}</span>
                                                                 </p>
-                                                                <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Telephone
-                                                                            :
-                                                                        </strong></span><span>{{ $details['phone'] }}</span>
+                                                                <p style="font-size: 14px; line-height: 140%;">
+                                                                    <strong><span
+                                                                            style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 22.4px;">Telephone :
+                                                                        </span></strong><span>{{ $details['phone'] }}</span>
                                                                 </p>
-                                                                <p style="font-size: 14px; line-height: 140%;"><strong><span
-                                                                        style="font-family: Lato, sans-serif; font-size: 16px; line-height: 22.4px;">Date
-                                                                        Rendez vous :
-                                                                    </span></strong><span>{{ $details['date'] }}</span></p>
+                                                                <p style="font-size: 14px; line-height: 140%;">
+                                                                    <strong><span
+                                                                            style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 22.4px;">Date
+                                                                            Rendez vous :
+                                                                        </span></strong><span>{{ $details['date'] }}</span>
+                                                                </p>
 
-                                                                    <p style="font-size: 14px; line-height: 140%;"><strong><span
-                                                                        style="font-family: Lato, sans-serif; font-size: 16px; line-height: 22.4px;">temp
-                                                                        Rendez vous :
-                                                                    </span></strong><span>{{ $details['time'] }}</span></p>
+                                                                <p style="font-size: 14px; line-height: 140%;">
+                                                                    <strong><span
+                                                                            style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 22.4px;">temp
+                                                                            Rendez vous :
+                                                                        </span></strong><span>{{ $details['time'] }}</span>
+                                                                </p>
                                                             </div>
 
                                                         </td>
@@ -443,7 +450,7 @@
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="font-size: 16px; line-height: 22.4px;"><strong><span
                                                                                 style="line-height: 22.4px; font-family: Lato, sans-serif; font-size: 16px;">Click
-                                                                                Link Below to confirm your
+                                                                                Link Below to Cancel your
                                                                                 appointment</span></strong></span></p>
                                                             </div>
 
@@ -460,13 +467,16 @@
                                                             align="left">
 
                                                             <div align="center">
-                                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://unlayer.com" style="height:39px; v-text-anchor:middle; width:190px;" arcsize="10.5%" stroke="f" fillcolor="#7db00e"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
-                                                                <a href="https://unlayer.com" target="_blank"
-                                                                    style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #7db00e; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+                                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:39px; v-text-anchor:middle; width:190px;" arcsize="10.5%" stroke="f" fillcolor="#7db00e"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
+
+
+                                                                <a href="{{ route('cancel-rendezvous', $details['id']) }}"
+                                                                    target="_blank"
+                                                                    style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #b3001e; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                                                     <span
                                                                         style="display:block;padding:10px 50px;line-height:120%;"><span
-                                                                            style="font-size: 16px; line-height: 19.2px;">Confirm
-                                                                            Visit</span></span>
+                                                                            style="font-size: 16px; line-height: 19.2px;">Cancel
+                                                                            Rendez vous</span></span>
                                                                 </a>
                                                                 <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
                                                             </div>
@@ -525,8 +535,8 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://twitter.com/"
-                                                                                        title="Twitter" target="_blank">
+                                                                                    <a href="#" title="Twitter"
+                                                                                        target="_blank">
                                                                                         <img src="{{ asset('landing/assets/img/image-2.png') }}"
                                                                                             alt="Twitter"
                                                                                             title="Twitter" width="32"
@@ -546,8 +556,7 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://linkedin.com/"
-                                                                                        title="LinkedIn"
+                                                                                    <a href="#" title="LinkedIn"
                                                                                         target="_blank">
                                                                                         <img src="{{ asset('landing/assets/img/image-3.png') }}"
                                                                                             alt="LinkedIn"
@@ -568,8 +577,7 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://instagram.com/"
-                                                                                        title="Instagram"
+                                                                                    <a href="#" title="Instagram"
                                                                                         target="_blank">
                                                                                         <img src="{{ asset('landing/assets/img/image-1.png') }}"
                                                                                             alt="Instagram"
@@ -603,10 +611,9 @@
                                                                 style="color: #ecf0f1; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;">If you
                                                                     have any questions, feel free message us at
-                                                                    support@mailus.com. All right reserved. Update email
+                                                                    . All right reserved. Update email
                                                                     preferences or
-                                                                    unsubscribe.<br />123-456-7890<br />San Francisco,
-                                                                    CA. United States<br />Terms of use | Privacy Policy
+                                                                    unsubscribe.
                                                                 </p>
                                                             </div>
 
@@ -650,7 +657,7 @@
                                                             <div
                                                                 style="color: #7e8c8d; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;">&copy;
-                                                                    20XX Company. All Rights Reserved.</p>
+                                                                    2022 Company. All Rights Reserved.</p>
                                                             </div>
 
                                                         </td>

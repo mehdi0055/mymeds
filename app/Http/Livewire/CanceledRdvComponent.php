@@ -9,19 +9,22 @@ use Livewire\Component;
 class CanceledRdvComponent extends Component
 {
 
-    public $id;
+    public $idRdv;
 
-    public function mount($id)
+    public function mount($idRdv)
     {
-       $this->id = $id;
-       $rendezvous = RdvAdmin::find($id);
+       $this->idRdv = $idRdv;
+       $rendezvous = RdvAdmin::find($idRdv);
 	   $rendezvous->cancel = 1;
 	   $rendezvous->save();
+       $message = "Votre Rendez vous annuler";
+       session()->flash('success',$message);
     }
 
 
     public function render()
     {
-        return view('livewire.canceled-rdv-component');
+        $title = __('language.home');
+        return view('livewire.canceled-rdv-component')->layout('layouts.landing',compact('title'));
     }
 }
