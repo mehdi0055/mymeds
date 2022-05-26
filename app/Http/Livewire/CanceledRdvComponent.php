@@ -17,7 +17,7 @@ class CanceledRdvComponent extends Component
        $rendezvous = RdvAdmin::find($idRdv);
 	   $rendezvous->cancel = 1;
 	   $rendezvous->save();
-       $message = "Votre Rendez vous annuler";
+       $message = "Votre Rendez vous a été annuler";
        session()->flash('success',$message);
     }
 
