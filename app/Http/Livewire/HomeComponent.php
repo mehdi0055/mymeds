@@ -52,7 +52,7 @@ class HomeComponent extends Component
 
         $rdvAdminId = RdvAdmin::latest()->first()->id;
 
-        $subject = "Confirmation de votre rendez vous";
+        $subject = "Confirmation de Votre rendez vous";
         $detailsClient = [
             'id' => $rdvAdminId,
             'name' => $this->name,
