@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\RdvAdmin;
+use App\Models\ContactUsAdmin;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminMails;
 
@@ -16,6 +17,11 @@ class HomeComponent extends Component
     public $time;
     public $date;
 
+    public $nameContact;
+    public $emailContact;
+    public $phoneContact;
+    public $message;
+
     public function updated($fields)
     {
         $this->validateOnly($fields,[
@@ -24,6 +30,11 @@ class HomeComponent extends Component
             'phone'=>'required|digits:10',
             'time'=>'required',
             'date'=>'required',
+
+            'nameContact'=>'required|min:2',
+            'emailContact'=>'required|email',
+            'phoneContact'=>'required|digits:10',
+            'message'=>'required|max:254',
         ]);
     }
 
@@ -35,6 +46,7 @@ class HomeComponent extends Component
         $this->phone = "";
         $this->time = "";
         $this->date = "";
+        $this->message = "";
     }
 
 
@@ -47,12 +59,9 @@ class HomeComponent extends Component
             'time'=>'required',
             'date'=>'required',
         ]);
-
         RdvAdmin::create($datavalidate);
-
         $rdvAdminId = RdvAdmin::latest()->first()->id;
-
-        $subject = "Confirmation de Votre rendez vous";
+        $subject = "Confirmation de votre rendez vous";
         $detailsClient = [
             'id' => $rdvAdminId,
             'name' => $this->name,
@@ -80,6 +89,21 @@ class HomeComponent extends Component
         session()->flash('success',$message);
         $this->resetInput();
         $this->emit('success');
+    }
+
+
+    public function takeContactUs()
+    {
+        $datavalidate = $this->validate([
+            'nameContact'=>'required|min:2',
+            'emailContact'=>'required|email',
+            'phoneContact'=>'required|digits:10',
+            'message'=>'required',
+        ]);
+        ContactUsAdmin::create($datavalidate);
+        $message = "Votre contacte envoyer avec succée";
+        session()->flash('addContact',$message);
+        $this->resetInput();
     }
 
     public function render()

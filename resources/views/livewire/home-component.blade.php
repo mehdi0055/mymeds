@@ -693,43 +693,52 @@
 
                     <div class="col-lg-5 wow fadeInLeft contact-form-box">
                         <h2>{{ __('language.Need-help') }} <strong>{{ __('language.Ask-question') }}</strong></h2>
-                        <form action="assets/mail/contact.php" method="POST" class="contact-form">
+                        <form wire:submit.prevent="takeContactUs()" class="contact-form">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input class="form-control" id="name" name="name"
+                                        <input wire:model.debounce.1000ms="nameContact" class="form-control"
+                                            id="nameContact" name="nameContact"
                                             placeholder="{{ __('language.Name') }}" type="text">
-                                        <span class="alert-error"></span>
+
+                                        @error('nameContact')
+                                            <span class="alert-error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input class="form-control" id="email" name="email"
+                                        <input wire:model.debounce.1000ms="emailContact" class="form-control"
+                                            id="emailContact" name="emailContact"
                                             placeholder="{{ __('language.Email') }}*" type="email">
-                                        <span class="alert-error"></span>
+                                        @error('emailContact')
+                                            <span class="alert-error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input class="form-control" id="phone" name="phone"
+                                        <input wire:model.debounce.1000ms="phoneContact" class="form-control"
+                                            id="phoneContact" name="phoneContact"
                                             placeholder="{{ __('language.Phone') }}" type="text">
-                                        <span class="alert-error"></span>
+                                        @error('phoneContact')
+                                            <span class="alert-error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group comments">
-                                        <textarea class="form-control" id="comments" name="comments"
+                                        <textarea wire:model.debounce.1000ms="message" class="form-control" id="comments" name="comments"
                                             placeholder="{{ __('language.Message') }} *"></textarea>
+                                        @error('message')
+                                            <span class="alert-error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <button type="submit" name="submit" id="submit">
                                         {{ __('language.Send-message') }}
                                     </button>
-                                </div>
-                                <!-- Alert Message -->
-                                <div class="col-lg-12 alert-notification">
-                                    <div id="message" class="alert-msg"></div>
                                 </div>
                             </div>
                         </form>
@@ -895,6 +904,13 @@
     @if (session()->has('success'))
         <script>
             swal('success', '{{ session('success') }}', 'success', {
+                Button: "ok",
+            });
+        </script>
+    @endif
+    @if (session()->has('addContact'))
+        <script>
+            swal('success', '{{ session('addContact') }}', 'success', {
                 Button: "ok",
             });
         </script>
