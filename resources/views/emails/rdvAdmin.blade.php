@@ -378,9 +378,9 @@
                                                             align="left">
 
                                                             <div
-                                                                style="color: #293c4b; line-height: 140%; text-align: left; word-wrap: break-word;">
+                                                                style="color: #293c4b; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 22.4px; color: #7db00e;"><strong>Nom
+                                                                        style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 22.4px;"><strong>Nom
                                                                             de client :
                                                                         </strong></span><span>{{ $details['name'] }}</span>
                                                                 </p>

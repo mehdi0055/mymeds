@@ -7,6 +7,7 @@ use App\Models\RdvAdmin;
 use App\Models\ContactUsAdmin;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminMails;
+use App\Mail\ContactMail;
 
 class HomeComponent extends Component
 {
@@ -46,6 +47,10 @@ class HomeComponent extends Component
         $this->phone = "";
         $this->time = "";
         $this->date = "";
+
+        $this->nameContact = "";
+        $this->emailContact = "";
+        $this->phoneContact = "";
         $this->message = "";
     }
 
@@ -101,6 +106,15 @@ class HomeComponent extends Component
             'message'=>'required',
         ]);
         ContactUsAdmin::create($datavalidate);
+        $subject = "Confirmation de l'envoie d'un nouvelle contacte d'aide";
+        $detailsContact = [
+            'nameContact' => $this->nameContact,
+            'emailContact' => $this->emailContact,
+            'phoneContact' => $this->phoneContact,
+            'message' => $this->message,
+            'subject' => $subject,
+        ];
+        Mail::to($detailsContact['emailContact'])->send(new ContactMail($detailsContact));
         $message = "Votre contacte envoyer avec succée";
         session()->flash('addContact',$message);
         $this->resetInput();
