@@ -102,7 +102,7 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis.
                         </p>
-                        <a class="btn btn-sm circle btn-theme border" href="#"><i class="fas fa-angle-right"></i> {{ __('language.Read-more') }}</a>
+                        <a class="btn btn-sm circle btn-theme border" href="#"><i class="fas fa-angle-right"></i>  {{ __('language.sign-up') }}</a>
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -118,7 +118,7 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis.
                         </p>
-                        <a class="btn btn-sm circle btn-theme border" href="#"><i class="fas fa-angle-right"></i> {{ __('language.Read-more') }}</a>
+                        <a class="btn btn-sm circle btn-theme border" href="#"><i class="fas fa-angle-right"></i>  {{ __('language.sign-up') }}</a>
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -134,7 +134,7 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis.
                         </p>
-                        <a class="btn btn-sm circle btn-theme border" href="#"><i class="fas fa-angle-right"></i> {{ __('language.Read-more') }}</a>
+                        <a class="btn btn-sm circle btn-theme border" href="#"><i class="fas fa-angle-right"></i>  {{ __('language.sign-up') }}</a>
                     </div>
                 </div>
                 <!-- End Single Item -->
