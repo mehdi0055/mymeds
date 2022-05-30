@@ -24,10 +24,8 @@
     <link href="{{ asset('landing/assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('landing/assets/css/animate.css') }}" rel="stylesheet" />
     <link href="{{ asset('landing/assets/css/bootsnav.css') }}" rel="stylesheet" />
-    <link href="{{ asset('landing/assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('landing/assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('landing/assets/css/responsive.css') }}" rel="stylesheet" />
-
-
 
 
     <!-- ========== End Stylesheet ========== -->
@@ -38,9 +36,9 @@
       <script src="{{ asset('landing/assets/js/html5/html5shiv.min.js') }}"></script>
       <script src="{{ asset('landing/assets/js/html5/respond.min.js') }}"></script>
     <![endif]-->
-
     <!-- ========== Google Fonts ========== -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800&display=swap"
+        rel="stylesheet">
     @livewireStyles
 </head>
 
@@ -80,13 +78,15 @@
                     <div class="info">
                         <ul>
                             <li>
-                                <a href="{{ route('change-language',['local'=>'fr']) }}">
-                                    <img src="{{ asset('landing/assets/img/icon/fr.svg') }}" alt="Français" width="30" height="20">
+                                <a href="{{ route('change-language', ['local' => 'fr']) }}">
+                                    <img src="{{ asset('landing/assets/img/icon/fr.svg') }}" alt="Français"
+                                        width="30" height="20">
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('change-language',['local'=>'en']) }}">
-                                    <img src="{{ asset('landing/assets/img/icon/us.svg') }}" alt="English" width="30" height="20">
+                                <a href="{{ route('change-language', ['local' => 'en']) }}">
+                                    <img src="{{ asset('landing/assets/img/icon/us.svg') }}" alt="English" width="30"
+                                        height="20">
                                 </a>
                             </li>
                         </ul>
@@ -139,7 +139,8 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="{{ route('landing-home') }}">
-                        <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="140"  class="img-responsive logo" alt="Logo">
+                        <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="140"
+                            class="img-responsive logo" alt="Logo">
                     </a>
                 </div>
                 <!-- End Header Navigation -->
@@ -148,7 +149,7 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="dropdown">
-                            <a href="{{ route('landing-home') }}" >{{ __('language.home') }}</a>
+                            <a href="{{ route('landing-home') }}">{{ __('language.home') }}</a>
                         </li>
                         <li>
                             <a href="{{ route('landing-about') }}">Department</a>
@@ -159,39 +160,63 @@
                         <li>
                             <a href="{{ route('landing-contact') }}">{{ __('language.contact') }}</a>
                         </li>
-                        @if(Route::has('login'))
-                            @auth
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-user-md"></i> {{ Auth::user()->name }}</a>
-                                <ul class="dropdown-menu">
-                                    @if(Auth::user()->utype === "ADM")
-                                        <li>
-                                            <a href="{{ route('admin-dashboard') }}">
-                                                <i class="fas fa-tachometer-alt"></i> {{ __('language.dashboard') }}
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <a href="{{ route('user-dashboard') }}">
-                                                <i class="fas fa-tachometer-alt"></i> {{ __('language.dashboard') }}
-                                            </a>
-                                        </li>
-                                    @endif
-                                    <form action="{{ route('logout') }}" id="logout-form" method="POST" >@csrf</form>
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();$('#logout-form').submit();">
-                                            <i class="fas fa-sign-in-alt"></i> {{ __('language.logout') }}
-                                        </a>
-                                    </li>
 
-                                </ul>
-                            </li>
+                        @if (Route::has('login'))
+                            @auth
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                            class="fas fa-user-md"></i> {{ Auth::user()->name }}</a>
+                                    <ul class="dropdown-menu">
+                                        @if (Auth::user()->utype === 'ADM')
+                                            <li>
+                                                <a href="{{ route('admin-dashboard') }}">
+                                                    <i class="fas fa-tachometer-alt"></i> {{ __('language.dashboard') }}
+                                                </a>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="{{ route('user-dashboard') }}">
+                                                    <i class="fas fa-tachometer-alt"></i> {{ __('language.dashboard') }}
+                                                </a>
+                                            </li>
+                                        @endif
+                                        <form action="{{ route('logout') }}" id="logout-form" method="POST">@csrf</form>
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();$('#logout-form').submit();">
+                                                <i class="fas fa-sign-in-alt"></i> {{ __('language.logout') }}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
                             @else
-                            <li>
-                                <a href="{{ route('login') }}"><i class="fas fa-lock"></i> {{ __('language.login') }}</a>
-                            </li>
+                                <li>
+                                    <a href="{{ route('login') }}"><i class="fas fa-lock"></i>
+                                        {{ __('language.login') }}</a>
+                                </li>
                             @endauth
                         @endif
+
+                        <div id="langue" style="display: none">
+
+                            <li>
+                                <a href="{{ route('change-language', ['local' => 'fr']) }}">
+                                    <img src="{{ asset('landing/assets/img/icon/fr.svg') }}" alt="Français" width="30"
+                                        height="20"> Français
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('change-language', ['local' => 'en']) }}">
+                                    <img src="{{ asset('landing/assets/img/icon/us.svg') }}" alt="English" width="30"
+                                        height="20"> English
+                                </a>
+                            </li>
+
+
+                        </div>
+
+
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -203,7 +228,7 @@
     </header>
     <!-- End Header -->
 
-        {{ $slot }}
+    {{ $slot }}
 
     <!-- Start Footer
     ============================================= -->
@@ -215,7 +240,8 @@
                         <div class="f-item about">
                             <img src="{{ asset('landing/assets/img/mymed_logo_light.png') }}" alt="Logo" width="128">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit amet luctus. Vivamus pretium lorem at posuere facilisis.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod euismod enim sit
+                                amet luctus. Vivamus pretium lorem at posuere facilisis.
                             </p>
                             <div class="address">
                                 <ul>
@@ -260,7 +286,7 @@
                         </div>
                     </div>
 
-                   <!-- <div class="single-item col-lg-2 col-md-6 item">
+                    <!-- <div class="single-item col-lg-2 col-md-6 item">
                         <div class="f-item link">
                             <h4 class="widget-title">Usefull Links</h4>
                             <ul>
@@ -352,7 +378,9 @@
     <script src="{{ asset('landing/assets/js/main.js') }}"></script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     @livewireScripts

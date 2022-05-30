@@ -60,10 +60,10 @@
                             <p class="lead">Login to your account</p>
                         </div>
                         <div class="body">
-                            
+
                             <x-jet-validation-errors class="alert alert-danger" />
 
-                            <form class="form-auth-small" action="{{ route('login') }}" method="POST">  
+                            <form class="form-auth-small" action="{{ route('login') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only">Email</label>
@@ -84,7 +84,7 @@
 
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">{{  __('Log in')  }}</button>
                                 <div class="bottom">
-                                    <span class="helper-text m-b-10"><i class="fa fa-lock"></i> 
+                                    <span class="helper-text m-b-10"><i class="fa fa-lock"></i>
                                         <a href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
                                     </span>
                                     <span>Don't have an account? <a href="{{ route('register') }}">Register</a></span>

@@ -3,13 +3,13 @@
 
 
 <head>
-    <title>:: My MED :: Dashboard</title>
+    <title> MyMED Dashboard</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="description" content="MyMED">
     <meta name="author" content="Otmane AMAL & Mehdi Elmir - MEDYOUIN">
-    <link rel="icon" href="{{ asset('landing/assets/img/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('landing/assets/img/faviconMymed.png') }}" type="image/x-icon">
 
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/font-awesome/css/font-awesome.min.css') }}">
@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="{{ asset('primary/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/css/color_skins.css') }}">
+    <link rel="stylesheet" href="{{ asset('primary/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}">
     @livewireStyles
 </head>
 
@@ -28,7 +29,7 @@
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="m-t-30">
-                <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="128" height="128" alt="MyMed">
+                <img src="{{ asset('landing/assets/img/mymed_logo_light.png') }}" width="128" height="64" alt="MyMed">
             </div>
             <p>Please wait...</p>
         </div>
@@ -42,8 +43,8 @@
                 </div>
                 <div class="navbar-brand">
                     <a
-                        href="{{ Auth::user()->utype == 'ADM' ? route('admin-dashboard') : route('user-dashboard') }}">
-                        <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="128" height="32" alt="My MED"
+                        href="{{ Auth::user()->utype == 'ADM' ? route('landing-home') : route('landing-home') }}">
+                        <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="128" height="40" alt="My MED"
                             class="img-responsive logo"></a>
                 </div>
                 <div class="navbar-right">
@@ -225,9 +226,9 @@
                     <div class="tab-pane active" id="menu">
                         <nav class="sidebar-nav">
                             <ul class="main-menu metismenu">
-                                <li class="active"><a href="index-2.html"><i
+                                <li class="active"><a href="{{ route('admin-dashboard') }}"><i
                                             class="icon-home"></i><span>Dashboard</span></a></li>
-                                <li><a href="app-appointment.html"><i class="icon-calendar"></i>Appointment</a></li>
+                                <li><a href="{{ route('admin-rendez_vous') }}"><i class="icon-calendar"></i>Appointment</a></li>
                                 <li><a href="app-taskboard.html"><i class="icon-list"></i>Taskboard</a></li>
                                 <li><a href="app-inbox.html"><i class="icon-home"></i>Inbox App</a></li>
                                 <li><a href="app-chat.html"><i class="icon-bubbles"></i>Chat App</a></li>
@@ -381,6 +382,7 @@
     <script src="{{ asset('primary/assets/vendor/flot-charts/jquery.flot.selection.js') }}"></script>
     <script src="{{ asset('primary/assets/bundles/mainscripts.bundle.js') }}"></script>
     <script src="{{ asset('primary/assets/js/index.js') }}"></script>
+
     @livewireScripts
 </body>
 

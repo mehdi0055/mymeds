@@ -899,7 +899,7 @@
     <!-- End Blog Area -->
     <!-- End Contact -->
 
-
+<!-- Notification -->
 
     @if (session()->has('success'))
         <script>
@@ -915,6 +915,8 @@
             });
         </script>
     @endif
+
+    <!-- End Notification -->
 
 
 </section>

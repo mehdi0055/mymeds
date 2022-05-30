@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\RdvComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\CanceledRdvComponent;
@@ -57,6 +58,7 @@ Route::get('/language/{local}',function($local){
 Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin-dashboard');
+    Route::get('/admin/rendez_vous',RdvComponent::class)->name('admin-rendez_vous');
 
 });
 

@@ -25,7 +25,7 @@
             <div class="vertical-align-middle auth-main">
                 <div class="auth-box">
                     <div class="top">
-                        <img src="{{ asset('landing/assets/img/logo-.png') }}" alt="MYMED">
+                        <img src="{{ asset('landing/assets/img/mymed_logo_light.png') }}" alt="MYMED">
                     </div>
                     <div class="card">
                         <div class="header">
