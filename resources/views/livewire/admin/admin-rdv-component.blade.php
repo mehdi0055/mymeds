@@ -1,7 +1,7 @@
 <div>
     <div id="main-content">
         <div class="container-fluid">
-            <div class="block-header">
+            <div class="block-header mb-5">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
@@ -14,36 +14,46 @@
 
                 </div>
             </div>
-            <div class="row clearfix text-center">
+            <div class="row clearfix text-center ">
+
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card">
+                    <div class="card top_counter">
                         <div class="body">
-                            <i class="fa fa-calendar text-primary" style="width: 60px;height:60px;font-size:40px"></i>
-                            <h6>Rendez vous D'aujourd'hui</h6>
-                            <span>2</span>
+                            <div class="icon"><i class="fa fa-calendar"
+                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                            <div class="content">
+                                <div class="text ">Rendez vous D'aujourd'hui</div>
+                                <h5 class="number ">2</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="card top_counter">
+                        <div class="body">
+                            <div class="icon"><i class="fa fa-calendar-check-o"
+                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                            <div class="content">
+                                <div class="text ">Rendez vous Confirmer</div>
+                                <h5 class="number ">2</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card">
+                    <div class="card top_counter">
                         <div class="body">
-                            <i class="fa fa-calendar-check-o text-primary"
-                                style="width: 60px;height:60px;font-size:40px"></i>
-                            <h6>Rendez vous Confirmer</h6>
-                            <span>2 </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card">
-                        <div class="body">
-                            <i class="fa fa-calendar-times-o text-danger"
-                                style="width: 60px;height:60px;font-size:40px"></i>
-                            <h6>Rendez vous Annuler</h6>
-                            <span>0</span>
+                            <div class="icon"><i class="fa fa-calendar-times-o"
+                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                            <div class="content">
+                                <div class="text ">Rendez vous Annuler</div>
+                                <h5 class="number ">2</h5>
+                            </div>
                         </div>
                     </div>
                 </div>

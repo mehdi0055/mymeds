@@ -1,7 +1,7 @@
 <div>
     <div id="main-content">
         <div class="container-fluid">
-            <div class="block-header">
+            <div class="block-header mb-5">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
@@ -14,36 +14,32 @@
 
                 </div>
             </div>
-            <div class="row clearfix text-center">
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card">
+            <div class="row clearfix text-center ">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="card top_counter">
                         <div class="body">
-                            <i class="fa fa-users text-primary" style="width: 60px;height:60px;font-size:40px"></i>
-                            <h6>Utilisateurs</h6>
-                            <span>2</span>
+                            <div class="icon"><i class="fa fa-users"
+                                    style="width: 40px;height:40px;font-size:35px"></i> </div>
+                            <div class="content">
+                                <div class="text">Utilisateurs</div>
+                                <h5 class="number ">2</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card">
-                        <div class="body">
-                            <i class="fa fa-check text-primary"
-                                style="width: 60px;height:60px;font-size:40px"></i>
-                            <h6>Utilisateurs Active</h6>
-                            <span>0 </span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card">
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="card top_counter">
                         <div class="body">
-                            <i class="fa fa-user-times text-danger"
-                                style="width: 60px;height:60px;font-size:40px"></i>
-                            <h6>Utilisateurs non active</h6>
-                            <span>2</span>
+                            <div class="icon"><i class="fa fa-user-times"
+                                    style="width: 40px;height:40px;font-size:35px"></i> </div>
+                            <div class="content">
+                                <div class="text ">Utilisateurs non active</div>
+                                <h5 class="number ">2</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -66,6 +62,7 @@
                                 <table class="table  table-hover js-basic-example dataTable table-custom">
                                     <thead class="thead-light">
                                         <tr>
+                                            <th>Avatar</th>
                                             <th>Nom</th>
                                             <th>Adresse email</th>
                                             <th>Statue</th>
@@ -75,6 +72,9 @@
                                     <tbody>
                                         @foreach ($users as $item)
                                             <tr>
+                                                <td><img src="{{ asset('primary/assets/images/users/male.png') }}"
+                                                        class="rounded-circle user-photo" alt="User Profile Picture"
+                                                        width="40" height="40"></td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
@@ -104,4 +104,3 @@
         </div>
     </div>
 </div>
-

@@ -4,6 +4,7 @@ use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminRdvComponent;
 use App\Http\Livewire\Admin\AdminUsersComponent;
+use App\Http\Livewire\Admin\AdminBlogComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\CanceledRdvComponent;
@@ -60,6 +61,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin-dashboard');
     Route::get('/admin/rendez_vous',AdminRdvComponent::class)->name('admin-rendez_vous');
     Route::get('/admin/users',AdminUsersComponent::class)->name('admin-users');
+    Route::get('/admin/blogs',AdminBlogComponent::class)->name('admin-blogs');
 
 });
 

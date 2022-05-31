@@ -232,7 +232,7 @@
                                 <li><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
                                 <li><a href="app-inbox.html"><i class="icon-bubbles"></i>Contacts</a></li>
-                                <li><a href="app-inbox.html"><i class="icon-puzzle"></i>Blog</a></li>
+                                <li><a href="{{ route('admin-blogs') }}"><i class="icon-puzzle"></i>Blog</a></li>
                             </ul>
                         </nav>
                     </div>
