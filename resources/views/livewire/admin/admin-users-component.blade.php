@@ -28,18 +28,28 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="card top_counter">
                         <div class="body">
-                            <div class="icon"><i class="fa fa-user-times"
-                                    style="width: 40px;height:40px;font-size:35px"></i> </div>
-                            <div class="content">
-                                <div class="text ">Utilisateurs non active</div>
-                                <h5 class="number ">2</h5>
+                            <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
+                            data-interval="2500">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="icon" ><i class="fa fa-user"  style="width: 40px;height:40px;font-size:35px"></i> </div>
+                                    <div class="content">
+                                        <div class="text">Utilisateur Active</div>
+                                        <h5 class="number">0</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="icon"><i class="fa fa-user-times" style="width: 40px;height:40px;font-size:35px"></i> </div>
+                                    <div class="content">
+                                        <div class="text">Utilisateur inactive</div>
+                                        <h5 class="number">2</h5>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>

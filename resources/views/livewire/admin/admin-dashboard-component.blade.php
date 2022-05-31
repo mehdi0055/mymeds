@@ -75,7 +75,7 @@
                                             <div class="carousel-item">
                                                 <div class="icon"><i class="fa fa-calendar-times-o"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">Rendez vous Anuller</div>
+                                                    <div class="text">Rendez vous Annuler</div>
                                                     <h5 class="number">04</h5>
                                                 </div>
                                             </div>
