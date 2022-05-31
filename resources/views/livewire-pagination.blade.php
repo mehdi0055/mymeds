@@ -35,5 +35,5 @@
     </ul>
 
     @else
-    Liens de pagination ici ..
+    Liens de pagination ici ...
 @endif

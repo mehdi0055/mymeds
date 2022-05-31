@@ -27,8 +27,7 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>How all this mistaken al idea of denouncing pleasure praisings pain was
-                                    complete[...]</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.</p>
                                 <a href="depa-Read more.html" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
@@ -46,8 +45,7 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Who chooses to enjoy a pleasure that has consquences, or one who avoids a
-                                    pain.[...]</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.</p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
                         </div>
@@ -65,7 +63,7 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Who chooses to enjoy a pleasure that has annoying, or one who avoids a pain.[...]
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.
                                 </p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
@@ -84,7 +82,7 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Who chooses to enjoy a pleasure that has annoying, or one who avoids a pain.[...]
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.
                                 </p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
@@ -103,7 +101,7 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Who chooses to enjoy a pleasure that has annoying, or one who avoids a pain.[...]
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.
                                 </p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>

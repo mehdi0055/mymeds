@@ -46,16 +46,16 @@
                                         data-interval="2500">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-user"></i> </div>
+                                                <div class="icon"><i class="fa fa-users"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">Total Patient</div>
+                                                    <div class="text">Utilisateurs</div>
                                                     <h5 class="number">215</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-user"></i> </div>
+                                                <div class="icon"><i class="fa fa-user-times"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">New Patient</div>
+                                                    <div class="text">Utilisateur inactive</div>
                                                     <h5 class="number">21</h5>
                                                 </div>
                                             </div>
@@ -66,26 +66,20 @@
                                         data-interval="2100">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-user-md"></i> </div>
+                                                <div class="icon"><i class="fa fa-calendar"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">Operations</div>
+                                                    <div class="text">Rendez vous</div>
                                                     <h5 class="number">06</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-user-md"></i> </div>
+                                                <div class="icon"><i class="fa fa-calendar-times-o"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">Surgery</div>
+                                                    <div class="text">Rendez vous Anuller</div>
                                                     <h5 class="number">04</h5>
                                                 </div>
                                             </div>
-                                            <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-user-md"></i> </div>
-                                                <div class="content">
-                                                    <div class="text">Treatment</div>
-                                                    <h5 class="number">23</h5>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -98,34 +92,49 @@
                                         data-interval="2300">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="icon"><i class="fa fa-phone"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">Total Visitors</div>
-                                                    <h5 class="number">10K</h5>
+                                                    <div class="text">Contacts</div>
+                                                    <h5 class="number">10</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="icon"><i class="icon-puzzle"></i> </div>
                                                 <div class="content">
-                                                    <div class="text">Today Visitors</div>
+                                                    <div class="text">Blog</div>
                                                     <h5 class="number">142</h5>
                                                 </div>
                                             </div>
-                                            <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-eye"></i> </div>
-                                                <div class="content">
-                                                    <div class="text">Month Visitors</div>
-                                                    <h5 class="number">2,087</h5>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="icon"><i class="fa fa-university"></i> </div>
-                                    <div class="content">
-                                        <div class="text">Revenue</div>
-                                        <h5 class="number">$18,925</h5>
+                                    <div id="top_counter3" class="carousel vert slide" data-ride="carousel"
+                                    data-interval="2100">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="icon"><i class="fa fa-eye"></i> </div>
+                                            <div class="content">
+                                                <div class="text">Total Visitors</div>
+                                                <h5 class="number">10K</h5>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="icon"><i class="fa fa-eye"></i> </div>
+                                            <div class="content">
+                                                <div class="text">Today Visitors</div>
+                                                <h5 class="number">142</h5>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="icon"><i class="fa fa-eye"></i> </div>
+                                            <div class="content">
+                                                <div class="text">Month Visitors</div>
+                                                <h5 class="number">2,087</h5>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -168,13 +177,21 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '0' ? 'danger' : 'success' }}">{{ $item->status == '0' ? 'Active' : 'Non Active' }}</span>
+                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-sm btn-warning"
                                                         title="Edit"><i class="icon-note"></i></button>
                                                     <button type="button" class="btn btn-sm btn-danger"
-                                                        title="Comment"><i class="icon-trash"></i></button>
+                                                        title="trash"><i class="icon-trash"></i></button>
+                                                        @if ($item->active == 1)
+                                                        <button type="button" wire:click.prevent="inactiveUser({{ $item->id }})" class="btn btn-sm btn-danger"
+                                                        title="Inactiver"><i class="icon-refresh"></i></button>
+                                                        @else
+                                                        <button type="button" wire:click.prevent="activeUser({{ $item->id }})" class="btn btn-sm btn-success"
+                                                        title="Activer"><i class="icon-refresh"></i></button>
+                                                        @endif
+
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -200,8 +217,9 @@
                             <h2>Liste Rendez vous</h2>
 
                             <p class="float-md-right">
-                                <span class="badge badge-success">0 En cour</span>
-                                <span class="badge badge-danger">2 Inactive</span>
+                                <span class="badge  badge-warning">0 En cour</span>
+                                <span class="badge badge-primary">2 Confirmer</span>
+                                <span class="badge badge-danger">2 Anuller</span>
                             </p>
 
                         </div>

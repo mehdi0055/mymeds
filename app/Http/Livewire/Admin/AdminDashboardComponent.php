@@ -12,6 +12,18 @@ class AdminDashboardComponent extends Component
     public $searchTerm;
     public $searchTerm1;
 
+    public function activeUser($id){
+        $user = User::find($id);
+        $user->active = 1;
+        $user->save();
+    }
+
+    public function inactiveUser($id){
+        $user = User::find($id);
+        $user->active = 0;
+        $user->save();
+    }
+
     use WithPagination;
     public function render()
     {

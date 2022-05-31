@@ -44,7 +44,7 @@
                 </div>
                 <div class="navbar-brand">
                     <a href="{{ Auth::user()->utype == 'ADM' ? route('landing-home') : route('landing-home') }}">
-                        <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="128" height="40"
+                        <img src="{{ asset('landing/assets/img/logo_mymed_new.png') }}" width="128" height="34"
                             alt="My MED" class="img-responsive logo"></a>
                 </div>
                 <div class="navbar-right">
@@ -175,7 +175,7 @@
         <div id="left-sidebar" class="sidebar">
             <div class="sidebar-scroll">
                 <div class="user-account">
-                    <img src="{{ asset('primary/assets/images/') }}/{{ Auth::user()->profile_photo_path }}"
+                    <img src="{{ asset('primary/assets/images/users/') }}/{{ Auth::user()->profile_photo_path }}"
                         class="rounded-circle user-photo" alt="User Profile Picture">
                     <div class="dropdown">
                         <span>{{ __('language.welcome') }},</span>
@@ -231,7 +231,7 @@
                                 <li><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
                                 <li><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
-                                <li><a href="app-inbox.html"><i class="icon-bubbles"></i>Contacts</a></li>
+                                <li><a href="#"><i class="icon-bubbles"></i>Contacts</a></li>
                                 <li><a href="{{ route('admin-blogs') }}"><i class="icon-puzzle"></i>Blog</a></li>
                             </ul>
                         </nav>

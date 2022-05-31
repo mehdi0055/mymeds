@@ -49,7 +49,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><button class="btn btn-sm btn-primary" href="javascript:void(0);" title="Weekly">Ajouter
+                            <h2><button class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i class="fa fa-plus"></i> Ajouter
                                     un
                                     utilisateur</button></h2>
                             <ul class="header-dropdown">
@@ -78,13 +78,26 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '0' ? 'danger' : 'success' }}">{{ $item->status == '0' ? 'Active' : 'Non Active' }}</span>
+                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Non Active' }}</span>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-sm btn-warning" title="Edit"><i
                                                             class="icon-note"></i></button>
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         title="Comment"><i class="icon-trash"></i></button>
+                                                    @if ($item->active == 1)
+                                                        <button type="button"
+                                                            wire:click.prevent="inactiveUser({{ $item->id }})"
+                                                            class="btn btn-sm btn-danger" title="Inactiver"><i
+                                                                class="icon-refresh"></i></button>
+                                                    @else
+                                                        <button type="button"
+                                                            wire:click.prevent="activeUser({{ $item->id }})"
+                                                            class="btn btn-sm btn-success" title="Activer"><i
+                                                                class="icon-refresh"></i></button>
+                                                    @endif
+
+
                                                 </td>
                                             </tr>
                                         @endforeach
