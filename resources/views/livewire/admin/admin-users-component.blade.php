@@ -8,7 +8,7 @@
                                     class="fa fa-arrow-left"></i></a> Dashboard</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Utilisateurs</li>
+                            <li class="breadcrumb-item active">Users</li>
                         </ul>
                     </div>
 
@@ -55,7 +55,7 @@
                         <div class="header">
                             <h2><button class="btn btn-sm btn-primary" href="javascript:void(0);" title="Weekly">Ajouter
                                     un
-                                    Utilisateur</button></h2>
+                                    utilisateur</button></h2>
                             <ul class="header-dropdown">
                                 <input style="border-radius: 5px" class="form-control py-2" type="search"
                                     placeholder=" Search..." id="example-search-input" wire:model="searchTerm">
