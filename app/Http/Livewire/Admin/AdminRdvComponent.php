@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\RdvAdmin;
 use Livewire\WithPagination;
 
-class RdvComponent extends Component
+class AdminRdvComponent extends Component
 {
     public $searchTerm;
 
@@ -16,6 +16,6 @@ class RdvComponent extends Component
         $searchTerm = '%'.$this->searchTerm. '%';
         $rendezvous = RdvAdmin::where('name','LIKE',$searchTerm)
         ->orderBy('id', 'ASC')->paginate(2);
-        return view('livewire.admin.rdv-component',['rendezvous'=>$rendezvous])->layout('layouts.primary');
+        return view('livewire.admin.admin-rdv-component',['rendezvous'=>$rendezvous])->layout('layouts.primary');
     }
 }

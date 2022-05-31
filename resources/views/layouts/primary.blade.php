@@ -198,15 +198,15 @@
                     <hr>
                     <ul class="row list-unstyled">
                         <li class="col-4">
-                            <small>Exp</small>
+                            <small>Users</small>
                             <h6>14</h6>
                         </li>
                         <li class="col-4">
-                            <small>Awards</small>
+                            <small>Contacts</small>
                             <h6>13</h6>
                         </li>
                         <li class="col-4">
-                            <small>Clients</small>
+                            <small>Appointment</small>
                             <h6>213</h6>
                         </li>
                     </ul>
@@ -228,7 +228,7 @@
                             <ul class="main-menu metismenu">
                                 <li class="active"><a href="{{ route('admin-dashboard') }}"><i
                                             class="icon-home"></i><span>Dashboard</span></a></li>
-                                <li><a href="app-taskboard.html"><i class="icon-users"></i>Users</a></li>
+                                <li><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
                                 <li><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
                                 <li><a href="app-inbox.html"><i class="icon-bubbles"></i>Contacts</a></li>
