@@ -16,6 +16,6 @@ class AdminRdvComponent extends Component
         $searchTerm = '%'.$this->searchTerm. '%';
         $rendezvous = RdvAdmin::where('name','LIKE',$searchTerm)
         ->orderBy('id', 'ASC')->paginate(2);
-        return view('livewire.admin.admin-rdv-component',['rendezvous'=>$rendezvous])->layout('layouts.primary');
+        return view('livewire.admin.rdvs.admin-rdv-component',['rendezvous'=>$rendezvous])->layout('layouts.primary');
     }
 }
