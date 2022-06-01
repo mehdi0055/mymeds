@@ -2,10 +2,10 @@
 
 use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
-use App\Http\Livewire\Admin\AdminRdvComponent;
+use App\Http\Livewire\Admin\rdvs\AdminRdvComponent;
 use App\Http\Livewire\Admin\users\AdminUsersComponent;
 use App\Http\Livewire\Admin\users\AdminEditUsersComponent;
-use App\Http\Livewire\Admin\AdminBlogComponent;
+use App\Http\Livewire\Admin\blogs\AdminBlogComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\HomeComponent;
