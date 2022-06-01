@@ -21,6 +21,7 @@ class CreateRdvAdminsTable extends Migration
             $table->string('time',50);
             $table->string('date',50);
             $table->boolean('status')->default(false);
+            $table->boolean('cancel')->default(false);
             $table->timestamps();
         });
     }

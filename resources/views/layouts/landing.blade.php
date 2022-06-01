@@ -152,7 +152,7 @@
                             <a href="{{ route('landing-home') }}">{{ __('language.home') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('landing-about') }}">Department</a>
+                            <a href="{{ route('landing-department') }}">Department</a>
                         </li>
                         <li>
                             <a href="{{ route('landing-about') }}">{{ __('language.about') }}</a>
@@ -384,6 +384,8 @@
 
 
     @livewireScripts
+
+    @stack('scripts')
 </body>
 
 </html>

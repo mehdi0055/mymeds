@@ -361,7 +361,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input wire:model.debounce.1000ms="name" class="form-control" id="f_name"
+                                        <input wire:model.lazy="name" class="form-control" id="f_name"
                                             name="name" placeholder="{{ __('language.Name') }}" type="text">
                                         @error('name')
                                             <span class="text-light">{{ $message }}</span>
@@ -370,7 +370,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input wire:model.debounce.1000ms="phone" class="form-control" id="f_phone"
+                                        <input wire:model.lazy="phone" class="form-control" id="f_phone"
                                             name="phone" placeholder="{{ __('language.Phone') }}" type="text">
                                         @error('phone')
                                             <span class="text-light">{{ $message }}</span>
@@ -380,7 +380,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input wire:model.debounce.1000ms="email" class="form-control" id="f_email"
+                                        <input wire:model.lazy="email" class="form-control" id="f_email"
                                             name="email" placeholder="{{ __('language.Email') }}" type="email">
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>
@@ -697,7 +697,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input wire:model.debounce.1000ms="nameContact" class="form-control"
+                                        <input wire:model.lazy="nameContact" class="form-control"
                                             id="nameContact" name="nameContact"
                                             placeholder="{{ __('language.Name') }}" type="text">
 
@@ -708,7 +708,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input wire:model.debounce.1000ms="emailContact" class="form-control"
+                                        <input wire:model.lazy="emailContact" class="form-control"
                                             id="emailContact" name="emailContact"
                                             placeholder="{{ __('language.Email') }}*" type="email">
                                         @error('emailContact')
@@ -718,7 +718,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input wire:model.debounce.1000ms="phoneContact" class="form-control"
+                                        <input wire:model.lazy="phoneContact" class="form-control"
                                             id="phoneContact" name="phoneContact"
                                             placeholder="{{ __('language.Phone') }}" type="text">
                                         @error('phoneContact')
@@ -728,7 +728,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group comments">
-                                        <textarea wire:model.debounce.1000ms="message" class="form-control" id="comments" name="comments"
+                                        <textarea wire:model.lazy="message" class="form-control" id="comments" name="comments"
                                             placeholder="{{ __('language.Message') }} *"></textarea>
                                         @error('message')
                                             <span class="alert-error">{{ $message }}</span>
@@ -902,18 +902,18 @@
 <!-- Notification -->
 
     @if (session()->has('success'))
-        <script>
-            swal('success', '{{ session('success') }}', 'success', {
-                Button: "ok",
-            });
-        </script>
+    <script>
+        swal('success', '{{ session('success') }}', 'success', {
+            Button: "ok",
+        });
+    </script>
     @endif
     @if (session()->has('addContact'))
-        <script>
-            swal('success', '{{ session('addContact') }}', 'success', {
-                Button: "ok",
-            });
-        </script>
+    <script>
+        swal('success', '{{ session('addContact') }}', 'success', {
+            Button: "ok",
+        });
+    </script>
     @endif
 
     <!-- End Notification -->

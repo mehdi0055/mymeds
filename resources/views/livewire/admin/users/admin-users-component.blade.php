@@ -1,4 +1,5 @@
 <div>
+
     <div id="main-content">
         <div class="container-fluid">
             <div class="block-header mb-5">
@@ -32,34 +33,71 @@
                     <div class="card top_counter">
                         <div class="body">
                             <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
-                            data-interval="2500">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="icon" ><i class="fa fa-user"  style="width: 40px;height:40px;font-size:35px"></i> </div>
-                                    <div class="content">
-                                        <div class="text">Utilisateur Active</div>
-                                        <h5 class="number">0</h5>
+                                data-interval="2500">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="icon"><i class="fa fa-user"
+                                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                                        <div class="content">
+                                            <div class="text">Utilisateur Active</div>
+                                            <h5 class="number">0</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="icon"><i class="fa fa-user-times" style="width: 40px;height:40px;font-size:35px"></i> </div>
-                                    <div class="content">
-                                        <div class="text">Utilisateur inactive</div>
-                                        <h5 class="number">2</h5>
+                                    <div class="carousel-item">
+                                        <div class="icon"><i class="fa fa-user-times"
+                                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                                        <div class="content">
+                                            <div class="text">Utilisateur inactive</div>
+                                            <h5 class="number">2</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- modals -->
+
+            <div wire:ignore.self class="modal fade" id="confirmationDelete" tabindex="-1" role="dialog">
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-light ">
+                            <h4 class="title" id="smallModalLabel">Confirmation</h4>
+                        </div>
+                        <div class="modal-body">Voulez-vous vraiment supprimer cet utilisateur {{ $name }} ?
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="delete()" class="btn btn-danger">Oui</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Non</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End modals -->
+
+            <!-- Notification -->
+
+            @if (session()->has('userDeleted'))
+                <script>
+                    swal('success', '{{ session('userDeleted') }}', 'success', {
+                        Button: "ok",
+                    });
+                </script>
+            @endif
+
+            <!-- End Notification -->
+
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><button class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i class="fa fa-plus"></i> Ajouter
+                            <h2><button class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i
+                                        class="fa fa-plus"></i> Ajouter
                                     un
                                     utilisateur</button></h2>
                             <ul class="header-dropdown">
@@ -77,6 +115,7 @@
                                             <th>Adresse email</th>
                                             <th>Statue</th>
                                             <th>Action</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -88,33 +127,39 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Non Active' }}</span>
+                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-warning" title="Edit"><i
-                                                            class="icon-note"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        title="Comment"><i class="icon-trash"></i></button>
+                                                    <a href="{{ route('admin-editUser', $item->id) }}"
+                                                        class="btn btn-sm btn-warning" title="Edit"><i
+                                                            class="icon-note"></i></a>
+                                                    <a href="#"
+                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        class="btn btn-sm btn-danger" data-toggle="modal"
+                                                        data-target="#confirmationDelete" title="Comment"><i
+                                                            class="icon-trash"></i></a>
+                                                </td>
+
+                                                <td>
                                                     @if ($item->active == 1)
-                                                        <button type="button"
+                                                        <a href="#"
                                                             wire:click.prevent="inactiveUser({{ $item->id }})"
-                                                            class="btn btn-sm btn-danger" title="Inactiver"><i
-                                                                class="icon-refresh"></i></button>
+                                                            title="Inactive"><i
+                                                                class="fa fa-toggle-on text-success icon-size"
+                                                                style="font-size:1.2em"></i></a>
                                                     @else
-                                                        <button type="button"
+                                                        <a href="#"
                                                             wire:click.prevent="activeUser({{ $item->id }})"
-                                                            class="btn btn-sm btn-success" title="Activer"><i
-                                                                class="icon-refresh"></i></button>
+                                                            title="Active"><i
+                                                                class="fa fa-toggle-off text-danger icon-size"
+                                                                style="font-size:1.2em"></i></a>
                                                     @endif
-
-
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
-
                             <div class="d-flex justify-content-center">
                                 @if ($users->count())
                                     {{ $users->links('livewire-pagination') }}

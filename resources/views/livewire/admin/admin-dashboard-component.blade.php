@@ -39,7 +39,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
                     <div class="row clearfix">
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-3 col-md-3">
                             <div class="card top_counter">
                                 <div class="body">
                                     <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
@@ -73,7 +73,8 @@
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-calendar-times-o"></i> </div>
+                                                <div class="icon"><i class="fa fa-calendar-times-o"></i>
+                                                </div>
                                                 <div class="content">
                                                     <div class="text">Rendez vous Annuler</div>
                                                     <h5 class="number">04</h5>
@@ -85,7 +86,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-3 col-md-3">
                             <div class="card top_counter">
                                 <div class="body">
                                     <div id="top_counter3" class="carousel vert slide" data-ride="carousel"
@@ -110,31 +111,54 @@
                                     </div>
                                     <hr>
                                     <div id="top_counter3" class="carousel vert slide" data-ride="carousel"
-                                    data-interval="2100">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="icon"><i class="fa fa-eye"></i> </div>
-                                            <div class="content">
-                                                <div class="text">Total Visitors</div>
-                                                <h5 class="number">10K</h5>
+                                        data-interval="2100">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="content">
+                                                    <div class="text">Total Visitors</div>
+                                                    <h5 class="number">10K</h5>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="icon"><i class="fa fa-eye"></i> </div>
-                                            <div class="content">
-                                                <div class="text">Today Visitors</div>
-                                                <h5 class="number">142</h5>
+                                            <div class="carousel-item">
+                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="content">
+                                                    <div class="text">Today Visitors</div>
+                                                    <h5 class="number">142</h5>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="icon"><i class="fa fa-eye"></i> </div>
-                                            <div class="content">
-                                                <div class="text">Month Visitors</div>
-                                                <h5 class="number">2,087</h5>
+                                            <div class="carousel-item">
+                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="content">
+                                                    <div class="text">Month Visitors</div>
+                                                    <h5 class="number">2,087</h5>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="card">
+
+                                <div class="body bg-primary text-center text-light ">
+                                    <i class="fa fa-user-md" style="width: 40px;height:40px;font-size:35px"></i>
+                                    <h5>120</h5>
+                                    <span>Mesecins</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="card">
+
+                                <div class="body bg-success text-center text-light ">
+                                    <i class="fa fa-calendar" style="width: 40px;height:40px;font-size:35px"></i>
+                                    <h5>120</h5>
+                                    <span>Rendez vous</span>
                                 </div>
                             </div>
                         </div>
@@ -166,12 +190,13 @@
                                             <th>Adresse email</th>
                                             <th>Statue</th>
                                             <th>Action</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($users as $item)
                                             <tr>
-                                                <td><img src="{{ asset('primary/assets/images/users/'.$item->profile_photo_path) }}"
+                                                <td><img src="{{ asset('primary/assets/images/users/' . $item->profile_photo_path) }}"
                                                         class="rounded-circle user-photo" alt="User Profile Picture"
                                                         width="52" height="52"></td>
                                                 <td>{{ $item->name }}</td>
@@ -180,18 +205,26 @@
                                                         class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-warning"
-                                                        title="Edit"><i class="icon-note"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        title="trash"><i class="icon-trash"></i></button>
-                                                        @if ($item->active == 1)
-                                                        <button type="button" wire:click.prevent="inactiveUser({{ $item->id }})" class="btn btn-sm btn-danger"
-                                                        title="Inactiver"><i class="icon-refresh"></i></button>
-                                                        @else
-                                                        <button type="button" wire:click.prevent="activeUser({{ $item->id }})" class="btn btn-sm btn-success"
-                                                        title="Activer"><i class="icon-refresh"></i></button>
-                                                        @endif
+                                                    <a href="#" title="Edit"><i
+                                                            class="icon-note text-info icon-size"></i></a>
+                                                    <a href="#" title="trash"><i
+                                                            class="icon-trash text-danger icon-size"></i></a>
 
+
+                                                </td>
+                                                <td>
+                                                    @if ($item->active == 1)
+                                                        <a href="#"
+                                                            wire:click.prevent="inactiveUser({{ $item->id }})"
+                                                            title="Inactive"><i
+                                                                class="fa fa-toggle-on text-success icon-size"
+                                                                style="font-size:1.2em"></i></a>
+                                                    @else
+                                                        <a href="#" wire:click.prevent="activeUser({{ $item->id }})"
+                                                            title="Active"><i
+                                                                class="fa fa-toggle-off text-danger icon-size"
+                                                                style="font-size:1.2em"></i></a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

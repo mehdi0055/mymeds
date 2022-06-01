@@ -5,6 +5,7 @@
         'home' => 'Home',
         'about' =>'About us',
         'contact' => 'Contact us',
+        'department' => 'Department',
         'profile' => 'My profile',
         'messages' => 'Messages',
         'settings' => 'Settings',

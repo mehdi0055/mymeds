@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('primary/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/css/color_skins.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('primary/assets/vendor/sweetalert/sweetalert.css') }}" />
+    <link rel="stylesheet" href="{{ asset('primary/assets/vendor/dropify/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('primary/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
     @livewireStyles
 </head>
 
@@ -296,8 +299,20 @@
     <script src="{{ asset('primary/assets/vendor/flot-charts/jquery.flot.selection.js') }}"></script>
     <script src="{{ asset('primary/assets/bundles/mainscripts.bundle.js') }}"></script>
     <script src="{{ asset('primary/assets/js/index.js') }}"></script>
-
+    <script src="{{ asset('primary/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('primary/assets/js/pages/ui/dialogs.js') }}"></script>
+    <script src="{{ asset('primary/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('primary/assets/js/pages/forms/dropify.js') }}"></script>
+    <script src="{{ asset('primary/assets/vendor/dropify/js/dropify.min.js') }}"></script>
     @livewireScripts
+
+    <script>
+        window.livewire.on('userDeleted', () => {
+            $('#confirmationDelete').modal('hide');
+        });
+    </script>
+
+
 </body>
 
 
