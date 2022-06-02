@@ -46,21 +46,26 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
                     <div class="row clearfix">
+
+
+
+
+
                         <div class="col-lg-3 col-md-3">
-                            <div class="card top_counter">
+                            <div class="card top_counter  ">
                                 <div class="body">
-                                    <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
+                                    <div id="top_counter1" class="carousel vert slide p-1" data-ride="carousel"
                                         data-interval="2500">
-                                        <div class="carousel-inner">
+                                        <div class="carousel-inner ">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-users"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-users"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Utilisateurs</div>
                                                     <h5 class="number">215</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-user-times"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-user-times"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Utilisateur inactive</div>
                                                     <h5 class="number">21</h5>
@@ -69,18 +74,18 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <div id="top_counter2" class="carousel vert slide" data-ride="carousel"
+                                    <div id="top_counter2" class="carousel vert slide p-1" data-ride="carousel"
                                         data-interval="2100">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-calendar"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-calendar"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Rendez vous</div>
                                                     <h5 class="number">06</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-calendar-times-o"></i>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-calendar-times-o"></i>
                                                 </div>
                                                 <div class="content">
                                                     <div class="text">Rendez vous Annuler</div>
@@ -96,18 +101,18 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="card top_counter">
                                 <div class="body">
-                                    <div id="top_counter3" class="carousel vert slide" data-ride="carousel"
+                                    <div id="top_counter3" class="carousel vert slide p-1" data-ride="carousel"
                                         data-interval="2300">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-phone"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-phone"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Contacts</div>
                                                     <h5 class="number">10</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="icon-puzzle"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="icon-puzzle"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Blog</div>
                                                     <h5 class="number">142</h5>
@@ -117,18 +122,18 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <div id="top_counter3" class="carousel vert slide" data-ride="carousel"
+                                    <div id="top_counter3" class="carousel vert slide p-1" data-ride="carousel"
                                         data-interval="2100">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-eye"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Total Visitors</div>
                                                     <h5 class="number">10K</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i class="fa fa-eye"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px" class="fa fa-eye"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Today Visitors</div>
                                                     <h5 class="number">142</h5>
@@ -147,28 +152,30 @@
                             </div>
                         </div>
 
+
+
                         <div class="col-lg-3 col-md-3 col-sm-12 ">
                             <div class="card ">
 
-                                <div class="body bg-danger text-center text-light p-4 rounded ">
+                                <div class="body bg-danger text-center text-light p-5 rounded ">
                                     <i class="fa fa-calendar" style="font-size:35px"></i>
                                     <h5>120</h5>
                                     <span>Rendez vous</span>
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="col-lg-3 col-md-3 col-sm-12 ">
                             <div class="card ">
 
-                                <div class="body bg-primary text-center text-light p-4 rounded ">
+                                <div class="body bg-primary text-center text-light p-5 rounded ">
                                     <i class="fa fa-user-md" style="font-size:35px"></i>
                                     <h5>120</h5>
                                     <span>Medecins</span>
                                 </div>
                             </div>
                         </div>
+
+
 
 
                     </div>

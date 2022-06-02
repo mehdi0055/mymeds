@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card top_counter bg-info p-3">
+                    <div class="card top_counter bg-primary p-3">
                         <div class="body text-light">
                             <div class="icon"><i class="fa fa-calendar-check-o" style="font-size:46px"></i>
                             </div>
@@ -69,7 +69,7 @@
 
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card top_counter bg-primary p-3">
+                    <div class="card top_counter bg-danger p-3">
                         <div class="body text-light">
                             <div class="icon"><i class="fa fa-calendar-times-o" style="font-size:46px"></i>
                             </div>
