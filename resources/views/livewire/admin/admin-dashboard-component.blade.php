@@ -147,10 +147,10 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-3 col-3">
-                            <div class="card">
+                        <div class="col-lg-3 col-md-3 col-sm-12 ">
+                            <div class="card ">
 
-                                <div class="body bg-danger text-center text-light p-4 ">
+                                <div class="body bg-danger text-center text-light p-4 rounded ">
                                     <i class="fa fa-calendar" style="font-size:35px"></i>
                                     <h5>120</h5>
                                     <span>Rendez vous</span>
@@ -159,10 +159,10 @@
                         </div>
 
 
-                        <div class="col-lg-3 col-md-3 col-3">
+                        <div class="col-lg-3 col-md-3 col-sm-12 ">
                             <div class="card ">
 
-                                <div class="body bg-primary text-center text-light p-4 ">
+                                <div class="body bg-primary text-center text-light p-4 rounded ">
                                     <i class="fa fa-user-md" style="font-size:35px"></i>
                                     <h5>120</h5>
                                     <span>Medecins</span>
