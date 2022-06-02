@@ -11,31 +11,38 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ul>
                     </div>
-                    <div class="col-lg-6 col-md-4 col-sm-12 text-right">
-                        <div class="bh_chart hidden-xs">
-                            <div class="float-left m-r-15">
-                                <small>Visitors</small>
-                                <h6 class="mb-0 mt-1"><i class="icon-user"></i> 1,784</h6>
-                            </div>
-                            <span class="bh_visitors float-right">2,5,1,8,3,6,7,5</span>
+
+                </div>
+            </div>
+
+            <!-- modals -->
+            <div wire:ignore.self class="modal fade" id="confirmationDelete" tabindex="-1" role="dialog">
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-light ">
+                            <h4 class="title" id="smallModalLabel">Confirmation</h4>
                         </div>
-                        <div class="bh_chart hidden-sm">
-                            <div class="float-left m-r-15">
-                                <small>Visits</small>
-                                <h6 class="mb-0 mt-1"><i class="icon-globe"></i> 325</h6>
-                            </div>
-                            <span class="bh_visits float-right">10,8,9,3,5,8,5</span>
+                        <div class="modal-body">Voulez-vous vraiment supprimer cet utilisateur {{ $name }} ?
+
+
                         </div>
-                        <div class="bh_chart hidden-sm">
-                            <div class="float-left m-r-15">
-                                <small>Chats</small>
-                                <h6 class="mb-0 mt-1"><i class="icon-bubbles"></i> 13</h6>
-                            </div>
-                            <span class="bh_chats float-right">1,8,5,6,2,4,3,2</span>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="delete()" class="btn btn-danger">Oui</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Non</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- End modals -->
+
+            <!-- Notification -->
+            @if (session()->has('userDeleted'))
+                <script>
+                    toastr.error('{{ session('userDeleted') }}');
+                </script>
+            @endif
+            <!-- End Notification -->
+
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
                     <div class="row clearfix">
@@ -140,28 +147,30 @@
                             </div>
                         </div>
 
-
-                        <div class="col-lg-3 col-md-4 col-6">
+                        <div class="col-lg-3 col-md-3 col-3">
                             <div class="card">
 
-                                <div class="body bg-primary text-center text-light ">
-                                    <i class="fa fa-user-md" style="width: 40px;height:40px;font-size:35px"></i>
-                                    <h5>120</h5>
-                                    <span>Mesecins</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class="card">
-
-                                <div class="body bg-success text-center text-light ">
-                                    <i class="fa fa-calendar" style="width: 40px;height:40px;font-size:35px"></i>
+                                <div class="body bg-danger text-center text-light p-4 ">
+                                    <i class="fa fa-calendar" style="font-size:35px"></i>
                                     <h5>120</h5>
                                     <span>Rendez vous</span>
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="col-lg-3 col-md-3 col-3">
+                            <div class="card ">
+
+                                <div class="body bg-primary text-center text-light p-4 ">
+                                    <i class="fa fa-user-md" style="font-size:35px"></i>
+                                    <h5>120</h5>
+                                    <span>Medecins</span>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -189,8 +198,8 @@
                                             <th>Nom</th>
                                             <th>Adresse email</th>
                                             <th>Statue</th>
+                                            <th>Activation</th>
                                             <th>Action</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -205,14 +214,6 @@
                                                         class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    <a href="#" title="Edit"><i
-                                                            class="icon-note text-info icon-size"></i></a>
-                                                    <a href="#" title="trash"><i
-                                                            class="icon-trash text-danger icon-size"></i></a>
-
-
-                                                </td>
-                                                <td>
                                                     @if ($item->active == 1)
                                                         <a href="#"
                                                             wire:click.prevent="inactiveUser({{ $item->id }})"
@@ -220,12 +221,24 @@
                                                                 class="fa fa-toggle-on text-success icon-size"
                                                                 style="font-size:1.2em"></i></a>
                                                     @else
-                                                        <a href="#" wire:click.prevent="activeUser({{ $item->id }})"
+                                                        <a href="#"
+                                                            wire:click.prevent="activeUser({{ $item->id }})"
                                                             title="Active"><i
                                                                 class="fa fa-toggle-off text-danger icon-size"
                                                                 style="font-size:1.2em"></i></a>
                                                     @endif
                                                 </td>
+
+                                                <td>
+                                                    <a href="{{ route('admin-editUser', $item->id) }}" title="Edit"><i
+                                                            class="icon-note text-primary icon-size"></i></a>
+                                                    <a href="#"
+                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        data-toggle="modal" data-target="#confirmationDelete"
+                                                        title="Comment"><i
+                                                            class="icon-trash text-danger icon-size"></i></a>
+                                                </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -264,10 +277,10 @@
                                         <tr>
                                             <th>Nom</th>
                                             <th>Telephone</th>
-                                            <th>Adresse email</th>
                                             <th>date</th>
                                             <th>Durée</th>
                                             <th>Statue</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
@@ -276,11 +289,16 @@
                                             <tr>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->phone }}</td>
-                                                <td>{{ $item->email }}</td>
                                                 <td>{{ $item->date }}</td>
                                                 <td>{{ $item->time }}</td>
                                                 <td><span
                                                         class="badge badge-{{ $item->status == '0' ? 'warning' : ($item->status == '1' ? 'success' : 'danger') }}">{{ $item->status == '0' ? 'En cours' : ($item->status == '1' ? 'Confirmer' : 'Annuler') }}</span>
+                                                </td>
+                                                <td>
+                                                    <a   title="Edit"><i
+                                                            class="icon-note icon-size text-primary"></i></a>
+                                                    <a
+                                                        title="Comment"><i class="icon-trash icon-size text-danger"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

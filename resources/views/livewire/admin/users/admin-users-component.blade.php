@@ -16,36 +16,31 @@
                 </div>
             </div>
             <div class="row clearfix text-center ">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="card top_counter">
-                        <div class="body">
-                            <div class="icon"><i class="fa fa-users"
-                                    style="width: 40px;height:40px;font-size:35px"></i> </div>
-                            <div class="content">
-                                <div class="text">Utilisateurs</div>
-                                <h5 class="number ">2</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="card top_counter">
-                        <div class="body">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="card top_counter p-3">
+                        <div class="body ">
                             <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
                                 data-interval="2500">
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="icon"><i class="fa fa-user"
-                                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                                    <div class="carousel-item active ">
+                                        <div class="icon"><i class="icon-users"
+                                                style="font-size:46px"></i> </div>
+                                        <div class="content">
+                                            <div class="text">Utilisateur</div>
+                                            <h5 class="number">{{ $users->count() }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item  ">
+                                        <div class="icon"><i class="icon-user-following"
+                                                style="font-size:46px"></i> </div>
                                         <div class="content">
                                             <div class="text">Utilisateur Active</div>
                                             <h5 class="number">0</h5>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
-                                        <div class="icon"><i class="fa fa-user-times"
-                                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                                        <div class="icon"><i class="icon-user-unfollow"
+                                                style="font-size:46px"></i> </div>
                                         <div class="content">
                                             <div class="text">Utilisateur inactive</div>
                                             <h5 class="number">2</h5>
@@ -56,6 +51,33 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="card top_counter bg-info p-3">
+                        <div class="body text-light">
+                            <div class="icon"><i class="icon-user-following" style="font-size:46px"></i>
+                            </div>
+                            <div class="content">
+                                <div class="text">Utilisateur Active</div>
+                                <h5 class="number ">2</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="card top_counter bg-primary p-3">
+                        <div class="body text-light">
+                            <div class="icon"><i class="icon-user-unfollow" style="font-size:46px"></i> </div>
+                            <div class="content">
+                                <div class="text">Utilisateur inactive</div>
+                                <h5 class="number ">2</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             <!-- modals -->
@@ -84,9 +106,17 @@
 
             @if (session()->has('userDeleted'))
                 <script>
-                    swal('success', '{{ session('userDeleted') }}', 'success', {
-                        Button: "ok",
-                    });
+                    toastr.error('{{ session('userDeleted') }}');
+                </script>
+            @endif
+            @if (session()->has('userActive'))
+                <script>
+                    toastr.success('{{ session('userActive') }}');
+                </script>
+            @endif
+            @if (session()->has('userInactive'))
+                <script>
+                    toastr.error('{{ session('userInactive') }}');
                 </script>
             @endif
 
@@ -96,14 +126,21 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><button class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i
-                                        class="fa fa-plus"></i> Ajouter
-                                    un
-                                    utilisateur</button></h2>
+                            <h2>
+                                <button class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i
+                                        class="fa fa-plus"></i> Ajouter un utilisateur
+                                </button>
+                            </h2>
                             <ul class="header-dropdown">
                                 <input style="border-radius: 5px" class="form-control py-2" type="search"
                                     placeholder=" Search..." id="example-search-input" wire:model="searchTerm">
                             </ul>
+                        </div>
+                        <div class="header">
+                            <p class="float-md-right">
+                                <span class="badge badge-success">0 Active</span>
+                                <span class="badge badge-danger">2 Inactive</span>
+                            </p>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -114,8 +151,8 @@
                                             <th>Nom</th>
                                             <th>Adresse email</th>
                                             <th>Statue</th>
+                                            <th>Activation</th>
                                             <th>Action</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -123,23 +160,12 @@
                                             <tr>
                                                 <td><img src="{{ asset('primary/assets/images/users/male.png') }}"
                                                         class="rounded-circle user-photo" alt="User Profile Picture"
-                                                        width="40" height="40"></td>
+                                                        width="52" height="52"></td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
                                                         class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
-                                                <td>
-                                                    <a href="{{ route('admin-editUser', $item->id) }}"
-                                                        class="btn btn-sm btn-warning" title="Edit"><i
-                                                            class="icon-note"></i></a>
-                                                    <a href="#"
-                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
-                                                        class="btn btn-sm btn-danger" data-toggle="modal"
-                                                        data-target="#confirmationDelete" title="Comment"><i
-                                                            class="icon-trash"></i></a>
-                                                </td>
-
                                                 <td>
                                                     @if ($item->active == 1)
                                                         <a href="#"
@@ -155,6 +181,16 @@
                                                                 style="font-size:1.2em"></i></a>
                                                     @endif
                                                 </td>
+                                                <td>
+                                                    <a href="{{ route('admin-editUser', $item->id) }}"
+                                                        title="Edit"><i class="icon-note text-info icon-size "></i></a>
+                                                    <a href="#"
+                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        data-toggle="modal" data-target="#confirmationDelete"
+                                                        title="Comment"><i
+                                                            class="icon-trash text-danger icon-size"></i></a>
+                                                </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -15,12 +15,16 @@ class AdminUsersComponent extends Component
         $user = User::find($id);
         $user->active = 1;
         $user->save();
+        $message = "L'utilisateur a été activée";
+        session()->flash('userActive',$message);
     }
 
     public function inactiveUser($id){
         $user = User::find($id);
         $user->active = 0;
         $user->save();
+        $message = "L'utilisateur a été Inactivée";
+        session()->flash('userInactive',$message);
     }
 
     public function confirmDeleteUser($id){
@@ -34,7 +38,7 @@ class AdminUsersComponent extends Component
         $user->delete = 1;
         $user->save();
         $this->emit('userDeleted');
-        $message = 'l\'utilisateur a ete suprimée avec succée';
+        $message = "L'utilisateur a été suprimée";
         session()->flash('userDeleted',$message);
        }
 

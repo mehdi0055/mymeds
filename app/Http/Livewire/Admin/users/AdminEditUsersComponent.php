@@ -10,19 +10,21 @@ class AdminEditUsersComponent extends Component
 
     public $idUser;
     public $name;
+    public $email;
 
     public function mount($idUser){
 
         $this->idUser = $idUser;
         $user = User::find($this->idUser);
         $this->name = $user->name;
+        $this->email = $user->email;
     }
 
     public function update(){
         $user = User::find($this->idUser);
         $user->name = $this->name;
         $user->save();
-        $message = "utilisateur a été modifier avec succée";
+        $message = "L'utilisateur a été modifié";
         session()->flash('userUpdated',$message);
     }
 

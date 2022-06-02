@@ -229,13 +229,13 @@
                     <div class="tab-pane active" id="menu">
                         <nav class="sidebar-nav">
                             <ul class="main-menu metismenu">
-                                <li class="active"><a href="{{ route('admin-dashboard') }}"><i
+                                <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}"><a  href="{{ route('admin-dashboard') }}"><i
                                             class="icon-home"></i><span>Dashboard</span></a></li>
-                                <li><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
-                                <li><a href="{{ route('admin-rendez_vous') }}"><i
+                                <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}"><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
+                                <li class="{{ request()->routeIs('admin-rendez_vous') ? 'active' : '' }}"><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
-                                <li><a href="#"><i class="icon-bubbles"></i>Contacts</a></li>
-                                <li><a href="{{ route('admin-blogs') }}"><i class="icon-puzzle"></i>Blog</a></li>
+                                <li ><a href="#"><i class="icon-bubbles"></i>Contacts</a></li>
+                                <li class="{{ request()->routeIs('admin-blogs') ? 'active' : '' }}"><a href="{{ route('admin-blogs') }}"><i class="icon-puzzle"></i>Blog</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -304,6 +304,15 @@
     <script src="{{ asset('primary/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('primary/assets/js/pages/forms/dropify.js') }}"></script>
     <script src="{{ asset('primary/assets/vendor/dropify/js/dropify.min.js') }}"></script>
+
+
+    @if (request()->routeIs('admin-dashboard'))
+    <script>
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.success('Bonjour Administrateur, Bienvenue sur MyMED.');
+    </script>
+    @endif
+
     @livewireScripts
 
     <script>
@@ -311,6 +320,8 @@
             $('#confirmationDelete').modal('hide');
         });
     </script>
+
+
 
 
 </body>

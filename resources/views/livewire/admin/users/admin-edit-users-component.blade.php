@@ -16,15 +16,11 @@
             </div>
 
             <!-- Notification -->
-
             @if (session()->has('userUpdated'))
                 <script>
-                    swal('success', '{{ session('userUpdated') }}', 'success', {
-                        Button: "ok",
-                    });
+                    toastr.success('{{ session('userUpdated') }}');
                 </script>
             @endif
-
             <!-- End Notification -->
 
             <div class="row clearfix">
@@ -37,6 +33,16 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12">
                                     <div class="form-group">
+                                        <label for="email">adresse e-mail</label>
+                                        <input disabled wire:model="email" id="email" type="email"
+                                            class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email">Nom et prénom</label>
                                         <input wire:model="name" type="text" class="form-control"
                                             placeholder="First Name">
                                     </div>
@@ -53,7 +59,7 @@
                                 <div class="col-sm-12">
                                     <button wire:click.prevent="update()" type="submit"
                                         class="btn btn-primary">Modifier</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <a href="{{ route('admin-users') }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
 

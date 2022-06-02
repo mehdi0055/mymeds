@@ -17,25 +17,48 @@
             <div class="row clearfix text-center ">
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card top_counter">
+                    <div class="card top_counter p-3">
                         <div class="body">
-                            <div class="icon"><i class="fa fa-calendar"
-                                style="width: 40px;height:40px;font-size:35px"></i> </div>
-                            <div class="content">
-                                <div class="text ">Rendez vous D'aujourd'hui</div>
-                                <h5 class="number ">2</h5>
+
+
+                            <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
+                                data-interval="2500">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active ">
+                                        <div class="icon"><i class="fa fa-calendar"
+                                                style="font-size:46px"></i> </div>
+                                        <div class="content">
+                                            <div class="text">Rendez vous D'aujourd'hui</div>
+                                            <h5 class="number">2</h5>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item  ">
+                                        <div class="icon"><i class="fa fa-calendar-check-o"
+                                                style="font-size:46px"></i> </div>
+                                        <div class="content">
+                                            <div class="text">Rendez vous Confirmer</div>
+                                            <h5 class="number">0</h5>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="icon"><i class="fa fa-calendar-times-o"
+                                                style="font-size:46px"></i> </div>
+                                        <div class="content">
+                                            <div class="text">Rendez vous Annuler</div>
+                                            <h5 class="number">2</h5>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card top_counter">
-                        <div class="body">
-                            <div class="icon"><i class="fa fa-calendar-check-o"
-                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                    <div class="card top_counter bg-info p-3">
+                        <div class="body text-light">
+                            <div class="icon"><i class="fa fa-calendar-check-o" style="font-size:46px"></i>
+                            </div>
                             <div class="content">
                                 <div class="text ">Rendez vous Confirmer</div>
                                 <h5 class="number ">2</h5>
@@ -46,10 +69,10 @@
 
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="card top_counter">
-                        <div class="body">
-                            <div class="icon"><i class="fa fa-calendar-times-o"
-                                style="width: 40px;height:40px;font-size:35px"></i> </div>
+                    <div class="card top_counter bg-primary p-3">
+                        <div class="body text-light">
+                            <div class="icon"><i class="fa fa-calendar-times-o" style="font-size:46px"></i>
+                            </div>
                             <div class="content">
                                 <div class="text ">Rendez vous Annuler</div>
                                 <h5 class="number ">2</h5>
@@ -63,13 +86,21 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><button class="btn btn-primary" href="javascript:void(0);" title="Weekly"><i class="fa fa-plus"></i> Ajouter
+                            <h2><button class="btn btn-primary" href="javascript:void(0);" title="Weekly"><i
+                                        class="fa fa-plus"></i> Ajouter
                                     un
                                     rendez vous</button></h2>
                             <ul class="header-dropdown">
                                 <input style="border-radius: 5px" class="form-control py-2" type="search"
                                     placeholder=" Search..." id="example-search-input" wire:model="searchTerm">
                             </ul>
+                        </div>
+                        <div class="header">
+                            <p class="float-md-right">
+                                <span class="badge  badge-warning">0 En cour</span>
+                                <span class="badge badge-primary">2 Confirmer</span>
+                                <span class="badge badge-danger">2 Anuller</span>
+                            </p>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -97,10 +128,9 @@
                                                         class="badge badge-{{ $item->status == '0' ? 'warning' : ($item->status == '1' ? 'success' : 'danger') }}">{{ $item->status == '0' ? 'En cours' : ($item->status == '1' ? 'Confirmer' : 'Annuler') }}</span>
                                                 </th>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-warning" title="Edit"><i
-                                                            class="icon-note"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        title="Comment"><i class="icon-trash"></i></button>
+                                                    <a title="Edit"><i class="icon-note icon-size text-primary"></i></a>
+                                                    <a title="Comment"><i
+                                                            class="icon-trash icon-size text-danger"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
