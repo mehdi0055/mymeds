@@ -91,8 +91,10 @@
                                     un
                                     rendez vous</button></h2>
                             <ul class="header-dropdown">
-                                <input style="border-radius: 5px" class="form-control py-2" type="search"
-                                    placeholder=" Search..." id="example-search-input" wire:model="searchTerm">
+                                <form id="navbar-search" class="navbar-form search-form">
+                                    <input wire:model="searchTerm"  class="form-control" placeholder="Search here..." type="text">
+                                    <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                                </form>
                             </ul>
                         </div>
                         <div class="header">

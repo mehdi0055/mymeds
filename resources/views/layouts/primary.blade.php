@@ -309,7 +309,7 @@
     @if (request()->routeIs('admin-dashboard'))
     <script>
         toastr.options.positionClass = 'toast-bottom-right';
-        toastr.success('Bonjour Administrateur, Bienvenue sur MyMED.');
+        toastr.info('Bonjour {{ Auth::user()->name }}, Bienvenue sur MyMED.');
     </script>
     @endif
 

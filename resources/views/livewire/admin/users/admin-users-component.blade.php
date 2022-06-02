@@ -132,8 +132,10 @@
                                 </button>
                             </h2>
                             <ul class="header-dropdown">
-                                <input style="border-radius: 5px" class="form-control py-2" type="search"
-                                    placeholder=" Search..." id="example-search-input" wire:model="searchTerm">
+                                    <form id="navbar-search" class="navbar-form search-form">
+                                        <input wire:model="searchTerm"  class="form-control" placeholder="Search here..." type="text">
+                                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                                    </form>
                             </ul>
                         </div>
                         <div class="header">
@@ -183,7 +185,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin-editUser', $item->id) }}"
-                                                        title="Edit"><i class="icon-note text-info icon-size "></i></a>
+                                                        title="Edit"><i class="icon-note text-primary icon-size "></i></a>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteUser({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"

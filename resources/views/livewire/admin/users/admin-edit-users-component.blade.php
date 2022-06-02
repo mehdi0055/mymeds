@@ -59,7 +59,7 @@
                                 <div class="col-sm-12">
                                     <button wire:click.prevent="update()" type="submit"
                                         class="btn btn-primary">Modifier</button>
-                                    <a href="{{ route('admin-users') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('admin-users') }}" class="btn btn-danger">Annuler</a>
                                 </div>
                             </div>
 
