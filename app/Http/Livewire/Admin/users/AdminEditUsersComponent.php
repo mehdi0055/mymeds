@@ -12,7 +12,8 @@ class AdminEditUsersComponent extends Component
     public $name;
     public $email;
 
-    public function mount($idUser){
+    public function mount($idUser)
+    {
 
         $this->idUser = $idUser;
         $user = User::find($this->idUser);
@@ -20,7 +21,8 @@ class AdminEditUsersComponent extends Component
         $this->email = $user->email;
     }
 
-    public function update(){
+    public function update()
+    {
         $user = User::find($this->idUser);
         $user->name = $this->name;
         $user->save();

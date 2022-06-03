@@ -32,7 +32,7 @@
                         <div class="body">
                             <form wire:submit.prevent="addNewUser">
                                 <div class="row clearfix mb-4">
-                                    <div class="col-sm-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <a href=""
                                             onclick="event.preventDefault();document.getElementById('profile').click();"
                                             id="image-upload">
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-sm-6">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Nom et prénom</label>
                                             <input wire:model="name" id="name" type="text" class="form-control"
@@ -60,7 +60,10 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="email">adresse e-mail</label>
                                             <input wire:model="email" id="email" type="email" class="form-control"
@@ -70,10 +73,58 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="city">Ville</label>
+                                            <input wire:model="city" id="city" type="text" class="form-control"
+                                                placeholder="RABAT">
+                                            @error('city')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row clearfix">
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="gender">Gender</label>
+                                            <select wire:model="gender" name="gender" id="gender" class="form-control">
+                                                <option value="male">Homme</option>
+                                                <option value="female">Femme</option>
+                                            </select>
+                                            @error('gender')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="phone">Phone</label>
+                                            <input wire:model="phone" id="phone" type="number" class="form-control"
+                                                placeholder="0611526658">
+                                            @error('phone')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="address">Adresse</label>
+                                            <textarea name="address" id="address" rows="4" class="form-control"></textarea>
+                                            @error('address')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row clearfix mt-3">
-                                    <div class="col-sm-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <button class="btn btn-primary">Ajouter</button>
                                         <a href="{{ route('admin-users') }}" class="btn btn-danger">Annuler</a>
                                     </div>

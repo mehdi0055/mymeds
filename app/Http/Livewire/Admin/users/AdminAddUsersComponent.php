@@ -20,6 +20,9 @@ class AdminAddUsersComponent extends Component
     use WithFileUploads;
     public $name;
     public $email;
+    public $phone;
+    public $city;
+    public $gender;
     public $password;
     public $profile;
 
@@ -27,46 +30,77 @@ class AdminAddUsersComponent extends Component
     {
         $this->name = "";
         $this->email = "";
+        $this->phone = "";
+        $this->city = "";
+        $this->gender = "";
     }
 
-      //check validation after the user finish typing in the fields
-      public function updated($fields)
-      {
-          $this->validateOnly($fields, [
-              'name' => 'required',
-              'email' => 'required|email',
-          ]);
-      }
-
+    //check validation after the user finish typing in the fields
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required|max:10',
+            'gender' => 'required',
+            'city' => 'required',
+        ]);
+    }
 
     public function addNewUser()
     {
         $this->validate([
             'name' => 'required|min:2',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required|max:10',
+            'gender' => 'required',
+            'city' => 'required',
         ]);
 
         if ($this->profile) {
             $imagename = Carbon::now()->timestamp . '.' . $this->profile->extension();
             $this->profile->storeAs('primary/assets/images/users/', $imagename);
         } else {
-             $imagename = "male.png";
+
+            if ($this->gender == "male") {
+                $imagename = "male.png";
+            } else
+                $imagename = "female.png";
         }
 
         $password = "123456789";
         $this->password = Hash::make($password);
-
-            User::insert([
-                'name' => Str::upper($this->name),
-                'email' => $this->email,
-                'password' => $this->password,
-                'profile_photo_path' => $imagename,
-                'utype' => 'ADM',
-            ]);
-
+        User::insert([
+            'name' => Str::upper($this->name),
+            'email' => $this->email,
+            'password' => $this->password,
+            'profile_photo_path' => $imagename,
+            'utype' => 'ADM',
+            'phone' => $this->phone,
+            'gender' => $this->gender,
+            'city' => $this->city,
+        ]);
         $message = "L'utilisateur a été Crée";
-        session()->flash('newUserAdded', $message );
+        session()->flash('newUserAdded', $message);
         $this->resetFormSubmitted();
+    }
+
+    public function activeUser($id)
+    {
+        $user = User::find($id);
+        $user->active = 1;
+        $user->save();
+        $message = "L'utilisateur a été activée";
+        session()->flash('userActive', $message);
+    }
+
+    public function inactiveUser($id)
+    {
+        $user = User::find($id);
+        $user->active = 0;
+        $user->save();
+        $message = "L'utilisateur a été Inactivée";
+        session()->flash('userInactive', $message);
     }
 
 
@@ -74,9 +108,8 @@ class AdminAddUsersComponent extends Component
     use WithPagination;
     public function render()
     {
-
-        $users = User::where('delete',0)
-        ->orderBy('id', 'ASC')->paginate(2);
-        return view('livewire.admin.users.admin-add-users-component',['users'=>$users])->layout('layouts.primary');
+        $users = User::where('delete', 0)
+            ->orderBy('id', 'ASC')->paginate(2);
+        return view('livewire.admin.users.admin-add-users-component', ['users' => $users])->layout('layouts.primary');
     }
 }

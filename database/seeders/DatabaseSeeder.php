@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name'=>'admin',
                 'email'=>'admin@mymed.ma',
+                'phone'=>'0625223212',
                 'password'=> Hash::make('123456789'),
                 'utype' => 'ADM'
             ]
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name'=>'user',
                     'email'=>'user@mymed.ma',
+                    'phone'=>'0632652212',
                     'password'=> Hash::make('123456789'),
                     'utype' => 'USR'
                 ]
