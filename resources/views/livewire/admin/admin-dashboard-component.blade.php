@@ -46,26 +46,23 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
                     <div class="row clearfix">
-
-
-
-
-
-                        <div class="col-lg-3 col-md-3">
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
                             <div class="card top_counter  ">
                                 <div class="body">
                                     <div id="top_counter1" class="carousel vert slide p-1" data-ride="carousel"
                                         data-interval="2500">
                                         <div class="carousel-inner ">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-users"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-users"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Utilisateurs</div>
                                                     <h5 class="number">215</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-user-times"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-user-times"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Utilisateur inactive</div>
                                                     <h5 class="number">21</h5>
@@ -78,41 +75,44 @@
                                         data-interval="2100">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-calendar"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-calendar"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Rendez vous</div>
                                                     <h5 class="number">06</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-calendar-times-o"></i>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-calendar-times-o"></i>
                                                 </div>
                                                 <div class="content">
                                                     <div class="text">Rendez vous Annuler</div>
                                                     <h5 class="number">04</h5>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3">
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
                             <div class="card top_counter">
                                 <div class="body">
                                     <div id="top_counter3" class="carousel vert slide p-1" data-ride="carousel"
                                         data-interval="2300">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-phone"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-phone"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Contacts</div>
                                                     <h5 class="number">10</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i style="font-size: 30px" class="icon-puzzle"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="icon-puzzle"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Blog</div>
                                                     <h5 class="number">142</h5>
@@ -126,14 +126,16 @@
                                         data-interval="2100">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-eye"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-eye"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Total Visitors</div>
                                                     <h5 class="number">10K</h5>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <div class="icon"><i style="font-size: 30px" class="fa fa-eye"></i> </div>
+                                                <div class="icon"><i style="font-size: 30px"
+                                                        class="fa fa-eye"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Today Visitors</div>
                                                     <h5 class="number">142</h5>
@@ -154,21 +156,21 @@
 
 
 
-                        <div class="col-lg-3 col-md-3 col-sm-12 ">
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 ">
                             <div class="card ">
 
-                                <div class="body bg-danger text-center text-light p-5 rounded ">
-                                    <i class="fa fa-calendar" style="font-size:35px"></i>
+                                <div class="body bg-info text-center text-light p-5 rounded ">
+                                    <i class="fa fa-calendar" style="font-size:40px"></i>
                                     <h5>120</h5>
                                     <span>Rendez vous</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 ">
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 ">
                             <div class="card ">
 
                                 <div class="body bg-primary text-center text-light p-5 rounded ">
-                                    <i class="fa fa-user-md" style="font-size:35px"></i>
+                                    <i class="fa fa-user-md" style="font-size:40px"></i>
                                     <h5>120</h5>
                                     <span>Medecins</span>
                                 </div>
@@ -228,8 +230,7 @@
                                                                 class="fa fa-toggle-on text-success icon-size"
                                                                 style="font-size:1.2em"></i></a>
                                                     @else
-                                                        <a href="#"
-                                                            wire:click.prevent="activeUser({{ $item->id }})"
+                                                        <a href="#" wire:click.prevent="activeUser({{ $item->id }})"
                                                             title="Active"><i
                                                                 class="fa fa-toggle-off text-danger icon-size"
                                                                 style="font-size:1.2em"></i></a>
@@ -302,10 +303,10 @@
                                                         class="badge badge-{{ $item->status == '0' ? 'warning' : ($item->status == '1' ? 'success' : 'danger') }}">{{ $item->status == '0' ? 'En cours' : ($item->status == '1' ? 'Confirmer' : 'Annuler') }}</span>
                                                 </td>
                                                 <td>
-                                                    <a   title="Edit"><i
+                                                    <a title="Edit"><i
                                                             class="icon-note icon-size text-primary"></i></a>
-                                                    <a
-                                                        title="Comment"><i class="icon-trash icon-size text-danger"></i></a>
+                                                    <a title="Comment"><i
+                                                            class="icon-trash icon-size text-danger"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -314,8 +315,8 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                @if ($users->count())
-                                    {{ $users->links('livewire-pagination') }}
+                                @if ($rendezvous->count())
+                                    {{ $rendezvous->links('livewire-pagination') }}
                                 @endif
                             </div>
                         </div>
