@@ -1,0 +1,1704 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Apr 13, 2022 at 12:51 PM
+-- Server version: 10.3.34-MariaDB-cll-lve
+-- PHP Version: 7.4.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `gestinc2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `candidatures`
+--
+
+CREATE TABLE `candidatures` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `state_id` bigint(20) UNSIGNED NOT NULL,
+  `secteur_id` bigint(20) UNSIGNED NOT NULL,
+  `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` enum('female','male') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'male',
+  `projet_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_description` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_ville` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `logo_photo_path` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_photo_path` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Validation_step1` int(11) DEFAULT 0,
+  `Validation_step2` int(11) DEFAULT 0,
+  `Validation_step3` int(11) DEFAULT 0,
+  `programme_id` bigint(20) UNSIGNED NOT NULL,
+  `validation_major` int(11) NOT NULL DEFAULT 0,
+  `projet_idee` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_problematique` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_valeur` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `av_avant_incubation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `av_a_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `aspect_innovant` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `impact_social` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ecofriendly` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `détail_aspect_innovant` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `candidatures`
+--
+
+INSERT INTO `candidatures` (`id`, `state_id`, `secteur_id`, `first_name`, `last_name`, `email`, `phone`, `identity`, `gender`, `projet_name`, `projet_description`, `projet_ville`, `created_at`, `updated_at`, `logo_photo_path`, `profile_photo_path`, `Validation_step1`, `Validation_step2`, `Validation_step3`, `programme_id`, `validation_major`, `projet_idee`, `projet_problematique`, `projet_valeur`, `av_avant_incubation`, `av_a_date`, `linkedin`, `twitter`, `facebook`, `aspect_innovant`, `impact_social`, `ecofriendly`, `détail_aspect_innovant`) VALUES
+(17, 4, 3, 'Saad', 'ALAOUI', 'Saad@gmail.com', '0625454785', 'D123589', 'male', 'Projet 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula velit, fermentum vitae nisl eu, pulvinar tempor nulla. Vestibulum congue sapien eget neque condimentum .', 'Rabat', '2022-01-27 16:06:29', '2022-03-03 16:30:07', 'projet.png', '1643299589.webp', 0, 0, 0, 12, 0, 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Prototypage', 'Prototypage', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 6, 12, 'Ahlam', 'ALAOUI', 'Ahlam@gmail.com', '0685698547', 'D455658', 'female', 'Projet 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula velit, fermentum vitae nisl eu, pulvinar tempor nulla. Vestibulum congue sapien eget neque condimentum .', 'Casablanca', '2022-01-27 16:08:27', '2022-02-06 22:37:23', 'projet.png', '1643299707.jpg', 0, 0, 0, 12, 0, 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Test Market', 'Test Market', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 9, 13, 'Ilham', 'ALAOUI', 'Ilham@gmail.com', '0632554878', 'D632145', 'female', 'Projet 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula velit, fermentum vitae nisl eu, pulvinar tempor nulla. Vestibulum congue sapien eget neque condimentum .', 'Agadir', '2022-01-27 23:17:24', '2022-02-06 22:37:39', 'projet.png', '1643325444.jpg', 0, 0, 0, 12, 0, 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Aenean diam nulla, euismod non consequat ut, accumsan ut lectus. Sed imperdiet dapibus leo, et tempus eros vestibulum quis. Integer sit amet ornare est. Phasellus interdum, massa maximus lacinia aliquet, lectus felis cursus ligula, et lobortis sem elit nec dolor. In venenatis molestie nisi vel elementum.', 'Prototypage', 'Prototypage', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 1, 7, 'Sanae', 'ALAOUI', 'Sanae@gmail.com', '0688956547', 'D1789587', 'female', 'Projet 5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra turpis sed justo mollis pellentesque. Aenean vel metus vulputate, vulputate diam at, ultricies sapien.', 'Tanger', '2022-02-08 12:09:39', '2022-02-08 12:09:39', 'projet.png', '1644322179.png', 0, 0, 0, 12, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra turpis sed justo mollis pellentesque. Aenean vel metus vulputate, vulputate diam at, ultricies sapien.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra turpis sed justo mollis pellentesque. Aenean vel metus vulputate, vulputate diam at, ultricies sapien.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra turpis sed justo mollis pellentesque. Aenean vel metus vulputate, vulputate diam at, ultricies sapien.', 'Prototypage', 'Test Market', 'https://www.linkedin.com/sanae/', 'https://www.twitter.com/sanae/', 'https://www.facebook.com/sanae/', 'Oui', 'Oui', 'Oui', 'Innovation de l’offre');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `canvases`
+--
+
+CREATE TABLE `canvases` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `canvas_titre` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `canvases`
+--
+
+INSERT INTO `canvases` (`id`, `created_by`, `canvas_titre`, `file`, `created_at`, `updated_at`) VALUES
+(5, 9, 'File 1', '1642632270.jpg', '2022-02-06 22:36:20', '2022-03-11 15:55:23'),
+(6, 9, 'File 2', '1642629459.pdf', '2022-02-06 22:36:28', '2022-03-11 15:55:13'),
+(7, 9, 'File 3', '1647017261.txt', '2022-03-11 16:47:41', '2022-03-11 16:47:41'),
+(8, 9, 'File 4', '1647017291.txt', '2022-03-11 16:48:11', '2022-03-16 09:52:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `nom`, `updated_at`, `created_at`) VALUES
+(1, 'Services aux Entreprises', NULL, '2021-08-27 11:34:51'),
+(2, 'Electronique & Composants', NULL, '2021-08-27 11:34:51'),
+(3, 'SSII & NTIC', NULL, '2021-08-27 11:34:51'),
+(4, 'Sante, Biotech, Chimie', NULL, '2021-08-27 11:34:51'),
+(5, 'Art, Culture, Loisirs, Sport', NULL, '2021-08-27 11:34:51'),
+(6, 'CleanTech, Energie', NULL, '2021-08-27 11:34:51'),
+(7, 'Education', NULL, '2021-08-27 11:34:51'),
+(8, 'Immobilier, BTP', NULL, '2021-08-27 11:34:51'),
+(9, 'Architecture', NULL, '2021-08-27 11:34:51'),
+(10, 'Finance', NULL, '2021-08-27 11:34:51'),
+(11, 'RH, Recrutement', NULL, '2021-08-27 11:34:51'),
+(12, 'Textile', NULL, '2021-08-27 11:34:51'),
+(13, 'Beaute', NULL, '2021-08-27 11:34:51'),
+(14, 'Design', NULL, '2021-08-27 11:34:51'),
+(15, 'Transport Logistique', NULL, '2021-08-27 11:34:51'),
+(16, 'Tourisme', NULL, '2021-08-27 11:34:51'),
+(17, 'Agriculture / Agroalimentaire', NULL, '2021-08-27 11:34:51'),
+(18, 'Services aux Particuliers', NULL, '2021-08-27 11:34:51'),
+(19, 'Autres services', NULL, '2021-08-27 11:34:51'),
+(20, 'Autres industries', NULL, '2021-08-27 11:34:51'),
+(21, 'E-Commerce', NULL, '2021-08-27 11:34:51'),
+(22, 'Artisanat', NULL, '2021-08-27 11:34:51'),
+(23, 'Produit de terroir', NULL, '2021-08-27 11:34:51'),
+(24, 'Commerce/Négoce/Distribution', NULL, '2021-08-27 11:34:51'),
+(25, 'Alimentaire / Cosmétique', NULL, '2021-08-27 11:34:51'),
+(26, 'Aquaculture', NULL, '2021-08-27 11:34:51'),
+(27, 'Automobile', NULL, '2021-08-27 11:34:51'),
+(28, 'Bijouterie', NULL, '2021-08-27 11:34:51'),
+(29, 'Divertissement', NULL, '2021-08-27 11:34:51'),
+(30, 'E_Santé', '2021-10-21 20:51:23', '2021-10-21 20:51:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chats`
+--
+
+CREATE TABLE `chats` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `sent_to` bigint(20) UNSIGNED NOT NULL,
+  `message` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chats`
+--
+
+INSERT INTO `chats` (`id`, `created_by`, `sent_to`, `message`, `created_at`, `updated_at`) VALUES
+(4, 4, 9, 'fin asat', '2022-01-31 23:18:59', '2022-01-31 23:18:59'),
+(5, 9, 4, 'cv otmane', '2022-01-31 23:19:53', '2022-01-31 23:19:53'),
+(14, 9, 4, 'wayli', NULL, NULL),
+(15, 9, 4, 'wayli', NULL, NULL),
+(16, 9, 4, 'fin', NULL, NULL),
+(17, 9, 4, 'ff', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coachings`
+--
+
+CREATE TABLE `coachings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `session` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thématique` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dateSession` date DEFAULT NULL,
+  `timeSession` time DEFAULT NULL,
+  `coached_by` bigint(20) UNSIGNED NOT NULL,
+  `feedback_acompagnateur` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feedback_projet` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `plan_action` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nb_coaching_collectif` int(11) DEFAULT NULL,
+  `engagement_projet` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `coachings`
+--
+
+INSERT INTO `coachings` (`id`, `projet_id`, `session`, `thématique`, `dateSession`, `timeSession`, `coached_by`, `feedback_acompagnateur`, `feedback_projet`, `plan_action`, `nb_coaching_collectif`, `engagement_projet`, `created_at`, `updated_at`) VALUES
+(2, 48, 'Session 01', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2022-04-15', '19:04:00', 72, NULL, NULL, NULL, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `commentaires`
+--
+
+CREATE TABLE `commentaires` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `forum_id` bigint(20) UNSIGNED NOT NULL,
+  `commentaire_contenu` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id`, `created_by`, `forum_id`, `commentaire_contenu`, `created_at`, `updated_at`) VALUES
+(42, 9, 4, 'Good job !!', '2022-01-19 20:52:34', NULL),
+(44, 10, 4, 'Good job bro !!', '2022-01-19 22:04:41', NULL),
+(45, 10, 5, 'Good !', '2022-01-19 23:38:37', NULL),
+(46, 9, 3, 'Good job !', '2022-01-24 15:39:36', NULL),
+(47, 10, 4, 'Good !!', '2022-02-01 20:19:40', NULL),
+(48, 9, 3, 'rrrrrrr', '2022-02-14 10:37:46', '2022-02-14 10:37:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `decisions`
+--
+
+CREATE TABLE `decisions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `candidature_id` bigint(20) UNSIGNED NOT NULL,
+  `validation1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `validation2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `validation3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dossier_phs`
+--
+
+CREATE TABLE `dossier_phs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `ph_entrepreneur` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nature_financement` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `montant_incubé` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `taux` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dossier_subs`
+--
+
+CREATE TABLE `dossier_subs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `structure_juridique` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cadre_juridique` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nature_financement` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `montant` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `taux_assid` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `demande_entre` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_demande` date DEFAULT NULL,
+  `debloque` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `etat_av_dossier` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `etat_depot` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dossierSubScané` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cmnt_sub` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `evolutions`
+--
+
+CREATE TABLE `evolutions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `av_avant_incubation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `av_courant_incubation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_lancement` date DEFAULT NULL,
+  `ca_19` double DEFAULT NULL,
+  `nb_vente_19` int(11) DEFAULT NULL,
+  `ca_20` double DEFAULT NULL,
+  `nb_vente_20` int(11) DEFAULT NULL,
+  `ca_21` double DEFAULT NULL,
+  `nb_vente_21` int(11) DEFAULT NULL,
+  `ca_periode_incub` double DEFAULT NULL,
+  `nb_vente_periode_incub` int(11) DEFAULT NULL,
+  `date_derniere_vente` date DEFAULT NULL,
+  `ca_regulier` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `entrepreneurs_vivent` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nb_opportunités` int(11) DEFAULT NULL,
+  `nature_poste` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `etat_activité` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `raisons_standby` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `livraison_prod_avant_incub` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `livraison_prod_courant_incub` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `monetisation_prod_avant_incub` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `monetisation_prod_courant_incub` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ca_19_evo` double DEFAULT NULL,
+  `nb_vente_19_evo` int(11) DEFAULT NULL,
+  `ca_20_evo` double DEFAULT NULL,
+  `nb_vente_20_evo` int(11) DEFAULT NULL,
+  `ca_21_evo` double DEFAULT NULL,
+  `nb_vente_21_evo` int(11) DEFAULT NULL,
+  `ca_periode_incub_evo` double DEFAULT NULL,
+  `nb_vente_periode_incub_evo` int(11) DEFAULT NULL,
+  `nb_opportunités_evo` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `type_opportunités` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `evolutions`
+--
+
+INSERT INTO `evolutions` (`id`, `projet_id`, `av_avant_incubation`, `av_courant_incubation`, `date_lancement`, `ca_19`, `nb_vente_19`, `ca_20`, `nb_vente_20`, `ca_21`, `nb_vente_21`, `ca_periode_incub`, `nb_vente_periode_incub`, `date_derniere_vente`, `ca_regulier`, `entrepreneurs_vivent`, `nb_opportunités`, `nature_poste`, `etat_activité`, `raisons_standby`, `livraison_prod_avant_incub`, `livraison_prod_courant_incub`, `monetisation_prod_avant_incub`, `monetisation_prod_courant_incub`, `ca_19_evo`, `nb_vente_19_evo`, `ca_20_evo`, `nb_vente_20_evo`, `ca_21_evo`, `nb_vente_21_evo`, `ca_periode_incub_evo`, `nb_vente_periode_incub_evo`, `nb_opportunités_evo`, `created_at`, `updated_at`, `type_opportunités`) VALUES
+(4, 22, 'Ideation', 'Prototypage', '2021-01-02', 100, 10, 10, 120, 120, 100, 30000, 100, '2022-01-02', 'Oui', 'Oui', 360, 'CDI', 'En Activité', NULL, 'Via une plateforme digitale', 'Magasin physique', 'Frais de licence et syndication', 'Ventes à l\'unité', 0, 0, 0, 0, 0, 0, 0, 0, 0, '2022-02-15 18:09:44', '2022-02-15 18:09:44', 'freelancer'),
+(6, 36, 'Test Market', 'Pré-Accéleration', '2022-03-30', 10, 20, 100, 200, 200, 300, 1000, 500, '2022-04-11', 'Oui', 'Oui', 10, 'CDI', 'En Activité', NULL, 'Via une plateforme digitale', 'Magasin physique', 'Ventes à l\'unité', 'Ventes en volume', 0, 0, 0, 0, 0, 0, 0, 0, 0, '2022-04-11 10:11:29', '2022-04-11 10:11:29', 'Stagiaires');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `follows`
+--
+
+CREATE TABLE `follows` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `session` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_session` date DEFAULT NULL,
+  `duree_session` int(11) DEFAULT NULL,
+  `problematique` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `proposition_value` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clientele_cible` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `conceptions_mvp` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `realisation_mvp` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `retours_utilisateurs` double DEFAULT NULL,
+  `promesse_achat` int(11) DEFAULT NULL,
+  `commandes` int(11) DEFAULT NULL,
+  `precommandes` int(11) DEFAULT NULL,
+  `ventes` double DEFAULT NULL,
+  `definition_coeur` double DEFAULT NULL,
+  `reachat_clients` double DEFAULT NULL,
+  `plan_actions` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clients_atteindre` int(11) DEFAULT NULL,
+  `taux_conversion` double DEFAULT NULL,
+  `conception_developpement` int(11) DEFAULT NULL,
+  `satisfaction_clients` double DEFAULT NULL,
+  `ca_global` double DEFAULT NULL,
+  `prix_vente` double DEFAULT NULL,
+  `nombre_ventes` int(11) DEFAULT NULL,
+  `page_facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nb_followers` int(11) DEFAULT NULL,
+  `charte_graphique` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nb_partenaires_approchés` int(11) DEFAULT NULL,
+  `taux_conversion_nb` double DEFAULT NULL,
+  `nb_partenaires_acquis` int(11) DEFAULT NULL,
+  `nb_salariés` int(11) DEFAULT NULL,
+  `nb_freelancers` int(11) DEFAULT NULL,
+  `nb_stagiaires` int(11) DEFAULT NULL,
+  `statuts` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `structure_cout` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `plan_financement` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `business_plan` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pitch` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sources_finance` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `follows`
+--
+
+INSERT INTO `follows` (`id`, `projet_id`, `created_at`, `updated_at`, `session`, `date_session`, `duree_session`, `problematique`, `proposition_value`, `clientele_cible`, `conceptions_mvp`, `realisation_mvp`, `retours_utilisateurs`, `promesse_achat`, `commandes`, `precommandes`, `ventes`, `definition_coeur`, `reachat_clients`, `plan_actions`, `clients_atteindre`, `taux_conversion`, `conception_developpement`, `satisfaction_clients`, `ca_global`, `prix_vente`, `nombre_ventes`, `page_facebook`, `nb_followers`, `charte_graphique`, `logo`, `nb_partenaires_approchés`, `taux_conversion_nb`, `nb_partenaires_acquis`, `nb_salariés`, `nb_freelancers`, `nb_stagiaires`, `statuts`, `structure_cout`, `plan_financement`, `business_plan`, `pitch`, `sources_finance`) VALUES
+(6, 26, NULL, NULL, 'Semain 01', NULL, NULL, 'Oui', 'Oui', 'Oui', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 26, NULL, NULL, 'Semain 02', '2022-03-30', 3, 'Oui', 'Oui', NULL, 'Oui', NULL, 10, 10, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forums`
+--
+
+CREATE TABLE `forums` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `forum_titre` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `forum_contenu` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `likes` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `forums`
+--
+
+INSERT INTO `forums` (`id`, `created_by`, `forum_titre`, `forum_contenu`, `created_at`, `updated_at`, `likes`) VALUES
+(3, 10, 'Forum 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum ipsum nec maximus elementum. Nullam ex justo, congue non magna in, egestas tincidunt ex', '2022-01-17 16:45:42', '2022-01-20 12:39:01', 0),
+(4, 4, 'Forum 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum ipsum nec maximus elementum. Nullam ex justo, congue non magna in, egestas tincidunt ex', '2022-01-17 16:54:50', '2022-01-20 12:44:32', 0),
+(5, 9, 'Forum 10', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum ipsum nec maximus elementum. Nullam ex justo, congue non magna in, egestas tincidunt ex ', '2022-01-19 15:00:18', '2022-01-19 22:38:43', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `forum_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `created_by`, `forum_id`, `created_at`, `updated_at`) VALUES
+(9, 4, 3, NULL, NULL),
+(10, 4, 4, NULL, NULL),
+(11, 10, 4, NULL, NULL),
+(12, 10, 3, NULL, NULL),
+(13, 10, 5, NULL, NULL),
+(18, 9, 3, NULL, NULL),
+(19, 9, 5, NULL, NULL),
+(20, 24, 4, NULL, NULL),
+(21, 9, 4, NULL, NULL),
+(22, 28, 5, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2022_01_08_135714_create_statuses_table', 1),
+(3, '2022_01_06_104855_create_roles_table', 3),
+(4, '2022_01_08_144054_create_role__users_table', 4),
+(5, '2014_10_12_100000_create_password_resets_table', 5),
+(6, '2014_10_12_200000_add_two_factor_columns_to_users_table', 5),
+(7, '2019_08_19_000000_create_failed_jobs_table', 5),
+(8, '2019_12_14_000001_create_personal_access_tokens_table', 5),
+(9, '2022_01_06_225200_create_sessions_table', 5),
+(12, '2022_01_12_202718_create_states_table', 7),
+(13, '2014_10_12_000000_create_users_table', 8),
+(14, '2022_01_06_131210_create_programmes_table', 9),
+(15, '2022_01_06_133526_create_forums_table', 9),
+(16, '2022_01_06_135744_create_canvases_table', 9),
+(17, '2022_01_06_135958_create_candidatures_table', 9),
+(18, '2022_01_06_123910_create_programmes_users_table', 10),
+(19, '2022_01_06_124314_create_projets_table', 10),
+(20, '2022_01_06_125733_create_evaluations_table', 10),
+(21, '2022_01_06_133946_create_commentaires_table', 10),
+(22, '2022_01_16_172817_add_logo_projet_collumn', 11),
+(23, '2022_01_19_225859_add_likes_collumn', 12),
+(24, '2022_01_20_135003_create_likes_table', 13),
+(25, '2022_01_21_192629_add_more_collumn', 14),
+(26, '2022_01_23_131227_create_secteurs_table', 15),
+(27, '2022_01_23_131912_create_secteurs_table', 16),
+(28, '2022_01_23_133034_create_candidatures_table', 17),
+(29, '2022_01_23_144509_add_logo_collumn', 18),
+(30, '2022_01_23_150132_add_profile_collumn', 19),
+(31, '2022_01_23_192415_add_programme_id_collumn', 20),
+(32, '2022_01_23_214340_add_major_collumn', 21),
+(33, '2022_01_24_143912_create_decisions_table', 22),
+(34, '2022_01_26_195822_create_projet_users_table', 23),
+(35, '2022_01_26_203136_create_projets_table', 24),
+(36, '2022_01_26_205546_create_evaluations_table', 25),
+(37, '2022_01_26_205837_create_projet_users_table', 26),
+(38, '2022_01_26_210628_create_projet_users_table', 27),
+(39, '2022_01_26_211519_create_projet_users_table', 28),
+(40, '2022_01_26_212342_add_logo_pro_collumn', 29),
+(41, '2022_01_31_221429_create_chats_table', 30),
+(42, '2022_01_31_223922_create_chats_table', 31),
+(43, '2022_02_06_161611_create_evaluations_table', 32),
+(44, '2022_02_06_164333_create_evolutions_table', 33),
+(45, '2022_02_06_224758_add_mooree_collumn', 34),
+(46, '2022_02_07_145404_create_evolutions_table', 35),
+(47, '2022_02_07_145843_create_evolutions_table', 36),
+(48, '2022_02_07_224315_add_mooreee_collumn', 37),
+(49, '2022_02_08_010403_create_follows_table', 38),
+(50, '2022_02_08_104455_add_mooreeecandid_collumn', 39),
+(51, '2022_02_13_210448_create_zones_table', 40),
+(52, '2022_02_14_121955_create_region_zones_table', 41),
+(53, '2022_02_15_094353_add_zone_table', 42);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `programmes`
+--
+
+CREATE TABLE `programmes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `programme_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `promotion` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `programmes`
+--
+
+INSERT INTO `programmes` (`id`, `created_by`, `programme_name`, `promotion`, `created_at`, `updated_at`) VALUES
+(12, 24, '1000 Fikra', 2022, '2022-02-06 22:33:52', '2022-04-09 08:10:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `programmes_users`
+--
+
+CREATE TABLE `programmes_users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `programme_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `programmes_users`
+--
+
+INSERT INTO `programmes_users` (`id`, `user_id`, `programme_id`, `created_at`, `updated_at`) VALUES
+(10, 44, 12, NULL, '2022-04-09 08:10:38'),
+(15, 43, 12, NULL, '2022-04-09 08:10:38'),
+(17, 45, 12, NULL, '2022-04-09 08:10:38'),
+(20, 55, 12, NULL, NULL),
+(21, 31, 12, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projets`
+--
+
+CREATE TABLE `projets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `programme_id` bigint(20) UNSIGNED NOT NULL,
+  `projet_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_description` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `business_model` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `logo_projet` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state_id` bigint(20) UNSIGNED NOT NULL,
+  `secteur_id` bigint(20) UNSIGNED NOT NULL,
+  `projet_ville` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_idee` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_problematique` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_valeur` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `av_avant_incubation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `av_a_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `nb_porteur` int(11) DEFAULT NULL,
+  `nb_femmes` int(11) DEFAULT NULL,
+  `nb_hommes` int(11) DEFAULT NULL,
+  `projet_déjà_lancé` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_population` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_solution` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_impacte` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_resumer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nv_développement` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `statut_juridique` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_web` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Où_travaillez` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_lancement` date DEFAULT NULL,
+  `clients_principaux` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `produit_service` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `déjà_effectué_ventes` int(50) DEFAULT NULL,
+  `nb_ventes_a_date` int(11) DEFAULT NULL,
+  `ca19` double DEFAULT 0,
+  `ca20` double DEFAULT 0,
+  `ca21` double DEFAULT 0,
+  `livrez_produit` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `monétisez_produit` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `entrepreneurs_vivent` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nb_opportunités` int(11) DEFAULT NULL,
+  `Nature_opportunités` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `montant_investi_a_date` double DEFAULT NULL,
+  `déjà_participé_program` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `organisme_accompagnement` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `trois_points` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `déja_financement` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `montant_financement` double DEFAULT NULL,
+  `organisme_financement` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `impact_financement` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attentes_program` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `besoin_mentorat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `financement_lancement` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `financement_accélération` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `NotationProblématique` int(11) DEFAULT 1,
+  `NotationPopulation` int(11) DEFAULT 1,
+  `NotationSolution` int(11) DEFAULT 1,
+  `NotationProposition` int(11) DEFAULT 1,
+  `NotationClientsPrincipaux` int(11) DEFAULT 1,
+  `NotationProduit_service` int(11) DEFAULT 1,
+  `ca_a_date` double DEFAULT 0,
+  `catalogue` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id1000fikra` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `desc_projet_pdf` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projet_plateforme` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `productdev` int(11) DEFAULT 0,
+  `bizdev` int(11) DEFAULT 0,
+  `teamhr` int(11) DEFAULT 0,
+  `finfund` int(11) DEFAULT 0,
+  `conception_validation` int(11) DEFAULT 0,
+  `conception_dev` int(11) DEFAULT 0,
+  `dev_proof` int(11) DEFAULT 0,
+  `dev_strategie_marketing` int(11) DEFAULT 0,
+  `realisation_1ereVente` int(11) DEFAULT 0,
+  `dev_strategie_commercial` int(11) DEFAULT 0,
+  `dev_support` int(11) DEFAULT 0,
+  `dev_ca` int(11) DEFAULT 0,
+  `elabo_partenaire` int(11) DEFAULT 0,
+  `nbr_salarie_cdi` int(11) DEFAULT 0,
+  `nbr_salarie_cdd` int(11) DEFAULT 0,
+  `plan_formation_equipe` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `plan_recrute` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `creation_strg_juridique` int(191) DEFAULT NULL,
+  `strg_financement` int(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `projets`
+--
+
+INSERT INTO `projets` (`id`, `programme_id`, `projet_name`, `projet_description`, `business_model`, `created_at`, `updated_at`, `logo_projet`, `state_id`, `secteur_id`, `projet_ville`, `projet_idee`, `projet_problematique`, `projet_valeur`, `av_avant_incubation`, `av_a_date`, `linkedin`, `twitter`, `facebook`, `zone_id`, `nb_porteur`, `nb_femmes`, `nb_hommes`, `projet_déjà_lancé`, `projet_population`, `projet_solution`, `projet_impacte`, `projet_resumer`, `nv_développement`, `statut_juridique`, `site_web`, `instagram`, `youtube`, `Où_travaillez`, `date_lancement`, `clients_principaux`, `produit_service`, `déjà_effectué_ventes`, `nb_ventes_a_date`, `ca19`, `ca20`, `ca21`, `livrez_produit`, `monétisez_produit`, `entrepreneurs_vivent`, `nb_opportunités`, `Nature_opportunités`, `montant_investi_a_date`, `déjà_participé_program`, `organisme_accompagnement`, `trois_points`, `déja_financement`, `montant_financement`, `organisme_financement`, `impact_financement`, `attentes_program`, `besoin_mentorat`, `financement_lancement`, `financement_accélération`, `NotationProblématique`, `NotationPopulation`, `NotationSolution`, `NotationProposition`, `NotationClientsPrincipaux`, `NotationProduit_service`, `ca_a_date`, `catalogue`, `id1000fikra`, `desc_projet_pdf`, `projet_plateforme`, `productdev`, `bizdev`, `teamhr`, `finfund`, `conception_validation`, `conception_dev`, `dev_proof`, `dev_strategie_marketing`, `realisation_1ereVente`, `dev_strategie_commercial`, `dev_support`, `dev_ca`, `elabo_partenaire`, `nbr_salarie_cdi`, `nbr_salarie_cdd`, `plan_formation_equipe`, `plan_recrute`, `creation_strg_juridique`, `strg_financement`) VALUES
+(22, 12, 'Projet 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet tempus lacus. Fusce nisi velit, posuere sed congue ac, gravida eget sem. Maecenas at metus euismod', '1644922299.png', '2022-02-15 10:51:39', '2022-02-15 10:51:39', 'projet.png', 3, 3, 'Meknes', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet tempus lacus. Fusce nisi velit, posuere sed congue ac, gravida eget sem. Maecenas at metus euismod', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet tempus lacus. Fusce nisi velit, posuere sed congue ac, gravida eget sem. Maecenas at metus euismod', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet tempus lacus. Fusce nisi velit, posuere sed congue ac, gravida eget sem. Maecenas at metus euismod', 'Ideation', 'Prototypage', 'https://fr-fr.linkedin.com/', 'https://fr-fr.twitter.com/', 'https://fr-fr.facebook.com/', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(26, 12, 'Kensaii', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod odio massa, vel lobortis justo vestibulum id. Praesent pulvinar lacus magna', '1646934254.txt', '2022-03-10 17:44:14', '2022-03-10 17:44:14', 'projet.png', 6, 7, 'Casablanca', 'La non accesibilté au bon soutien scolaire pour les étudiants du primaire, collège & lycée, à cause au prix élevé', 'La non accesibilté au bon soutien scolaire pour les étudiants du primaire, collège & lycée, à cause au prix élevé', 'Offrir un excellent soutien scolaire individuel à un prix très accessible pour les étudiants de ( Primaire - Collège - Lycée ) , Création durable d\'emplois à temps partiel pour les étudiants d\'enseignement supérieurs  , Impacter le secteur éducatif , Faire développer et orienter les étudiants vers leurs passion ', 'Prototypage', 'Prototypage', 'https://www.linkedin.com/in/abdellatif-draissy-a277b314b/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(27, 12, 'Vwash', 'خليها ساهلة، خليها نمط ، جا وقت التغيير ', '1646938798.txt', '2022-03-10 18:59:58', '2022-03-10 18:59:58', 'projet.png', 6, 6, 'Casablanca', 'خليها ساهلة، خليها نمط ، جا وقت التغيير ', 'Arrêt du gaspillage des eaux dans le domaine de lavage des voitures', 'Embauche d\'une main d\'oeuvre jeune et l\'économie des eaux', 'Prototypage', 'Prototypage', 'https://www.linkedin.com/mwlite/in/amina-arafa-a611a8166', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(28, 12, 'arrosage automatique', 'arrosage automatique sans intervention humaine et commandé à distance ', '1646939796.txt', '2022-03-10 19:16:36', '2022-03-10 19:16:36', 'projet.png', 5, 18, 'khouribga', 'Notre projet c\'est un arrosage automatique qui permet d\'arroser les plants sans intervention humaine et arrosage commandé à distance avec une application mobile qui nous donne l\'accès atout les pompes et les électrovannes installées dans notre terrain.', 'Notre projet c\'est un arrosage automatique qui permet d\'arroser les plants sans intervention humaine et arrosage commandé à distance avec une application mobile qui nous donne l\'accès atout les pompes et les électrovannes installées dans notre terrain.', 'Il est très pratique pour assurer l’arrosage en cas d’absence, pour éviter la surconsommation d’eau, ou tout simplement pour gagner du temps', 'Prototypage', 'Prototypage', 'https://www.linkedin.com/in/abdelmounim-boudiar-6049551a3/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(29, 12, 'Assam Jewelry', 'مشروعي يعتبر اضافة نوعية الى جهية بني ملال خنيفرة اضافة الى انه مربح جدا لان تكلفة النتاج عندنا جد منخفضة وبالتالي فان نسبة الربح ستكون مرتفعة جدا', '1646940294.txt', '2022-03-10 19:24:54', '2022-03-10 19:24:54', 'projet.png', 5, 28, 'beni mellal', 'اشكالية الطلبات الخاصة لزبناء   مثال سيدة تريد قلادة باسم ابنها مزينة بحجر الزركون بحكم ان صاحب المحل لايمكنه صنع قلادات باسماء جميع الذكور وبالتالي لتحقيق طلبية السيدة عليها الانتظار طويلا وتكون التكلفة عالية جدا', 'اشكالية الطلبات الخاصة لزبناء   مثال سيدة تريد قلادة باسم ابنها مزينة بحجر الزركون بحكم ان صاحب المحل لايمكنه صنع قلادات باسماء جميع الذكور وبالتالي لتحقيق طلبية السيدة عليها الانتظار طويلا وتكون التكلفة عالية جدا', ' شراء طابعة 3 الابعاد', 'Pré-Accéleration', 'Pré-Accéleration', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(30, 12, 'الشعير المستنبت', 'الشعير المستنبت علف اخضر صحي بثمن مناسب', '1646941681.txt', '2022-03-10 19:48:01', '2022-03-10 19:48:01', 'projet.png', 5, 17, 'اغبالة اقليم بني ملال', 'الشعير المستنبت علف اخضر صحي بثمن مناسب', 'قلة التساقطات يؤدي الى انعدام الكلاء وغلاء الاعلاف كم نعيشه الان وهذا يجعل بعض مربو الماشية يلتجؤون الى اعلاف غير صحية ', 'توفير  علف اخضر في مساحة صغيرة وباستعمال نسبة اقل من الماء بدون تربة', 'Prototypage', 'Prototypage', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(31, 12, 'attabakhe', 'accompagner les passionnés de cuisine et de restauration dans la création d\'un projet de Dark-kitchen ou cloud-kitchen ', '1646946908.txt', '2022-03-10 21:15:08', '2022-03-10 21:15:08', 'projet.png', 6, 7, 'Casablanca ', 'accompagner les passionnés de cuisine et de restauration dans la création d\'un projet de Dark-kitchen ou cloud-kitchen ', 'accompagner les passionnés de cuisine et de restauration dans la création d\'un projet de Dark-kitchen ou cloud-kitchen ', 'Un accompagnement hybride sous formes de formations physiques et l\'accès à une plateforme en ligne où les utilisateurs peuvent consommer du contenu vidéo de qualité où il sont dirigés dans leur création de leur projet de restauration ', 'Pré-Accéleration', 'Pré-Accéleration', 'https://www.linkedin.com/in/mehdi-nasser-257066163/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(32, 12, 'Hada Makan', 'Pour les entreprises: Création du contenu marque et utilisation optimale du potentiel des réseaux sociaux\nPour les particuliers: Trouver un contenu ludo-éducatif pour s\'instruire tout en s\'amusant', '1646947344.txt', '2022-03-10 21:22:24', '2022-03-10 21:22:24', 'projet.png', 6, 1, 'Casablanca ', 'Pour les entreprises: Création du contenu marque et utilisation optimale du potentiel des réseaux sociaux\nPour les particuliers: Trouver un contenu ludo-éducatif pour s\'instruire tout en s\'amusant', 'Pour les entreprises: Création du contenu marque et utilisation optimale du potentiel des réseaux sociaux\nPour les particuliers: Trouver un contenu ludo-éducatif pour s\'instruire tout en s\'amusant', 'Pour les entreprises: Optimisation maximale de leurs dépenses contenu et marketing\nPour les particuliers: Sensibilisation et cultivation de leur curiosité', '1ere Ventes', '1ere Ventes', 'https://www.linkedin.com/in/souhaibdziri/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(33, 12, 'Roots the brand', 'la Maroquinerie à base de cuir végétal avec un design innovateur et fonctionnel', '1646947736.txt', '2022-03-10 21:28:56', '2022-03-10 21:28:56', 'projet.png', 6, 22, 'Casablanca ', 'la Maroquinerie à base de cuir végétal avec un design innovateur et fonctionnel', 'la Maroquinerie à base de cuir végétal avec un design innovateur et fonctionnel', 'le cuir Végétal au lieu de cuir animalier. ', '1ere Ventes', '1ere Ventes', 'https://www.linkedin.com/in/hicham-ouartassi-9b07bb65/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(34, 12, 'Smart Play', 'Le jeu est levier essentiel dans le développement de l’enfant durant ses premières années. \nCependant les jouets coûtent de plus en plus chers pour une durée d\'utilisation très courte : 7 jouets sur 10 sont obsolètes dès 6 mois après l’achat.\nAcheter, cumuler, acheter, cumuler, pour finir par prendre la poussière, telle est l’histoire classique du jouet démodé et surtout plus adapté aux besoins pédagogiques qui évoluent vite. \nComment générer moins de déchets sans sacrifier le plaisir et l’importance éducative de l’enfant ? Comment consommer de façon responsable ?', '1646948219.txt', '2022-03-10 21:36:59', '2022-03-10 21:36:59', 'projet.png', 6, 7, 'Casablanca', 'Le jeu est levier essentiel dans le développement de l’enfant durant ses premières années. \nCependant les jouets coûtent de plus en plus chers pour une durée d\'utilisation très courte : 7 jouets sur 10 sont obsolètes dès 6 mois après l’achat.\nAcheter, cumuler, acheter, cumuler, pour finir par prendre la poussière, telle est l’histoire classique du jouet démodé et surtout plus adapté aux besoins pédagogiques qui évoluent vite. \nComment générer moins de déchets sans sacrifier le plaisir et l’importance éducative de l’enfant ? Comment consommer de façon responsable ?', 'Le jeu est levier essentiel dans le développement de l’enfant durant ses premières années. \nCependant les jouets coûtent de plus en plus chers pour une durée d\'utilisation très courte : 7 jouets sur 10 sont obsolètes dès 6 mois après l’achat.\nAcheter, cumuler, acheter, cumuler, pour finir par prendre la poussière, telle est l’histoire classique du jouet démodé et surtout plus adapté aux besoins pédagogiques qui évoluent vite. \nComment générer moins de déchets sans sacrifier le plaisir et l’importance éducative de l’enfant ? Comment consommer de façon responsable ?', '- Avoir accès à un catalogue de jouets et de jeux depuis le confort de son domicile\n- Etre conseillé pour faire le bon choix de jouet ou de jeu pour votre enfant en fonction de son besoin de développement et ses goûts du moment\n- Participer à une économie circulaire bénéfique à la planète ;\n- Ne plus acheter et accumuler des jouets qui sont souvent délaissés provoquant perte et casse\n- Faire découvrir de nouveaux jouets éducatifs tous les mois à son enfant sans se déplacer', 'Ideation', 'Ideation', 'linkedin.com/in/ghitaelmenjra', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(35, 12, 'Les Fées Mains', 'Valorisation et promotion de l\'artisanat, du terroir et des créateurs #madeinmorocco', '1646948809.txt', '2022-03-10 21:46:49', '2022-03-10 21:46:49', 'projet.png', 6, 16, 'Casablanca ', 'Valorisation et promotion de l\'artisanat, du terroir et des créateurs #madeinmorocco', 'Valorisation et promotion de l\'artisanat, du terroir et des créateurs #madeinmorocco', 'Sublimer l\'artisanat et le terroir marocain et les rapprocher du consommateur en B2B et B2C', 'Pré-Accéleration', 'Pré-Accéleration', 'https://www.linkedin.com/showcase/les-f%C3%A9es-mains-maroc/?viewAsMember=true', NULL, 'https://www.facebook.com/lesfeesmainsmaroc/', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 10000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(36, 12, 'ProjetTesst', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', NULL, '2022-04-09 02:26:53', '2022-04-11 08:11:29', 'projet.png', 9, 9, 'Meknes', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', 'j\'ai une idée de projet (phase Ideation)', 'Pré-Accéleration', 'https://www.linkedin.com/in/souhaibdziri/', NULL, 'https://www.facebook.com/lesfeesmainsmaroc/', 3, 40, 20, 15, '1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', NULL, NULL, 'j\'ai une idée de projet (phase Ideation)', 'S.A.R.L', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'Cafés', '2022-04-06', 'Lorem ipsum dolor sit amet,', 'Lorem ipsum dolor sit amet,', 1, 150, 36000, 95000, 120000, 'Via une plateforme digitale', 'Ventes à l\'unité', 'Oui', 10, 'CDI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus, nunc sagittis ultrices tristique, nibh mauris ultrices enim, nec ornare nisi elit non eros.', 1, 1, 1, 1, 1, 1, 1000, NULL, NULL, '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(37, 12, 'ProjetTesst2', NULL, NULL, '2022-04-10 14:24:38', '2022-04-10 14:24:38', 'projet.png', 8, 8, 'Meknes', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at dignissim eros. Donec eget dolor tempus arcu scelerisque volutpat non id lorem.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at dignissim eros. Donec eget dolor tempus arcu scelerisque volutpat non id lorem.', 'Ideation', 'Ideation', 'https://www.linkedin.com/in/souhaibdziri/', NULL, 'https://www.facebook.com/lesfeesmainsmaroc/', 1, 40, 15, 13, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at dignissim eros. Donec eget dolor tempus arcu scelerisque volutpat non id lorem.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at dignissim eros. Donec eget dolor tempus arcu scelerisque volutpat non id lorem.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at dignissim eros. Donec eget dolor tempus arcu scelerisque volutpat non id lorem.', NULL, 'Ideation', 'SARL', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'Cafés', NULL, NULL, NULL, NULL, NULL, 2500, 10000, 12000, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1000, NULL, 'F244', '/tmp/phpoNVoso', 'ProjetTesst2', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(38, 12, 'ATLAS DIFAE', NULL, NULL, '2022-04-11 10:55:45', '2022-04-11 10:55:45', 'projet.png', 6, 13, 'CASABLANCA', NULL, 'dfghjkl', 'fghjkl', 'Ideation', 'Ideation', 'https://www.linkedin.com/in/', NULL, NULL, 1, 2, 1, 1, '1', 'fghjkl', 'dfghjkl', 'hjkl;', NULL, 'Ideation', 'Associations', NULL, NULL, NULL, 'Chez-soi', '1999-03-12', 'fghjk', 'hjkl', NULL, NULL, 0, 0, 0, 'Magasin physique', 'Ventes à l\'unité', 'Non', 2, 'Freelancer (Prestation)', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sdfghjkldfghjkl', NULL, 'fghjkl', 'dfghjkl', 1, 1, 1, 1, 1, 1, 1000, NULL, '34586', NULL, 'ATLAS DIFAE', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(39, 12, 'ATLAS DIFAE', NULL, NULL, '2022-04-11 11:01:42', '2022-04-11 11:01:42', 'projet.png', 5, 11, 'CASABLANCA', NULL, 'sdfghjkl', 'dfghjkl', 'Ideation', 'Ideation', 'https://www.linkedin.com/in/', NULL, NULL, 1, 2, 1, 1, NULL, 'dfghjkl', 'dfghjkl', 'sdfghjkl', NULL, 'Ideation', 'Coopératives', NULL, NULL, NULL, 'Un espace dédié à l\'entreprise (bureau, espace coworking, …)', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1000, NULL, '41350', NULL, 'ATLAS DIFAE', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(40, 12, 'YOUSSEF EL BOUJAMAOUI', NULL, NULL, '2022-04-11 13:51:51', '2022-04-11 13:51:51', 'projet.png', 3, 2, 'MEKNES', NULL, 'Test', 'TEst', 'Ideation', 'Ideation', NULL, NULL, NULL, 1, 5, 2, 3, NULL, 'Test', 'Test', 'Test', NULL, 'Ideation', 'SARL', NULL, NULL, NULL, 'Chez-soi', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1000, NULL, '123456', '/tmp/phpVai6cJ', 'YOUSSEF EL BOUJAMAOUI', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(41, 12, 'ProjetTesst3', NULL, NULL, '2022-04-12 00:13:18', '2022-04-12 00:13:18', 'projet.png', 3, 3, 'Meknes', NULL, 'dfdf', 'dfdf', 'Test Market', 'Test Market', 'https://www.linkedin.com/in/souhaibdziri/', NULL, 'https://www.facebook.com/lesfeesmainsmaroc/', 3, 40, 15, 15, NULL, 'dfdfd', 'dfdf', 'ddfdf', NULL, 'Test Market', 'SARL', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'Je n\'ai pas encore de statut juridique', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'fgfgf', NULL, 'fgfg', 'fgfg', 1, 1, 1, 1, 1, 1, 1000, NULL, 'F668', '/tmp/phpG688JL', 'ProjetTesst3', 1, 1, 0, 0, 100, 100, 100, 100, 100, 100, 100, 100, 100, 0, 0, NULL, NULL, NULL, NULL),
+(42, 12, 'digitruck', NULL, NULL, '2022-04-12 08:22:57', '2022-04-12 08:22:57', 'projet.png', 5, 8, 'CASABLANCA', NULL, 'dfghjkl', 'fghjkl', 'IdeationClaire', 'IdeationClaire', NULL, NULL, NULL, 1, 3, 2, 1, '1', 'fghjkl', 'dfghjk', 'dfghjkl', NULL, 'IdeationClaire', 'SARL', NULL, NULL, NULL, 'Un espace dédié à l\'entreprise (bureau, espace coworking, …)', '2021-06-12', 'fghjk', 'ghjkl', 1, 3, 4, 5, 6, 'Via un service de messagerie (AMANA, CTM, Autres)', 'Par projet/accord (basé sur le temps/ les livrables…)', 'Oui', 2, 'Freelancer (Prestation)', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'fghjkl', NULL, 'ghjkl', 'ghjkl', 3, 2, 3, 3, 2, 2, 7, NULL, '12333', NULL, 'digitruck', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(43, 12, 'sdfghjk', NULL, NULL, '2022-04-12 08:30:07', '2022-04-12 08:30:07', 'projet.png', 6, 13, 'casa', NULL, 'sdfghjkl', 'dfghjkl', 'IdeationClaire', 'IdeationClaire', NULL, NULL, NULL, 1, 1, 0, 1, NULL, 'dfghjkl', 'ghjkl;', 'dfghjkl', NULL, 'IdeationClaire', 'AE', NULL, NULL, NULL, 'Chez-soi', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'asdfghjkl', NULL, 'sdfghjkl', 'dfghjkl', 5, 4, 4, 4, 1, 1, 1000, NULL, '12456', NULL, 'sdfghjkl', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(44, 12, 'sdfghjkl', NULL, NULL, '2022-04-12 08:39:57', '2022-04-12 08:39:57', 'projet.png', 6, 13, 'casa', NULL, 'dfghjkl', 'sdfnm,', 'Prototypage', 'Prototypage', NULL, NULL, NULL, 1, 4, 2, 2, '1', 'sdfghjk', 'ghjkl', 'sdfghjkl', NULL, 'Prototypage', 'SARL', NULL, NULL, NULL, 'Chez-soi', '2022-05-12', 'fghjk', 'sdfghj', 1, 3, 5, 6, 6, 'Via un service de messagerie (AMANA, CTM, Autres)', 'Par projet/accord (basé sur le temps/ les livrables…)', 'Non', 1, 'A la tâche', 3, '1', 'dfghjk', 'mklhjkl', '1', 67, 'fghjm,', 'ghjkl', 'dfghjk', NULL, 'fghjkl', 'dfghjk', 2, 2, 3, 2, 2, 3, 7, NULL, '111111', NULL, 'sdfghjkl', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(45, 12, 'rtrtrt', NULL, NULL, '2022-04-12 09:45:51', '2022-04-12 09:45:51', 'projet.png', 3, 7, 'Meknes', NULL, 'tyty', 'tyty', 'Test Market', 'Test Market', 'https://www.linkedin.com/in/souhaibdziri/', NULL, NULL, 3, 40, 20, 15, NULL, 'tyty', 'tyty', 'tytyty', NULL, 'Test Market', 'Coopératives', NULL, NULL, NULL, 'Cafés', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 32000, '1', 'organization', 'gdgfgfg', '1', 25000, 'orga', 'financement', 'fgfg', NULL, 'fgfg', 'fgfg', 1, 1, 1, 1, 1, 1, 1000, NULL, 'D896', NULL, 'rtrtrt', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(47, 12, 'ProjetTesst3', NULL, NULL, '2022-04-12 12:23:33', '2022-04-12 12:23:33', 'projet.png', 3, 10, 'Meknes', NULL, 'dgdg', 'dgdg', 'Test Market', 'Test Market', 'https://www.linkedin.com/in/souhaibdziri/', NULL, 'https://www.facebook.com/lesfeesmainsmaroc/', 3, 40, 12, 10, '0', 'dgdg', 'dgdg', 'gdgdg', NULL, 'Test Market', 'Associations', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'https://www.linkedin.com/in/souhaibdziri/', 'Chez-soi', NULL, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, NULL, 0, '0', NULL, NULL, '0', 0, NULL, NULL, 'dgdg', NULL, 'dgdg', 'dgdg', 1, 1, 1, 1, 1, 1, 0, NULL, 'F452', NULL, 'ProjetTesst3', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(48, 12, 'ProjetTesst4', NULL, NULL, '2022-04-12 13:38:34', '2022-04-12 13:38:34', 'projet.png', 3, 3, 'Meknes', NULL, 'dfdf', 'dfdf', 'Test Market', 'Test Market', 'https://www.linkedin.com/in/souhaibdziri/', NULL, NULL, 3, 40, 18, 30, '0', 'dfdf', 'dfdf', 'dfdfd', NULL, 'Test Market', 'SARL', NULL, NULL, NULL, 'Cafés', NULL, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, NULL, 0, '0', NULL, NULL, '0', 0, NULL, NULL, 'dfdf', NULL, 'dfdf', 'dfdf', 1, 1, 1, 1, 1, 1, 0, NULL, 'F6632', NULL, 'ProjetTesst4', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(49, 12, 'ProjetTesst5', NULL, NULL, '2022-04-13 10:29:21', '2022-04-13 10:29:21', 'projet.png', 3, 10, 'Meknes', NULL, 'fgfg', 'fgfg', 'Test Market', 'Test Market', NULL, NULL, NULL, 3, 40, 15, 10, '0', 'fgfg', 'fgfg', 'fgfg', NULL, 'Test Market', 'SARL', NULL, NULL, NULL, 'Cafés', NULL, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, NULL, 0, '0', NULL, NULL, '0', 0, NULL, NULL, 'fgfg', NULL, 'fgfg', 'fgfg', 1, 1, 1, 1, 1, 1, 0, NULL, 'D1234', NULL, 'ProjetTesst5', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projet_users`
+--
+
+CREATE TABLE `projet_users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `projet_users`
+--
+
+INSERT INTO `projet_users` (`id`, `user_id`, `projet_id`, `created_at`, `updated_at`) VALUES
+(52, 5, 22, NULL, NULL),
+(53, 11, 22, NULL, NULL),
+(60, 32, 26, NULL, NULL),
+(61, 11, 26, NULL, NULL),
+(62, 34, 27, NULL, NULL),
+(63, 11, 27, NULL, NULL),
+(64, 35, 28, NULL, NULL),
+(65, 11, 28, NULL, NULL),
+(66, 36, 29, NULL, NULL),
+(67, 11, 29, NULL, NULL),
+(68, 37, 30, NULL, NULL),
+(69, 11, 30, NULL, NULL),
+(70, 38, 31, NULL, NULL),
+(71, 11, 31, NULL, NULL),
+(72, 39, 32, NULL, NULL),
+(73, 11, 32, NULL, NULL),
+(74, 40, 33, NULL, NULL),
+(75, 11, 33, NULL, NULL),
+(76, 41, 34, NULL, NULL),
+(77, 11, 34, NULL, NULL),
+(78, 42, 35, NULL, NULL),
+(79, 11, 35, NULL, NULL),
+(80, 54, 36, NULL, NULL),
+(81, 28, 36, NULL, NULL),
+(82, 56, 37, NULL, NULL),
+(83, 28, 37, NULL, NULL),
+(84, 58, 38, NULL, NULL),
+(85, 28, 38, NULL, NULL),
+(86, 59, 39, NULL, NULL),
+(87, 11, 39, NULL, NULL),
+(88, 60, 40, NULL, NULL),
+(89, 57, 40, NULL, NULL),
+(90, 62, 41, NULL, NULL),
+(91, 57, 41, NULL, NULL),
+(92, 64, 42, NULL, NULL),
+(93, 28, 42, NULL, NULL),
+(94, 65, 43, NULL, NULL),
+(95, 57, 43, NULL, NULL),
+(96, 66, 44, NULL, NULL),
+(97, 57, 44, NULL, NULL),
+(98, 67, 45, NULL, NULL),
+(99, 57, 45, NULL, NULL),
+(102, 70, 47, NULL, NULL),
+(103, 28, 47, NULL, NULL),
+(104, 71, 48, NULL, NULL),
+(105, 57, 48, NULL, NULL),
+(106, 73, 49, NULL, NULL),
+(107, 28, 49, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `region_zones`
+--
+
+CREATE TABLE `region_zones` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `state_id` bigint(20) UNSIGNED NOT NULL,
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `region_zones`
+--
+
+INSERT INTO `region_zones` (`id`, `created_by`, `state_id`, `zone_id`, `created_at`, `updated_at`) VALUES
+(7, 9, 6, 1, NULL, NULL),
+(8, 9, 9, 1, NULL, NULL),
+(11, 9, 2, 3, NULL, NULL),
+(12, 9, 3, 3, NULL, NULL),
+(13, 9, 12, 4, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`, `role_text`, `created_at`, `updated_at`) VALUES
+(3, 'Administrateur Général ', NULL, NULL, NULL),
+(4, 'Chef de project', NULL, NULL, NULL),
+(5, 'Coordinateur de projet', NULL, NULL, NULL),
+(6, 'Mentor', NULL, NULL, NULL),
+(7, 'Porteur de projet', NULL, NULL, NULL),
+(8, 'Administrateur Financier', NULL, NULL, NULL),
+(9, 'Administrateur Métier', NULL, NULL, NULL),
+(10, 'Responsable programme(s)', NULL, NULL, NULL),
+(11, 'Jury des candidatures', NULL, NULL, NULL),
+(12, 'Partenaire programme(s)', NULL, NULL, NULL),
+(13, 'Coach', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `secteurs`
+--
+
+CREATE TABLE `secteurs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `secteurs`
+--
+
+INSERT INTO `secteurs` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Services aux Entreprises', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(2, 'Electronique & Composants', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(3, 'SSII & NTIC', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(4, 'Sante, Biotech, Chimie', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(5, 'Art, Culture, Loisirs, Sport', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(6, 'CleanTech, Energie', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(7, 'Education', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(8, 'Immobilier, BTP', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(9, 'Architecture', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(10, 'Finance', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(11, 'RH, Recrutement', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(12, 'Textile', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(13, 'Beaute', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(14, 'Design', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(15, 'Transport Logistique', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(16, 'Tourisme', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(17, 'Agriculture / Agroalimentaire\r\n', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(18, 'Services aux Particuliers', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(19, 'Autres services', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(20, 'Autres industries', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(21, 'E-Commerce', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(22, 'Artisanat', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(23, 'Produit de terroir', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(24, 'Commerce/Négoce/Distribution', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(25, 'Alimentaire / Cosmétique', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(26, 'Aquaculture', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(27, 'Automobile', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(28, 'Bijouterie', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(29, 'Divertissement', '2022-01-23 13:27:08', '2022-01-23 13:27:08'),
+(30, 'E_Santé', '2022-01-23 13:27:08', '2022-01-23 13:27:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('Db2nyX0Y5WtVTwfHS2yQsogDpEBOzjV8pg558JaB', 9, '197.247.201.183', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiMVJDRExzUG1SSmJlb21waWt6Y3J3c2JFR0I3UTNLTFV6VlFnbTQyUSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHBzOi8vZ2VzdGluY3YyLm1lZHlvdWluLmNvbS9wcm9qZXRzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6OTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJFFjVVpNSjZQb0pwaXlRZlU3a05QV09udFdsSTBOU3NBN3Y5bFRzbVpwUEFsLld6ak45b3ptIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRRY1VaTUo2UG9KcGl5UWZVN2tOUFdPbnRXbEkwTlNzQTd2OWxUc21acFBBbC5XempOOW96bSI7fQ==', 1649846075),
+('qdIFko1rGMKyySqe8laAqbLyqUGNCt9KovBFsRBI', 9, '197.247.201.183', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZnZUNVVYT0tOZUNrU1AxYnpVcjh4ZExTRDNpb25JSXBGVnV1SXNndCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHBzOi8vZ2VzdGluY3YyLm1lZHlvdWluLmNvbS9ab25lU2hvdy8zIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6OTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJFFjVVpNSjZQb0pwaXlRZlU3a05QV09udFdsSTBOU3NBN3Y5bFRzbVpwUEFsLld6ak45b3ptIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRRY1VaTUo2UG9KcGl5UWZVN2tOUFdPbnRXbEkwTlNzQTd2OWxUc21acFBBbC5XempOOW96bSI7fQ==', 1649846656);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session_mentorings`
+--
+
+CREATE TABLE `session_mentorings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projet_id` bigint(20) UNSIGNED NOT NULL,
+  `prénom` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nom` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tele` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ville` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `domaine_compétences` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `agenda_mentorat` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `engagement_mentor` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `engagement_mentee` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feedback_mentor` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feedback_mentee` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `plan_action_mentorat` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dateSession` date DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `mentor_id` bigint(20) UNSIGNED NOT NULL,
+  `timeSession` time DEFAULT NULL,
+  `validation` int(11) DEFAULT 0,
+  `formatSession` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `session_mentorings`
+--
+
+INSERT INTO `session_mentorings` (`id`, `projet_id`, `prénom`, `nom`, `email`, `tele`, `ville`, `domaine_compétences`, `agenda_mentorat`, `engagement_mentor`, `engagement_mentee`, `feedback_mentor`, `feedback_mentee`, `plan_action_mentorat`, `created_at`, `updated_at`, `title`, `dateSession`, `end`, `mentor_id`, `timeSession`, `validation`, `formatSession`) VALUES
+(5, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem', 'Lorem', NULL, NULL, '1646583881.png', '2022-03-06 16:24:41', '2022-03-17 21:20:39', 'Session Youssef N1', '2022-03-15', NULL, 11, '18:30:00', 2, NULL),
+(9, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1646935879.pdf', '2022-03-10 18:11:19', '2022-04-06 12:06:26', 'Test', '2022-03-17', NULL, 11, '16:00:00', 2, NULL),
+(10, 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-10 14:24:38', NULL, 'Session 00', '2022-04-06', NULL, 28, '16:21:00', 0, 'Distanciel'),
+(12, 39, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-11 11:01:42', NULL, 'Session 00', '2022-03-14', NULL, 11, '17:00:00', 0, 'Distanciel'),
+(14, 40, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1649703604.png', '2022-04-11 19:00:04', NULL, 'Session 02', '2022-04-14', NULL, 57, '20:59:00', 0, 'Distanciel'),
+(15, 36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '2022-04-11 19:52:16', NULL, 'Session 01', '2022-04-14', NULL, 28, '10:54:00', 0, 'Sur place'),
+(16, 41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 00:13:18', NULL, 'Session 00', '2022-04-14', NULL, 57, '13:16:00', 0, 'Sur place'),
+(17, 42, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 08:22:57', NULL, 'Session 01', '2022-03-12', NULL, 28, '12:00:00', 0, 'Distanciel'),
+(18, 43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 08:30:07', NULL, 'Session 00', '2022-04-12', NULL, 57, '16:33:00', 0, 'Distanciel'),
+(19, 44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 08:39:57', NULL, 'Session 00', '2022-04-10', NULL, 57, '11:10:00', 0, 'Distanciel'),
+(20, 45, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 09:45:51', NULL, 'Session 00', '2022-04-15', NULL, 57, '10:46:00', 0, 'Sur place'),
+(22, 47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 12:23:33', NULL, 'Session 00', '2022-04-15', NULL, 28, '15:26:00', 0, 'Sur place'),
+(23, 48, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-12 13:38:34', NULL, 'Session 00', '2022-04-12', NULL, 57, '13:35:00', 0, NULL),
+(24, 49, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 10:29:21', NULL, 'Session 00', '2022-04-13', NULL, 28, '10:18:00', 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `states`
+--
+
+CREATE TABLE `states` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `states`
+--
+
+INSERT INTO `states` (`id`, `name`) VALUES
+(1, 'Région Tanger-Tetouan-Al Hoceima'),
+(2, 'Région Oriental'),
+(3, 'Région Fès-Meknès'),
+(4, 'Région Rabat-Salé-Kénitra'),
+(5, 'Région Béni Mellal-Khénifra'),
+(6, 'Région Casablanca-Settat'),
+(7, 'Région Marrakech-Safi'),
+(8, 'Région Drâa-Tafilalet'),
+(9, 'Région Souss-Massa'),
+(10, 'Région Guelmim-Oued Noun'),
+(11, 'Région Laayoune-Sakia El Hamra'),
+(12, 'Région Dakhla Oued Eddahab');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statuses`
+--
+
+CREATE TABLE `statuses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` enum('Active','Inactive','Suspended','Blocked','Deleted') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `statuses`
+--
+
+INSERT INTO `statuses` (`id`, `name`) VALUES
+(1, 'Active'),
+(2, 'Inactive'),
+(3, 'Suspended'),
+(4, 'Blocked'),
+(5, 'Deleted');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `lname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` enum('female','male') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'male',
+  `utype` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'USR',
+  `identity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_id` bigint(20) UNSIGNED NOT NULL DEFAULT 1,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state_id` bigint(20) UNSIGNED NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `codezip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `profile_photo_path` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_team_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `profile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo_partenaire` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `phoneWhatsapp` int(11) DEFAULT NULL,
+  `nv_etude` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nb_experiance` int(11) DEFAULT NULL,
+  `professionnelle` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `lname`, `fname`, `email`, `phone`, `gender`, `utype`, `identity`, `status_id`, `address`, `state_id`, `city`, `codezip`, `role_id`, `profile_photo_path`, `password`, `email_verified_at`, `remember_token`, `current_team_id`, `created_at`, `updated_at`, `profile`, `logo_partenaire`, `age`, `phoneWhatsapp`, `nv_etude`, `nb_experiance`, `professionnelle`) VALUES
+(4, 'otmane', 'AMAL', 'otmane@medyouin.ma', '0674393941', 'male', 'ADM', 'D822916', 1, 'Secteur D rue 16 n5 El Bassatine', 1, 'MEKNES', '50020', 3, 'male.png', '$2y$10$.1vworfr.wsldSQhRbT5.uzuyhwJwelouj/FrHKbcRRpbz/u0o/MC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'AMAL', 'OTHMANE', 'otmane@medyouin.com', '0674393942', 'male', 'USR', 'D822917', 1, 'Secteur D rue 16 numero 5 EL Bassatin', 3, 'MEKNES', '50000', 7, 'male.png', '$2y$10$R7DQTXV8gWNvGQCbSRxlCeJQ.XnmsfNRmQvcj8cHk4xReCIZwE6mS', NULL, NULL, NULL, NULL, '2022-01-16 09:52:43', 'male.png', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'EL MIR', 'El Mehdi', 'midox0044@gmail.com', '0611253892', 'male', 'USR', 'D244260', 1, 'Rue 46 AV 3 N°3 toulal', 3, 'Meknes', '50000', 3, '1642331829.jpg', '$2y$10$QcUZMJ6PoJpiyQfU7kNPWOntWlI0NSsA7v9lTsmZpPAl.WzjN9ozm', NULL, NULL, NULL, NULL, '2022-03-02 16:36:32', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'ALAOUI', 'Nawal', 'Nawal@gmail.com', '0652325658', 'female', 'USR', 'D254784', 1, 'Rue 78 Bassatine', 3, 'Meknes', '50020', 5, 'female.png', '$2y$10$FBt5N24iE.gdGm3.heGe7eVvYn466hwnDFZf.vW9GxFxPJmZHfTgm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'ALAOUI', 'Youssef', 'Youssef@gmail.com', '0625112145', 'male', 'USR', 'D456852', 1, 'Rue 46 AV 3 N°3', 1, 'Tanger', '40000', 6, 'male.png', '$2y$10$Hg0QjaklHvYajIVKbxxD.e5nroack/BuF7hv3h/tcUOHn5RcNqdqW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 'EL BOUJMAAOUI', 'Youssef', 'Youssef@medyouin.ma', '0622145478', 'male', 'USR', 'D556478', 1, 'Secteur 12 Marjan Meknes', 3, 'Meknès', '50000', 3, 'male.png', '$2y$10$JOfPDYv6O2.XK.ywqpRb4O1HFz9EkO9m8k275WcLJh8bW9jMTwSFW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 'ALAOUI', 'Rania', 'Rania@gmail.com', '0620221458', 'female', 'USR', 'D125221', 1, 'Meknes Hamria', 3, 'Meknes', '50010', 6, '1646584348.jpg', '$2y$10$2uX0Amv8sLjMpnRCSq8Ja.x/dAbio9VsVwAfKKWIAXKzhyqWXsolG', NULL, NULL, NULL, NULL, '2022-03-07 19:36:53', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 'FIKRA', '1000', '1000fikra@gmail.com', '0622521452', 'male', 'USR', 'D445521', 1, 'Meknes Bassatin', 3, 'Meknes', '50000', 12, '1646931282.jpg', '$2y$10$86MrIuIJHcQjDCFqHhh6YeBxzHZbWh8A45qk4hlJUzc9b6kER66n2', NULL, NULL, NULL, NULL, NULL, NULL, '1646931282.jpg', NULL, NULL, NULL, NULL, NULL),
+(32, 'ABDELLATIF', 'Draissy', 'abdoudraissy7@gmail.com', '0707978678', 'male', 'USR', 'D31487', 1, 'Casablanca', 6, 'Casablanca', '60000', 7, 'male.png', '$2y$10$MqRWso2J0v.VP8NhphW0Nea1sDBIyEjWBSNWR.nthKSM9tRgT2CDu', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(34, 'AMINA', 'Arafa', 'arafamna@gmail.com', '0619755204', 'female', 'USR', 'D37804', 1, 'Casablanca', 6, 'Casablanca', '50000', 7, 'female.png', '$2y$10$d9esHFGx0H17yFvrMV53VeHy26e2NohLFKZ90rsjgGhmAZbRpWqxW', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(35, 'ABDELMOUNIM', 'boudiar', 'boudiarmoneim@gmail.com', '0674884147', 'male', 'USR', 'D40633', 1, 'khouribga', 5, 'khouribga', '60000', 7, 'male.png', '$2y$10$YkayD7KdOxSBRDFmY53MY.xyw.5JXDUsi3Cn5heyWPJ3O01hVSkye', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(36, 'MOHAMED', 'assam', 'mhmd.assam@gmail.com', '+212668306487', 'male', 'USR', 'D30755', 1, 'beni mellal', 5, 'beni mellal', '60000', 7, 'male.png', '$2y$10$qxldEBMUXdvSbiUTMWv1VOxmghb7edwD/Pln2np59wuPkPYxp3tzG', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(37, 'حفيظة', 'ادريسي', 'hafidaidrissi1992@gmail.com', '0670818965', 'female', 'USR', 'D38288', 1, 'اغبالة اقليم بني ملال', 5, 'اغبالة اقليم بني ملال', '60000', 7, 'female.png', '$2y$10$McKnP7uy.ajUjPUUIOCXe.24GAdu3IzBNxWkn7y2SmJZRwVy/w6Ea', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(38, 'MEHDI', 'Nasser', 'mehdinasser200012@gmail.com', '+212669138909', 'male', 'USR', 'D32745', 1, 'Casablanca', 6, 'Casablanca', '60000', 7, 'male.png', '$2y$10$bjmnTtv6IzkLWyGb8tkiduSlTbN2qR0BGRNe3b6CREVgJWcm6uM0K', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(39, 'SOUHAIB', 'Dziri', 'Dziri.souhaib@gmail.com', '0632303336', 'male', 'USR', 'D38980', 1, 'Casablanca', 6, 'Casablanca', '60000', 7, 'male.png', '$2y$10$OmVlFIj8roT7xeltngqHAu3wGil4gaM7Gnc87Ny91j6L2h/CdzlB6', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(40, 'HICHAM', 'ouartassi', 'hichamouartassi@gmail.com', '0654930785', 'male', 'USR', 'D38725', 1, 'casablanca', 6, 'casablanca', '60000', 7, 'male.png', '$2y$10$Scfioez9lzob.BiYbYth3.qVgKJzWB.PqlI/ojXx3IZ2q1HTlJJf2', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(41, 'GHITA', 'EL MENJRA', 'ghita.elmenjra@gmail.com', '0660812731', 'female', 'USR', 'D30633', 1, 'Casablanca', 6, 'Casablanca', '60000', 7, 'female.png', '$2y$10$WOMkp.f19Zdwuq1HcwoEHegIuwvinxLm1WuX1zEDDXd2B2jt6Yc7m', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(42, 'GHIZLANE', 'HACHIM', 'ghachim.consulting@gmail.com', '+212611317309', 'female', 'USR', 'D39953', 1, 'Casablanca', 6, 'Casablanca', '60000', 7, 'female.png', '$2y$10$EDMTgIMqbuqxYzDejSZ.JuBmzx9WyDiupU9EAQMXLvOLz2zYiOT3i', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(43, 'ELABRIDI', 'Mohamed', 'm.alabridi@mcise.org', '0600000001', 'male', 'USR', 'D000000', 1, 'Rabat', 4, 'Rabat', '', 5, 'male.png', '$2y$10$fGxrJs.FQ/.7r1nuElmXVOnipSd9O8ekcO5zM3LhT.gn2szorvwfm', NULL, NULL, NULL, NULL, '2022-03-11 17:54:33', NULL, '', NULL, NULL, NULL, NULL, NULL),
+(44, 'EL ALLAM', 'Meryem', 'm.elallam@mcise.org', '060000002', 'female', 'USR', 'A0000001', 1, 'Rabat', 4, 'Rabat', '10000', 5, 'female.png', '$2y$10$1ApzFDMFUck5nK5cbFwjhOk4nr4V41Az7M0fMEa/wKosUXBdq17B6', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(45, 'EL JAMIY', 'Lamyaa', 'l.eljamiy@mcise.org', '06000003', 'female', 'USR', 'A000002', 1, 'Rabat', 4, 'Rabat', '10000', 5, 'female.png', '$2y$10$Abs36rIRgrdkr2Ez3wFvSOAYJ8UPis.vivu/VxDv4YwaPbxRAGACe', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(46, 'ESSAGAR', 'Mohamed', 'm.essagar@mcise.org', '060000004', 'male', 'USR', 'A000003', 1, 'Rabat', 4, 'Rabat', '100000', 9, 'male.png', '$2y$10$1Hvb6FnfRRUnhrkFFrqAYO3LWT./Am8vxqaF15gVDNhFW8OzpeFVS', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(54, 'ALI', 'Alaoui', 'Ali@gmail.com', '0652112145', 'male', 'USR', 'D455652', 1, 'Meknes', 9, 'Meknes', NULL, 7, 'male.png', '$2y$10$rmMxhc7l7ayGrrpMlDHH1u3SeVTP9WJIMQcal9gewYbYcGQ/dLcEq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 26, 652221454, 'Licence', 10, 'Salarié(e) - secteur formel'),
+(55, 'AFARIAD', 'Hanan', 'h.afariad@mcise.org', '0600001100', 'female', 'USR', 'D100000', 1, 'Rabat', 6, 'Rabat', '20000', 10, 'female.png', '$2y$10$oS4N/wvFdfBEqZfZc/fq6O9j89jG5q.V//f9ARNQdYAacBb3zxAwS', NULL, NULL, NULL, NULL, '2022-04-09 08:37:40', NULL, '', NULL, NULL, NULL, NULL, NULL),
+(56, 'ALAOUI', 'Adil', 'Adil@gmail.com', '0621452214', 'male', 'USR', 'D455521', 1, 'Meknes', 8, 'Meknes', NULL, 7, 'male.png', '$2y$10$sqXXpP2jYGiBouSYpEmJzefCkKccYfXX0zMGiRPS1n23JN6WofiQe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 24, 625221214, 'Licence', 10, 'Salarié(e) - secteur formel'),
+(57, 'MATCHING', 'EN COURS', 'matchigencours@mcise.org', '060000000', 'male', 'USR', '198765', 1, 'BP 19011 ABB MARJANE', 4, 'Rabat', '50050', 6, 'male.png', '$2y$10$VJ.yHga3Hcko95nhmuh75eKwnySXMrTeVWuORpJ9V.6PKTzltyaOi', NULL, NULL, NULL, NULL, '2022-04-11 08:07:33', NULL, '', NULL, NULL, NULL, NULL, NULL),
+(58, 'MERYEM', 'LAHCINI', 'lahcinimeryem12@gmail.com', '0661043173', 'male', 'USR', '34586', 1, 'CASABLANCA', 6, 'CASABLANCA', NULL, 7, 'male.png', '$2y$10$ST6DM/7/mwtgDi/gNp6aTuIChxkLp0Nsp8tT.Xrt7.rRK0WyarOAq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 45, 661043173, 'Secondaire', 2, 'Salarié(e) - secteur formel'),
+(59, 'MERYEM', 'LAHCINI', 'test@gmail.com', '06124567', 'male', 'USR', '41350', 1, 'CASABLANCA', 5, 'CASABLANCA', NULL, 7, 'male.png', '$2y$10$zGjzkCzA8/ck1OwQjdMDveplBNUHy3WAZYaWfxpBdDjx8NpKE3lQO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 37, 661043176, 'Secondaire', 2, 'étudiant(e)'),
+(60, 'BOUJAMAOUI', 'YOUSSEF', 'youssef.boujamaoui@gmail.com', '0621716179', 'male', 'USR', '12342589', 1, 'MEKNES', 3, 'MEKNES', NULL, 7, 'male.png', '$2y$10$mW9BIyvGq/CSajCKa.7UGeNebNHu/XIh2wj2isDbyAVskfAN.F8IG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 26, 621716179, 'Master', 8, 'Auto entrepreneur'),
+(62, 'ALAOUI', 'Siham', 'Siham@gmail.com', '0622325214', 'female', 'USR', 'D455621', 1, 'Meknes', 3, 'Meknes', NULL, 7, 'female.png', '$2y$10$IpTwnr7yjZOaT3zkIVLDP.fHROdgiVADYNQRCg9zJNx1KPIrLhgke', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 24, 655856521, 'Licence', 10, 'Auto entrepreneur'),
+(63, 'MERYEM', 'LAHCINI', 'test2@gmail.com', '0760284755', 'female', 'USR', '14222', 1, 'casa', 6, 'casa', NULL, 7, 'female.png', '$2y$10$B2wqQ5uh6hsDExxvfLgnLOqi4NUhNFAnP2DP94yh0l13DhRxfoktO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, 654783922, 'Secondaire', 3, 'Salarié(e) - secteur formel'),
+(64, 'MERYEM', 'LAHCINI', 'test3@gmail.com', '013245678', 'male', 'USR', '12333', 1, 'CASABLANCA', 5, 'CASABLANCA', NULL, 7, 'male.png', '$2y$10$OxefEr2e.kqht2rM0PSlbuipeNNxBE0Doe.Itk.RiOABQxjX320bO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 45, 132456783, 'Primaire', 3, 'Salarié(e) - secteur formel'),
+(65, 'FGHJKL', 'fghjk', 'test4@gmail.com', '097654348', 'male', 'USR', '12456', 1, 'casa', 6, 'casa', NULL, 7, 'male.png', '$2y$10$yBfng/EcIHbi9ad41dJg3OKeNuiIP0tEChnnEpTXScIqxFKMEWznC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 18, 98764543, 'Secondaire', 1, 'Salarié(e) - secteur formel'),
+(66, 'SDFGHJ', 'dfghjk', 'test5@gmail.com', '0623456789', 'male', 'USR', '111111', 1, 'casa', 6, 'casa', NULL, 7, 'male.png', '$2y$10$5cKwp5mZm1o7sJQjRNMfg.pmpdNmwfQwqzKSBfk3PClvegHBV1Jyu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 40, 786543423, 'Secondaire', 2, 'Salarié(e) - secteur informel'),
+(67, 'HILAL', 'Karim', 'Karim@gmail.com', '0622114521', 'male', 'USR', 'D785421', 1, 'Meknes', 3, 'Meknes', NULL, 7, 'male.png', '$2y$10$j7ULG4P7yEIFmlSAoY7UXOFBKDrqAe6AY4QVJJ4AxDRz4WT9e6aBC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 652121452, 'Licence', 10, 'Auto entrepreneur'),
+(70, 'ALAOUI', 'Fahd', 'Fahd@gmail.com', '0621254521', 'male', 'USR', 'D66545', 1, 'Meknes', 3, 'Meknes', NULL, 7, 'male.png', '$2y$10$dfHIhX.4khOTiMCWNqZbB.R/VtC8jWPwbDCG8GFnzD4y2v4GaLgpS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 625212145, 'Licence', 10, 'NEET'),
+(71, 'ALAOUI', 'Hind', 'Hind@gmail.com', '0625212145', 'female', 'USR', 'D85652', 1, 'Meknes', 3, 'Meknes', NULL, 7, 'female.png', '$2y$10$BucnImwQkt8iTHRbGN62sOxmKcNqqRvGLGzhIe3F0j/pJDioYgFwS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 655325214, 'Licence', 10, 'NEET'),
+(72, '1000FIKRA', 'Coach', 'Coach@gmail.com', '0622889656', 'male', 'USR', 'D568956', 1, 'Meknes', 3, 'Meknes', '50000', 13, 'male.png', '$2y$10$HpQ.DwwFx0MDEQ0X0m8ny.8JW5vaRkVIWjUW0m8B.qyJehvSTDaJe', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(73, 'ALAOUI', 'Omar', 'Omar@gmail.com', '0625212425', 'male', 'USR', 'D451214', 1, 'Meknes', 3, 'Meknes', NULL, 7, 'male.png', '$2y$10$h5jt8DzMuYFao/I1mkyJJ.K5QEet0GRUBQheXCsmNXYj7bOgDY1TW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 623252124, 'Licence', 10, 'NEET');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zones`
+--
+
+CREATE TABLE `zones` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `programme_id` bigint(20) UNSIGNED NOT NULL,
+  `coordinateur` bigint(20) UNSIGNED NOT NULL,
+  `zone_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `zones`
+--
+
+INSERT INTO `zones` (`id`, `programme_id`, `coordinateur`, `zone_name`, `created_at`, `updated_at`) VALUES
+(1, 12, 10, 'Zone 1', NULL, NULL),
+(3, 12, 44, 'Zone 2', NULL, NULL),
+(4, 12, 43, 'Zone 3', NULL, NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `candidatures`
+--
+ALTER TABLE `candidatures`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `candidatures_email_unique` (`email`),
+  ADD UNIQUE KEY `candidatures_phone_unique` (`phone`),
+  ADD UNIQUE KEY `candidatures_identity_unique` (`identity`),
+  ADD KEY `candidatures_state_id_foreign` (`state_id`),
+  ADD KEY `candidatures_secteur_id_foreign` (`secteur_id`),
+  ADD KEY `candidatures_programme_id_foreign` (`programme_id`);
+
+--
+-- Indexes for table `canvases`
+--
+ALTER TABLE `canvases`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `canvases_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chats`
+--
+ALTER TABLE `chats`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `chats_created_by_foreign` (`created_by`),
+  ADD KEY `chats_sent_to_foreign` (`sent_to`);
+
+--
+-- Indexes for table `coachings`
+--
+ALTER TABLE `coachings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `coachings_projet_id_foreign` (`projet_id`),
+  ADD KEY `coachings_coached_by_foreign` (`coached_by`);
+
+--
+-- Indexes for table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `commentaires_created_by_foreign` (`created_by`),
+  ADD KEY `commentaires_forum_id_foreign` (`forum_id`);
+
+--
+-- Indexes for table `decisions`
+--
+ALTER TABLE `decisions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `decisions_candidature_id_foreign` (`candidature_id`);
+
+--
+-- Indexes for table `dossier_phs`
+--
+ALTER TABLE `dossier_phs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `dossier_phs_projet_id_foreign` (`projet_id`);
+
+--
+-- Indexes for table `dossier_subs`
+--
+ALTER TABLE `dossier_subs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `dossier_subs_projet_id_foreign` (`projet_id`);
+
+--
+-- Indexes for table `evolutions`
+--
+ALTER TABLE `evolutions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `evolutions_projet_id_foreign` (`projet_id`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `follows`
+--
+ALTER TABLE `follows`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `follows_projet_id_foreign` (`projet_id`);
+
+--
+-- Indexes for table `forums`
+--
+ALTER TABLE `forums`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `forums_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `likes_created_by_foreign` (`created_by`),
+  ADD KEY `likes_forum_id_foreign` (`forum_id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `programmes`
+--
+ALTER TABLE `programmes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `programmes_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `programmes_users`
+--
+ALTER TABLE `programmes_users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `programmes_users_user_id_foreign` (`user_id`),
+  ADD KEY `programmes_users_programme_id_foreign` (`programme_id`);
+
+--
+-- Indexes for table `projets`
+--
+ALTER TABLE `projets`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `projets_programme_id_foreign` (`programme_id`),
+  ADD KEY `projets_state_id_foreign` (`state_id`),
+  ADD KEY `projets_secteur_id_foreign` (`secteur_id`),
+  ADD KEY `projets_zone_id_foreign` (`zone_id`);
+
+--
+-- Indexes for table `projet_users`
+--
+ALTER TABLE `projet_users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `projet_users_user_id_foreign` (`user_id`),
+  ADD KEY `projet_users_projet_id_foreign` (`projet_id`);
+
+--
+-- Indexes for table `region_zones`
+--
+ALTER TABLE `region_zones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `region_zones_created_by_foreign` (`created_by`),
+  ADD KEY `region_zones_state_id_foreign` (`state_id`),
+  ADD KEY `region_zones_zone_id_foreign` (`zone_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `secteurs`
+--
+ALTER TABLE `secteurs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sessions_user_id_index` (`user_id`),
+  ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
+-- Indexes for table `session_mentorings`
+--
+ALTER TABLE `session_mentorings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `session_mentorings_projet_id_foreign` (`projet_id`),
+  ADD KEY `session_mentorings_mentor_id_foreign` (`mentor_id`);
+
+--
+-- Indexes for table `states`
+--
+ALTER TABLE `states`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statuses`
+--
+ALTER TABLE `statuses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD UNIQUE KEY `users_phone_unique` (`phone`),
+  ADD UNIQUE KEY `users_identity_unique` (`identity`),
+  ADD KEY `users_status_id_foreign` (`status_id`),
+  ADD KEY `users_role_id_foreign` (`role_id`),
+  ADD KEY `users_state_id_foreign` (`state_id`);
+
+--
+-- Indexes for table `zones`
+--
+ALTER TABLE `zones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `zones_programme_id_foreign` (`programme_id`),
+  ADD KEY `zones_coordinateur_foreign` (`coordinateur`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `candidatures`
+--
+ALTER TABLE `candidatures`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `canvases`
+--
+ALTER TABLE `canvases`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `chats`
+--
+ALTER TABLE `chats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `coachings`
+--
+ALTER TABLE `coachings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `commentaires`
+--
+ALTER TABLE `commentaires`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `decisions`
+--
+ALTER TABLE `decisions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `dossier_phs`
+--
+ALTER TABLE `dossier_phs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `dossier_subs`
+--
+ALTER TABLE `dossier_subs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `evolutions`
+--
+ALTER TABLE `evolutions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `follows`
+--
+ALTER TABLE `follows`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `forums`
+--
+ALTER TABLE `forums`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `programmes`
+--
+ALTER TABLE `programmes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `programmes_users`
+--
+ALTER TABLE `programmes_users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `projets`
+--
+ALTER TABLE `projets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `projet_users`
+--
+ALTER TABLE `projet_users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
+-- AUTO_INCREMENT for table `region_zones`
+--
+ALTER TABLE `region_zones`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `secteurs`
+--
+ALTER TABLE `secteurs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `session_mentorings`
+--
+ALTER TABLE `session_mentorings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `statuses`
+--
+ALTER TABLE `statuses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT for table `zones`
+--
+ALTER TABLE `zones`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `candidatures`
+--
+ALTER TABLE `candidatures`
+  ADD CONSTRAINT `candidatures_programme_id_foreign` FOREIGN KEY (`programme_id`) REFERENCES `programmes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `candidatures_secteur_id_foreign` FOREIGN KEY (`secteur_id`) REFERENCES `secteurs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `candidatures_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `canvases`
+--
+ALTER TABLE `canvases`
+  ADD CONSTRAINT `canvases_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `chats`
+--
+ALTER TABLE `chats`
+  ADD CONSTRAINT `chats_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `chats_sent_to_foreign` FOREIGN KEY (`sent_to`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `coachings`
+--
+ALTER TABLE `coachings`
+  ADD CONSTRAINT `coachings_coached_by_foreign` FOREIGN KEY (`coached_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `coachings_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD CONSTRAINT `commentaires_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `commentaires_forum_id_foreign` FOREIGN KEY (`forum_id`) REFERENCES `forums` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `decisions`
+--
+ALTER TABLE `decisions`
+  ADD CONSTRAINT `decisions_candidature_id_foreign` FOREIGN KEY (`candidature_id`) REFERENCES `candidatures` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `dossier_phs`
+--
+ALTER TABLE `dossier_phs`
+  ADD CONSTRAINT `dossier_phs_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `dossier_subs`
+--
+ALTER TABLE `dossier_subs`
+  ADD CONSTRAINT `dossier_subs_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `evolutions`
+--
+ALTER TABLE `evolutions`
+  ADD CONSTRAINT `evolutions_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `follows`
+--
+ALTER TABLE `follows`
+  ADD CONSTRAINT `follows_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `forums`
+--
+ALTER TABLE `forums`
+  ADD CONSTRAINT `forums_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `likes`
+--
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `likes_forum_id_foreign` FOREIGN KEY (`forum_id`) REFERENCES `forums` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `programmes`
+--
+ALTER TABLE `programmes`
+  ADD CONSTRAINT `programmes_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `programmes_users`
+--
+ALTER TABLE `programmes_users`
+  ADD CONSTRAINT `programmes_users_programme_id_foreign` FOREIGN KEY (`programme_id`) REFERENCES `programmes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `programmes_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `projets`
+--
+ALTER TABLE `projets`
+  ADD CONSTRAINT `projets_programme_id_foreign` FOREIGN KEY (`programme_id`) REFERENCES `programmes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `projets_secteur_id_foreign` FOREIGN KEY (`secteur_id`) REFERENCES `secteurs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `projets_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `projets_zone_id_foreign` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `projet_users`
+--
+ALTER TABLE `projet_users`
+  ADD CONSTRAINT `projet_users_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `projet_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `region_zones`
+--
+ALTER TABLE `region_zones`
+  ADD CONSTRAINT `region_zones_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `region_zones_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `region_zones_zone_id_foreign` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `session_mentorings`
+--
+ALTER TABLE `session_mentorings`
+  ADD CONSTRAINT `session_mentorings_mentor_id_foreign` FOREIGN KEY (`mentor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `session_mentorings_projet_id_foreign` FOREIGN KEY (`projet_id`) REFERENCES `projets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `users_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `users_status_id_foreign` FOREIGN KEY (`status_id`) REFERENCES `statuses` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `zones`
+--
+ALTER TABLE `zones`
+  ADD CONSTRAINT `zones_coordinateur_foreign` FOREIGN KEY (`coordinateur`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `zones_programme_id_foreign` FOREIGN KEY (`programme_id`) REFERENCES `programmes` (`id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

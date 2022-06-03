@@ -127,9 +127,9 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                <button class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i
+                                <a href="{{ route('admin-addUser') }}" class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i
                                         class="fa fa-plus"></i> Ajouter un utilisateur
-                                </button>
+                                </a>
                             </h2>
                             <ul class="header-dropdown">
                                     <form id="navbar-search" class="navbar-form search-form">
@@ -160,7 +160,7 @@
                                     <tbody>
                                         @foreach ($users as $item)
                                             <tr>
-                                                <td><img src="{{ asset('primary/assets/images/users/male.png') }}"
+                                                <td><img src="{{ asset('primary/assets/images/users/'. $item->profile_photo_path) }}"
                                                         class="rounded-circle user-photo" alt="User Profile Picture"
                                                         width="52" height="52"></td>
                                                 <td>{{ $item->name }}</td>

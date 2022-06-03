@@ -1,6 +1,5 @@
 <?php
 
-
     return [
         'home' => 'Accueil',
         'about' =>'À propos de nous',

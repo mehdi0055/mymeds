@@ -231,6 +231,7 @@
                             <ul class="main-menu metismenu">
                                 <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}"><a  href="{{ route('admin-dashboard') }}"><i
                                             class="icon-home"></i><span>Dashboard</span></a></li>
+                                            <li ><a href="#"><i class="icon-docs"></i>Demandes</a></li>
                                 <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}"><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
                                 <li class="{{ request()->routeIs('admin-rendez_vous') ? 'active' : '' }}"><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
@@ -250,29 +251,34 @@
                     <div class="tab-pane p-l-15 p-r-15" id="setting">
                         <h6>Choose Skin</h6>
                         <ul class="choose-skin list-unstyled">
-                            <li data-theme="purple">
-                                <div class="purple"></div>
-                                <span>Purple</span>
+                            <li data-theme="purple"> <a href="{{ route('change-color','theme-purple') }}"><div class="purple"></div>
+                                <span>Purple</span></a>
+
                             </li>
-                            <li data-theme="blue">
-                                <div class="blue"></div>
-                                <span>Blue</span>
+                            <li data-theme="blue"> <a href="{{ route('change-color','theme-blue') }}"> <div class="blue"></div>
+                                <span>Blue</span></a>
+
                             </li>
-                            <li data-theme="cyan">
-                                <div class="cyan"></div>
+                            <li data-theme="cyan"><a href="{{ route('change-color','theme-cyan') }}"><div class="cyan"></div>
                                 <span>Cyan</span>
+                            </a>
+
                             </li>
-                            <li data-theme="green">
-                                <div class="green"></div>
-                                <span>Green</span>
+                            <li data-theme="green"><a href="{{ route('change-color','theme-green') }}"><div class="green"></div>
+                                <span>Green</span></a>
+
                             </li>
-                            <li data-theme="orange">
+                            <li data-theme="orange"> <a href="{{ route('change-color','theme-orange') }}">
                                 <div class="orange"></div>
                                 <span>Orange</span>
+                            </a>
+
                             </li>
-                            <li data-theme="blush">
+                            <li data-theme="blush"><a href="{{ route('change-color','theme-blush') }}">
                                 <div class="blush"></div>
                                 <span>Blush</span>
+                            </a>
+
                             </li>
                         </ul>
 

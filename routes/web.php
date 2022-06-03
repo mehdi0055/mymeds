@@ -5,6 +5,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\rdvs\AdminRdvComponent;
 use App\Http\Livewire\Admin\users\AdminUsersComponent;
 use App\Http\Livewire\Admin\users\AdminEditUsersComponent;
+use App\Http\Livewire\Admin\users\AdminAddUsersComponent;
 use App\Http\Livewire\Admin\blogs\AdminBlogComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DepartmentComponent;
@@ -13,6 +14,7 @@ use App\Http\Livewire\CanceledRdvComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +67,15 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/rendez_vous',AdminRdvComponent::class)->name('admin-rendez_vous');
     Route::get('/admin/users',AdminUsersComponent::class)->name('admin-users');
     Route::get('/admin/edit/user/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
+    Route::get('/admin/add/user',AdminAddUsersComponent::class)->name('admin-addUser');
     Route::get('/admin/blogs',AdminBlogComponent::class)->name('admin-blogs');
+
+    Route::get('/color/{color}',function($color){
+        $user = User::find( auth()->user()->id);
+        $user->theme = $color;
+        $user->save();
+        return redirect()->route('admin-dashboard');
+    })->name('change-color');
 
 });
 
