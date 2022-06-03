@@ -216,7 +216,7 @@
                                             <tr>
                                                 <td><img src="{{ asset('primary/assets/images/users/' . $item->profile_photo_path) }}"
                                                         class="rounded-circle user-photo" alt="User Profile Picture"
-                                                        width="52" height="52"></td>
+                                                        width="45" height="45"></td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
