@@ -53,7 +53,7 @@
                                 <div class=" p-2"><img src="{{ asset('primary/assets/images/bg-6.png') }}"
                                         class=" user-photo" alt="User Profile Picture" width="200"></div>
                                 <div class=" p-5">
-                                    <h2 class="font-weight-bold">Bienvenu dans votre tableau de bord</h2>
+                                    <h2 class="font-weight-normal">Bienvenu dans votre tableau de bord</h2>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 ">
                             <div class="card ">
 
-                                <div class="body bg-danger text-center text-light p-5 rounded ">
+                                <div class="body  text-center text-light p-5 rounded " style="background-color: #ec5b58">
                                     <i class="fa fa-calendar" style="font-size:40px"></i>
                                     <h5>120</h5>
                                     <span>Rendez vous</span>
@@ -207,7 +207,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Liste Utilisateur</h2>
+                            <h2 class="text-primary font-weight-bold">Liste Utilisateur</h2>
 
                             <p class="float-md-right">
                                 <span class="badge badge-success">0 Active</span>
@@ -224,6 +224,9 @@
                                             <th>Avatar</th>
                                             <th>Nom</th>
                                             <th>Adresse email</th>
+                                            <th>Ville</th>
+                                            <th>Telephone</th>
+
                                             <th>Statue</th>
                                             <th>Activation</th>
                                             <th>Action</th>
@@ -237,6 +240,8 @@
                                                         width="45" height="45"></td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
+                                                <td>{{ $item->city }}</td>
+                                                <td>{{ $item->phone }}</td>
                                                 <td><span
                                                         class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
@@ -288,7 +293,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Liste Rendez vous</h2>
+                            <h2 class="text-primary font-weight-bold">Liste Rendez vous</h2>
 
                             <p class="float-md-right">
                                 <span class="badge  badge-warning">0 En cour</span>
