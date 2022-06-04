@@ -15,7 +15,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card project_widget">
                         <div class="pw_img">
                             <img class="img-fluid" src="{{ asset('primary/assets/images/image-gallery/1.jpg') }}"
@@ -27,13 +27,13 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu.</p>
                                 <a href="depa-Read more.html" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card project_widget">
                         <div class="pw_img">
                             <img class="img-fluid" src="{{ asset('primary/assets/images/image-gallery/2.jpg') }}"
@@ -45,13 +45,13 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu.</p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card project_widget">
                         <div class="pw_img">
                             <img class="img-fluid" src="{{ asset('primary/assets/images/image-gallery/3.jpg') }}"
@@ -63,14 +63,14 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu.
                                 </p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card project_widget">
                         <div class="pw_img">
                             <img class="img-fluid" src="{{ asset('primary/assets/images/image-gallery/4.jpg') }}"
@@ -82,14 +82,14 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu.
                                 </p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card project_widget">
                         <div class="pw_img">
                             <img class="img-fluid" src="{{ asset('primary/assets/images/image-gallery/5.jpg') }}"
@@ -101,7 +101,7 @@
 
                             </div>
                             <div class="pw_meta">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu. Maecenas et ligula arcu.
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius cursus rhoncus. Aliquam ac malesuada arcu.
                                 </p>
                                 <button class="btn btn-primary">Read more</button>
                             </div>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card">
                         <div class="body text-center">
                             <div class="p-t-80 p-b-80">

@@ -44,6 +44,24 @@
             <!-- End Notification -->
 
             <div class="row clearfix">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body"
+                            style="background-image: url({{ asset('primary/assets/images/bg-5.png') }}) ">
+                            <div class="d-flex flex-nowrap">
+                                <div class=" p-2"><img src="{{ asset('primary/assets/images/bg-6.png') }}"
+                                        class=" user-photo" alt="User Profile Picture" width="200"></div>
+                                <div class=" p-5">
+                                    <h2 class="font-weight-bold">Bienvenu dans votre tableau de bord</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
                     <div class="row clearfix">
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
@@ -159,7 +177,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 ">
                             <div class="card ">
 
-                                <div class="body bg-info text-center text-light p-5 rounded ">
+                                <div class="body bg-danger text-center text-light p-5 rounded ">
                                     <i class="fa fa-calendar" style="font-size:40px"></i>
                                     <h5>120</h5>
                                     <span>Rendez vous</span>
@@ -230,7 +248,8 @@
                                                                 class="fa fa-toggle-on text-success icon-size"
                                                                 style="font-size:1.2em"></i></a>
                                                     @else
-                                                        <a href="#" wire:click.prevent="activeUser({{ $item->id }})"
+                                                        <a href="#"
+                                                            wire:click.prevent="activeUser({{ $item->id }})"
                                                             title="Active"><i
                                                                 class="fa fa-toggle-off text-danger icon-size"
                                                                 style="font-size:1.2em"></i></a>
@@ -238,7 +257,8 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('admin-editUser', $item->id) }}" title="Edit"><i
+                                                    <a href="{{ route('admin-editUser', $item->id) }}"
+                                                        title="Edit"><i
                                                             class="icon-note text-primary icon-size"></i></a>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteUser({{ $item->id }})"
