@@ -72,7 +72,7 @@
                                         <div class="carousel-inner ">
                                             <div class="carousel-item active">
                                                 <div class="icon"><i style="font-size: 30px"
-                                                        class="fa fa-users"></i> </div>
+                                                        class="icon-users"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Utilisateurs</div>
                                                     <h5 class="number">215</h5>
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="carousel-item">
                                                 <div class="icon"><i style="font-size: 30px"
-                                                        class="fa fa-user-times"></i> </div>
+                                                        class="icon-user-unfollow"></i> </div>
                                                 <div class="content">
                                                     <div class="text">Utilisateur inactive</div>
                                                     <h5 class="number">21</h5>
