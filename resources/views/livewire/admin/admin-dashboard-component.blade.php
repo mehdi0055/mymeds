@@ -50,8 +50,8 @@
                         <div class="body"
                             style="background-image: url({{ asset('primary/assets/images/bg-5.png') }}) ">
                             <div class="d-flex flex-nowrap">
-                                <div class=" p-2"><img src="{{ asset('primary/assets/images/bg-6.png') }}"
-                                        class=" user-photo" alt="User Profile Picture" width="200"></div>
+                                <div class=" p-2"><img src="{{ asset('primary/assets/images/bg-7.png') }}"
+                                        class="user-photo" alt="User Profile Picture" width="160"></div>
                                 <div class=" p-5">
                                     <h2 class="font-weight-normal">Bienvenu dans votre tableau de bord</h2>
                                 </div>
