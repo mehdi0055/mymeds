@@ -16,6 +16,8 @@ class CreateTypeCabinetsTable extends Migration
         Schema::create('type_cabinets', function (Blueprint $table) {
             $table->id();
             $table->string('name',255);
+            $table->string('slug')->unique();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

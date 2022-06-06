@@ -25,7 +25,6 @@ class CreateDemandesTable extends Migration
             $table->string('city',50)->nullable();
             $table->string('zipcode',10)->nullable();
             $table->string('address')->nullable();
-
             $table->string('name_cabinet',50)->nullable();
             $table->string('phone_cabinet',14)->nullable();
             $table->string('email_cabinet',50)->unique();
