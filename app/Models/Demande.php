@@ -9,4 +9,9 @@ class Demande extends Model
 {
     use HasFactory;
     protected $table = "demandes";
+
+    public function type()
+    {
+        return $this->belongsTo(TypeCabinet::class, 'type_id');
+    }
 }

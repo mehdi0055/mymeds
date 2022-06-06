@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
                 'email'=>'admin@mymed.ma',
                 'phone'=>'0625223212',
                 'password'=> Hash::make('123456789'),
-                'utype' => 'ADM'
+                'utype' => 'ADM',
+                'slug' => 'ADM'
             ]
             );
 
@@ -33,7 +34,8 @@ class DatabaseSeeder extends Seeder
                     'email'=>'user@mymed.ma',
                     'phone'=>'0632652212',
                     'password'=> Hash::make('123456789'),
-                    'utype' => 'USR'
+                    'utype' => 'USR',
+                    'slug' => 'USR'
                 ]
                 );
 
