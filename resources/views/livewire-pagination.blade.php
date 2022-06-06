@@ -1,4 +1,4 @@
-@if ($paginator->hasPages())
+
     <ul class="pagination  justify-content-center mt-4">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
@@ -34,6 +34,5 @@
         @endif
     </ul>
 
-    @else
-    Liens de pagination ici ...
-@endif
+
+

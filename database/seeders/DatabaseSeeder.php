@@ -36,5 +36,21 @@ class DatabaseSeeder extends Seeder
                     'utype' => 'USR'
                 ]
                 );
+
+                DB::table('type_cabinets')->insert(
+                    [
+                        'name'=>'Cabinet Dentist',
+                    ]
+                    );
+                    DB::table('type_cabinets')->insert(
+                        [
+                            'name'=>'Cabinet Doctor general',
+                        ]
+                        );
+                        DB::table('type_cabinets')->insert(
+                            [
+                                'name'=>'Cabinet Doctor specialist',
+                            ]
+                            );
     }
 }

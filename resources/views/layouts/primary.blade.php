@@ -231,7 +231,7 @@
                             <ul class="main-menu metismenu">
                                 <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}"><a  href="{{ route('admin-dashboard') }}"><i
                                             class="icon-home"></i><span>Dashboard</span></a></li>
-                                            <li ><a href="#"><i class="icon-docs"></i>Demandes</a></li>
+                                            <li ><a href="{{ route('admin-demandes-all') }}"><i class="icon-docs"></i>Demandes</a></li>
                                 <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}"><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
                                 <li class="{{ request()->routeIs('admin-rendez_vous') ? 'active' : '' }}"><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
