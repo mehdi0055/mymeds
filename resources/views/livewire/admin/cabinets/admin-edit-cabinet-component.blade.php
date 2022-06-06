@@ -9,7 +9,7 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="{{ route('admin-cabinets-all') }}">All type cabinets</a></li>
-                            <li class="breadcrumb-item active">Add type cabinet</li>
+                            <li class="breadcrumb-item active">edit type cabinet</li>
                         </ul>
                     </div>
 

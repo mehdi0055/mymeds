@@ -20,8 +20,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                <a href="" class="btn  btn-primary" href="javascript:void(0);" title="Weekly">
-                                    <i class="fa fa-plus"></i> Ajouter un utilisateur
+                                <a href="{{ route('admin-add-cabinet') }}" class="btn  btn-primary" href="javascript:void(0);" title="Weekly">
+                                    <i class="fa fa-hospital-o"></i> Add new type cabinet
                                 </a>
                             </h2>
                             <ul class="header-dropdown">
@@ -37,11 +37,6 @@
                                 <span class="badge badge-danger">{{ $desactive_cabinets->count() }} Inactive</span>
                             </p>
                         </div>
-                        @if (session()->has('success_message'))
-                            <script>
-                                toastr.success("{{ session('success_message') }}");
-                            </script>
-                        @endif
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table  table-hover js-basic-example dataTable table-custom">
@@ -59,10 +54,15 @@
                                             <tr>
                                                 <td>{{ $cabinet->id }}</td>
                                                 <td>{{ $cabinet->name }}</td>
-                                                <td></td>
+                                                <td>
+                                                    <span class="{{ $cabinet->status == 0  ? 'badge badge-success' : 'badge badge-danger' }}">
+                                                        {{ $cabinet->status == 0  ? 'Active' : 'Desactive' }}
+                                                    </span>
+                                                </td>
                                                 <td>{{ $cabinet->created_at }}</td>
                                                 <td>
-                                                    <a href=""><i class="fa fa-edit text-info icon-size"> </i></a>
+                                                    <a href=""><i class="fa fa-trash-o text-warning icon-size"> </i></a>
+                                                    <a href="{{ route('admin-edit-cabinet',['slug'=>$cabinet->slug]) }}"><i class="fa fa-edit text-info icon-size"> </i></a>
                                                     <a href=""><i class="fa fa-trash-o text-danger icon-size"> </i></a>
                                                 </td>
                                             </tr>

@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Livewire\\AboutComponent' => $baseDir . '/app/Http/Livewire/AboutComponent.php',
     'App\\Http\\Livewire\\Admin\\AdminDashboardComponent' => $baseDir . '/app/Http/Livewire/Admin/AdminDashboardComponent.php',
+    'App\\Http\\Livewire\\Admin\\Cabinets\\AdminAddCabinetComponent' => $baseDir . '/app/Http/Livewire/Admin/Cabinets/AdminAddCabinetComponent.php',
     'App\\Http\\Livewire\\Admin\\Cabinets\\AdminCabinetsComponent' => $baseDir . '/app/Http/Livewire/Admin/Cabinets/AdminCabinetsComponent.php',
     'App\\Http\\Livewire\\Admin\\Demandes\\AdminDemandesComponent' => $baseDir . '/app/Http/Livewire/Admin/Demandes/AdminDemandesComponent.php',
     'App\\Http\\Livewire\\Admin\\blogs\\AdminBlogComponent' => $baseDir . '/app/Http/Livewire/Admin/blogs/AdminBlogComponent.php',

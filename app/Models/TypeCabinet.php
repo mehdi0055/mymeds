@@ -9,4 +9,5 @@ class TypeCabinet extends Model
 {
     use HasFactory;
     protected $table ="type_cabinets";
+    protected $fillable = ['name','slug'];
 }

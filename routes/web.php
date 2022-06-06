@@ -8,7 +8,9 @@ use App\Http\Livewire\Admin\users\AdminEditUsersComponent;
 use App\Http\Livewire\Admin\users\AdminAddUsersComponent;
 use App\Http\Livewire\Admin\demandes\AdminDemandesComponent;
 use App\Http\Livewire\Admin\blogs\AdminBlogComponent;
+use App\Http\Livewire\Admin\Cabinets\AdminAddCabinetComponent;
 use App\Http\Livewire\Admin\Cabinets\AdminCabinetsComponent;
+use App\Http\Livewire\Admin\Cabinets\AdminEditCabinetComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\HomeComponent;
@@ -82,7 +84,9 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
     //Cabinets
     Route::get('/admin/cabinets/all',AdminCabinetsComponent::class)->name('admin-cabinets-all');
-
+    Route::get('/admin/cabinets/add',AdminAddCabinetComponent::class)->name('admin-add-cabinet');
+    Route::get('/admin/cabinet/{slug}/edit',AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
+    
 
 
     Route::get('/color/{color}',function($color){
