@@ -19,38 +19,38 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert(
             [
-                'name'=>'admin',
-                'email'=>'admin@mymed.ma',
-                'phone'=>'0625223212',
-                'password'=> Hash::make('123456789'),
+                'name' => 'admin',
+                'email' => 'admin@mymed.ma',
+                'phone' => '0625223212',
+                'password' => Hash::make('123456789'),
                 'utype' => 'ADM'
             ]
-            );
+        );
 
-            DB::table('users')->insert(
-                [
-                    'name'=>'user',
-                    'email'=>'user@mymed.ma',
-                    'phone'=>'0632652212',
-                    'password'=> Hash::make('123456789'),
-                    'utype' => 'USR'
-                ]
-                );
+        DB::table('users')->insert(
+            [
+                'name' => 'user',
+                'email' => 'user@mymed.ma',
+                'phone' => '0632652212',
+                'password' => Hash::make('123456789'),
+                'utype' => 'USR'
+            ]
+        );
 
-                DB::table('type_cabinets')->insert(
-                    [
-                        'name'=>'Cabinet Dentist',
-                    ]
-                    );
-                    DB::table('type_cabinets')->insert(
-                        [
-                            'name'=>'Cabinet Doctor general',
-                        ]
-                        );
-                        DB::table('type_cabinets')->insert(
-                            [
-                                'name'=>'Cabinet Doctor specialist',
-                            ]
-                            );
+        DB::table('type_cabinets')->insert(
+            [
+                'name' => 'Cabinet Dentist',
+            ]
+        );
+        DB::table('type_cabinets')->insert(
+            [
+                'name' => 'Cabinet Doctor general',
+            ]
+        );
+        DB::table('type_cabinets')->insert(
+            [
+                'name' => 'Cabinet Doctor specialist',
+            ]
+        );
     }
 }
