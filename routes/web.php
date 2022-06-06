@@ -82,10 +82,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
 });
 
-//comment
-Route::get('/hello',function(){
-    return ['hello'=>'world'];
-});
+
 
 //Route users
 Route::middleware('auth','auth:sanctum')->group(function(){
