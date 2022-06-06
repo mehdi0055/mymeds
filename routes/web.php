@@ -82,6 +82,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 //comment
 Route::get('/hello',function(){
     return ['hello'=>'world'];
+    echo "great";
 });
 
 //Route users
