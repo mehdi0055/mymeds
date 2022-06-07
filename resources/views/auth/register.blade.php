@@ -150,7 +150,7 @@
                                         <div class="form-group form-float col-6">
                                             @php
 
-                                                $types = App\Models\TypeCabinet::all();
+                                                $types = App\Models\TypeCabinet::orderBy('name','asc')->where('status',0)->get();
                                             @endphp
                                             <select name="" class="form-control" id="">
                                                 <option value="">select type</option>

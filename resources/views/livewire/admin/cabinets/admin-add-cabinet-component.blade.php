@@ -75,8 +75,8 @@
 
                                 <div class="row clearfix mt-3 text-right">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <button class="btn btn-primary">Ajouter</button>
-                                        <a href="{{ route('admin-cabinets-all') }}" class="btn btn-danger">Annuler</a>
+                                        <button class="btn btn-primary">Add</button>
+                                        <a href="{{ route('admin-cabinets-all') }}" class="btn btn-danger">Back</a>
                                     </div>
                                 </div>
 
