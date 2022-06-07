@@ -8,8 +8,8 @@
                                     class="fa fa-arrow-left"></i></a> Dashboard</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin-cabinets-all') }}">All type cabinets</a></li>
-                            <li class="breadcrumb-item active">edit type cabinet</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin-cabinets-all') }}">All Type Cabinets</a></li>
+                            <li class="breadcrumb-item active">Edit  - {{ $name }}</li>
                         </ul>
                     </div>
 
