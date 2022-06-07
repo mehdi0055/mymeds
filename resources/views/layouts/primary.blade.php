@@ -232,7 +232,7 @@
                                 <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}"><a  href="{{ route('admin-dashboard') }}"><i
                                             class="icon-home"></i><span>Dashboard</span></a></li>
                                             <li class="{{ request()->routeIs('admin-demandes-all') ? 'active' : '' }}" ><a href="{{ route('admin-demandes-all') }}"><i class="icon-docs"></i>Demandes</a></li>
-                                <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}"><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
+                                <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}{{ request()->routeIs('admin-addUser') ? 'active' : '' }}{{ request()->routeIs('admin-editUser') ? 'active' : '' }}"><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
                                 <li class="{{ request()->routeIs('admin-rendez_vous') ? 'active' : '' }}"><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
                                 <li ><a href="#"><i class="icon-bubbles"></i>Contacts</a></li>
@@ -323,6 +323,11 @@
 
     <script>
         window.livewire.on('userDeleted', () => {
+            $('#confirmationDelete').modal('hide');
+        });
+    </script>
+     <script>
+        window.livewire.on('demandeDeleted', () => {
             $('#confirmationDelete').modal('hide');
         });
     </script>
