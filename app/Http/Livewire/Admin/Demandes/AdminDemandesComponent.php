@@ -10,6 +10,7 @@ class AdminDemandesComponent extends Component
 {
 
     public $uid ;
+    public $searchTerm;
     public $CountdemandeValider;
     public $CountdemandeRefuser;
     public $CountdemandeEncours;
@@ -23,6 +24,7 @@ class AdminDemandesComponent extends Component
     use WithPagination;
     public function render()
     {
+        $searchTerm = '%'.$this->searchTerm. '%';
 
         //Count demandes
         $this->CountdemandeValider = Demande::where('status',1)->get()->count();
@@ -30,9 +32,9 @@ class AdminDemandesComponent extends Component
         $this->CountdemandeEncours = Demande::where('status',0)->get()->count();
         $this->CountAllDemandes = Demande::all()->count();
 
-        $demandesValider = Demande::where('status',1)->paginate(5);
-        $demandesEncours = Demande::where('status',0)->paginate(5);
-        $demandesRefuser = Demande::where('status',2)->paginate(5);
+        $demandesValider = Demande::where('status',1)->where('lname','LIKE',$searchTerm)->where('fname','LIKE',$searchTerm)->paginate(5);
+        $demandesEncours = Demande::where('status',0)->where('lname','LIKE',$searchTerm)->where('fname','LIKE',$searchTerm)->paginate(5);
+        $demandesRefuser = Demande::where('status',2)->where('lname','LIKE',$searchTerm)->where('fname','LIKE',$searchTerm)->paginate(5);
         return view('livewire.admin.demandes.admin-demandes-component',['demandesEncours'=>$demandesEncours,'demandesValider'=>$demandesValider,'demandesRefuser'=>$demandesRefuser])->layout('layouts.primary');
     }
 }
