@@ -78,7 +78,7 @@
                         </div>
                         <div class="body">
                             <x-jet-validation-errors class="alert alert-danger" />
-                            <form id="wizard_with_validation" route('register') method="POST" id="form-submit">
+                            <form id="wizard_with_validation" action="{{ route('register') }}" method="POST" id="form-submit">
                                 @csrf
                                 <h3>Personal Information</h3>
                                 <fieldset>
@@ -103,7 +103,7 @@
                                             <input type="text" class="form-control" placeholder="Your CIN *" name="cin" required>
                                         </div>
                                         <div class="form-group form-float  col-6">
-                                            <input type="text" class="form-control" placeholder="Your Doctor Code *" name="code" required>
+                                            <input type="text" class="form-control" placeholder="Your Doctor Code *" name="code_doctor" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -148,8 +148,6 @@
                                                 @foreach ($types as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
-
-
                                             </select>
                                         </div>
                                     </div>
@@ -181,6 +179,7 @@
                                         </div>
                                     </div>
                                 </fieldset>
+                                
 
                             </form>
                             <div class="bottom text-center">
