@@ -8,7 +8,7 @@
                                     class="fa fa-arrow-left"></i></a> Dashboard</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Users</li>
+                            <li class="breadcrumb-item active">Demandes</li>
                         </ul>
                     </div>
 
@@ -87,12 +87,10 @@
                         <div class="modal-header bg-danger text-light ">
                             <h4 class="title" id="smallModalLabel">Confirmation</h4>
                         </div>
-                        <div class="modal-body">Voulez-vous vraiment supprimer cet demande  ?
-
-
+                        <div class="modal-body">Voulez-vous vraiment supprimer ce demande  ?
                         </div>
                         <div class="modal-footer">
-                            <button wire:click.prevent="delete()" class="btn btn-danger">Oui</button>
+                            <button wire:click.prevent="deleteDemande()" class="btn btn-danger">Oui</button>
                             <button type="button" class="btn btn-light" data-dismiss="modal">Non</button>
                         </div>
                     </div>
@@ -103,7 +101,11 @@
 
             <!-- Notification -->
 
-
+            @if (session()->has('demandeDeleted'))
+                <script>
+                    toastr.error('{{ session('demandeDeleted') }}');
+                </script>
+            @endif
 
             <!-- End Notification -->
 
@@ -111,7 +113,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h6 class="text-primary font-weight-bold">Liste Des demandes En cours </h6>
+                            <h6 class="font-weight-bold">Liste Des demandes En cours </h6>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
                                     <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
@@ -165,7 +167,7 @@
                                                         title="Afficher"><i
                                                             class="icon-eye text-primary icon-size "></i></a>
                                                     <a href="#"
-                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        wire:click.prevent="confirmDeleteDemande({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
                                                         title="Suprimer"><i
                                                             class="icon-trash text-danger icon-size"></i></a>
@@ -191,10 +193,10 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h6 class="text-primary font-weight-bold">Liste Des demandes validée</h6>
+                            <h6 class="font-weight-bold">Liste Des demandes validée</h6>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
-                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                    <input wire:model="searchTerm1" class="form-control" placeholder="Search here..."
                                         type="text">
                                     <button type="button" class="btn btn-default"><i
                                             class="icon-magnifier"></i></button>
@@ -244,7 +246,7 @@
                                                         title="Afficher"><i
                                                             class="icon-eye text-primary icon-size "></i></a>
                                                     <a href="#"
-                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        wire:click.prevent="confirmDeleteDemande({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
                                                         title="Suprimer"><i
                                                             class="icon-trash text-danger icon-size"></i></a>
@@ -264,16 +266,13 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h6 class="text-primary font-weight-bold">Liste Des demandes Refusée</h6>
+                            <h6 class="font-weight-bold">Liste Des demandes Refusée</h6>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
-                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                    <input wire:model="searchTerm2" class="form-control" placeholder="Search here..."
                                         type="text">
                                     <button type="button" class="btn btn-default"><i
                                             class="icon-magnifier"></i></button>
@@ -324,7 +323,7 @@
                                                         title="Afficher"><i
                                                             class="icon-eye text-primary icon-size "></i></a>
                                                     <a href="#"
-                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        wire:click.prevent="confirmDeleteDemande({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
                                                         title="Suprimer"><i
                                                             class="icon-trash text-danger icon-size"></i></a>

@@ -8,6 +8,7 @@
                                     class="fa fa-arrow-left"></i></a> Dashboard</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin-users') }}">Utilisateurs</a></li>
                             <li class="breadcrumb-item active">Modifier utilisateur</li>
                         </ul>
                     </div>

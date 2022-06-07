@@ -8,7 +8,8 @@
                                     class="fa fa-arrow-left"></i></a> Dashboard</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Détaills demandes</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin-demandes-all') }}">Demandes</a></li>
+                            <li class="breadcrumb-item active">Détaills demande</li>
                         </ul>
                     </div>
 
@@ -136,7 +137,7 @@
                                 <div class="col-lg-4 col-md-12">
                                     <h6 class="font-weight-bold">Telephone : </h6>
                                     <p>{{ $demandes->phone }}</p>
-                                    <h6 class="font-weight-bold">Date de creation : </h6>
+                                    <h6 class="font-weight-bold">Date de création : </h6>
                                     <p>{{ $demandes->created_at->format('Y-m-d') }}</p>
 
                                 </div>
@@ -146,7 +147,7 @@
                                 <div class="col-lg-4 col-md-12">
                                     <h6 class="font-weight-bold">CIN : </h6>
                                     <p>{{ $demandes->cin }}</p>
-                                    <h6 class="font-weight-bold">Code medecin : </h6>
+                                    <h6 class="font-weight-bold">Code Médecin : </h6>
                                     <p>{{ $demandes->code_doctor }}</p>
 
                                 </div>
