@@ -16,10 +16,10 @@
             </div>
 
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="card profile-header">
-                        <div class="body text-center">
-                            <div class="profile-image mb-5"> <img
+                        <div class="body text-center " style="background-image: url({{ asset('primary/assets/images/bg-8.png') }});background-size:cover;background-repeat:no-repeat ">
+                            <div class="profile-image mb-3"> <img
                                     src="{{ asset('primary/assets/images/') }}/{{ $demande->logo_cabinet }}"
                                     width="140" class="rounded-circle" alt=""> </div>
                             <div>
@@ -28,6 +28,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-12">
+
                     <div class="card">
                         <div class="header">
                             <h5 class="text-primary font-weight-bold">Information de cabinet</h5>
@@ -36,14 +42,14 @@
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12">
                                     <h6 class="font-weight-bold">Nom de cabinet : </h6>
-                                    <p>{{ $demande->lname . ' ' . $demande->fname }}</p>
+                                    <p>{{ $demande->name_cabinet}}</p>
                                     <h6 class="font-weight-bold">Address email de cabinet : </h6>
-                                    <p>{{ $demande->email }}</p>
+                                    <p>{{ $demande->email_cabinet }}</p>
 
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <h6 class="font-weight-bold">Telephone de cabinet : </h6>
-                                    <p>{{ $demande->phone }}</p>
+                                    <p>{{ $demande->phone_cabinet }}</p>
                                     <h6 class="font-weight-bold">Date de creation : </h6>
                                     <p>{{ $demande->created_at->format('Y-m-d') }}</p>
 
@@ -76,10 +82,10 @@
                         </div>
                         <div class="body  text-left  ">
                             <div class="row clearfix">
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="m-t-15">
-                                        <button class="btn btn-primary mr-3">Accepter la demande</button>
-                                        <button class="btn btn-danger">Refuser la demande</button>
+                                <div class="col-lg-12 col-md-12 ">
+                                    <div class="">
+                                        <button class="btn btn-lg btn-primary mr-3">Accepter la demande</button>
+                                        <button class="btn btn-lg btn-danger">Refuser la demande</button>
                                     </div>
                                 </div>
                             </div>
