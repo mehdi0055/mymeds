@@ -111,7 +111,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-primary font-weight-bold">Liste Des demandes En cours </h2>
+                            <h6 class="text-primary font-weight-bold">Liste Des demandes En cours </h6>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
                                     <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
@@ -188,10 +188,10 @@
 
 
             <div class="row clearfix">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-primary font-weight-bold">Liste Des demandes validée</h2>
+                            <h6 class="text-primary font-weight-bold">Liste Des demandes validée</h6>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
                                     <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
@@ -267,10 +267,10 @@
 
 
 
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-primary font-weight-bold">Liste Des demandes Refusée</h2>
+                            <h6 class="text-primary font-weight-bold">Liste Des demandes Refusée</h6>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
                                     <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
