@@ -1057,7 +1057,7 @@ function renderPagination(wizard, options, state)
         var pagination = "<{0} class=\"actions {1}\"><ul role=\"menu\" aria-label=\"{2}\">{3}</ul></{0}>",
             buttonTemplate = "<li><a href=\"#{0}\" role=\"menuitem\">{1}</a></li>",
             buttons = "";
-
+            var buttonTemplateFinished = "<li><a href=\"#{0}\" role=\"menuitem\" onclick=\"event.preventDefault();document.getElementById('wizard_with_validation').submit();\">{1}</a></li>";
         if (!options.forceMoveForward)
         {
             buttons += buttonTemplate.format("previous", options.labels.previous);
@@ -1067,7 +1067,7 @@ function renderPagination(wizard, options, state)
 
         if (options.enableFinishButton)
         {
-            buttons += buttonTemplate.format("finish", options.labels.finish);
+            buttons += buttonTemplateFinished.format("finish", options.labels.finish);
         }
 
         if (options.enableCancelButton)

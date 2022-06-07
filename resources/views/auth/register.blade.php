@@ -77,50 +77,45 @@
                             <p class="lead">Create an account </p>
                         </div>
                         <div class="body">
-                            <form id="wizard_with_validation" method="POST">
+                            <x-jet-validation-errors class="alert alert-danger" />
+                            <form id="wizard_with_validation" route('register') method="POST" id="form-submit">
+                                @csrf
                                 <h3>Personal Information</h3>
                                 <fieldset>
                                     <div class="row">
                                         <div class="form-group form-float col-6">
-                                            <input type="text" class="form-control" placeholder="Your first name *"
-                                                name="fname">
+                                            <input type="text" class="form-control" placeholder="Your first name *" name="fname" required>
                                         </div>
                                         <div class="form-group form-float col-6">
-                                            <input type="text" class="form-control" placeholder="Your last name *"
-                                                name="lname">
+                                            <input type="text" class="form-control" placeholder="Your last name *" name="lname" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group form-float  col-6">
-                                            <input type="email" class="form-control"
-                                                placeholder="Your email address *" name="email">
+                                            <input type="email" class="form-control" placeholder="Your email address *" name="email" required>
                                         </div>
                                         <div class="form-group form-float  col-6">
-                                            <input type="number" class="form-control" placeholder="Your phone number *"
-                                                name="phone">
+                                            <input type="number" class="form-control" placeholder="Your phone number *" name="phone" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group form-float  col-6">
-                                            <input type="text" class="form-control" placeholder="Your CIN *">
+                                            <input type="text" class="form-control" placeholder="Your CIN *" name="cin" required>
                                         </div>
                                         <div class="form-group form-float  col-6">
-                                            <input type="text" class="form-control"
-                                                placeholder="Your Doctor Code *" name="code">
+                                            <input type="text" class="form-control" placeholder="Your Doctor Code *" name="code" required>
                                         </div>
                                     </div>
                                     <div class="row">
 
                                         <div class="form-group form-float  col-6">
-                                            <input type="text" class="form-control" placeholder="State *"
-                                                name="state">
+                                            <input type="text" class="form-control" placeholder="State *" name="state">
                                         </div>
                                         <div class="form-group form-float  col-4">
                                             <input type="text" class="form-control" placeholder="City *" name="city">
                                         </div>
                                         <div class="form-group form-float  col-2">
-                                            <input type="text" class="form-control" placeholder="Zip Code *"
-                                                name="zipcode">
+                                            <input type="text" class="form-control" placeholder="Zip Code *" name="zipcode">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -134,27 +129,22 @@
                                 <fieldset>
                                     <div class="row">
                                         <div class="form-group form-float col-6">
-                                            <input type="text" name="cabinetName" placeholder="Cabinet Medical Name  *"
-                                                class="form-control">
+                                            <input type="text" name="name_cabinet" placeholder="Cabinet Medical Name  *" class="form-control" required>
                                         </div>
                                         <div class="form-group form-float col-6">
-                                            <input type="text" name="cabinetPhone" placeholder="Cabinet Phone Number *"
-                                                class="form-control">
+                                            <input type="text" name="phone_cabinet" placeholder="Cabinet Phone Number *" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group form-float col-6">
-                                            <input type="email" name="cabinetEmail"
-                                                placeholder="Cabinet Email Address *" class="form-control">
+                                            <input type="email" name="email_cabinet" placeholder="Cabinet Email Address *" class="form-control" >
                                         </div>
                                         <div class="form-group form-float col-6">
                                             @php
-
                                                 $types = App\Models\TypeCabinet::orderBy('name','asc')->where('status',0)->get();
                                             @endphp
-                                            <select name="" class="form-control" id="">
-                                                <option value="">select type</option>
-
+                                            <select name="type_id" class="form-control" id="type_id">
+                                                <option value="">select type cabinet</option>
                                                 @foreach ($types as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -165,7 +155,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group form-float col-12">
-                                            <textarea name="address" cols="30" rows="3" placeholder="Address *" class="form-control no-resize"></textarea>
+                                            <textarea name="address_cabinet" cols="30" rows="3" placeholder="Address *" class="form-control no-resize"></textarea>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -180,7 +170,7 @@
                                         <div class="form-group form-float col-12">
                                             <div class="fancy-checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="terms" id="terms">
+                                                    <input type="checkbox" name="terms" id="terms" required>
                                                     <span></span>
                                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
     'terms_of_service' => '<a target="_blank" href="#termsModal" data-toggle="modal" data-target="#termsModal" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
