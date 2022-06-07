@@ -50,7 +50,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($active_cabinets as $cabinet)
+                                        @foreach($all_cabinets as $cabinet)
                                             <tr>
                                                 <td>{{ $cabinet->id }}</td>
                                                 <td>{{ $cabinet->name }}</td>
@@ -61,8 +61,13 @@
                                                 </td>
                                                 <td>{{ $cabinet->created_at }}</td>
                                                 <td>
-                                                    <a href=""><i class="fa fa-trash-o text-warning icon-size"> </i></a>
-                                                    <a href="{{ route('admin-edit-cabinet',['slug'=>$cabinet->slug]) }}"><i class="fa fa-edit text-info icon-size"> </i></a>
+                                                    @if($cabinet->status == 0)
+                                                        <a href="#" wire:click.prevent="changeStatus({{ $cabinet->id }})" title="desactive"><i class="fa fa-toggle-on text-success icon-size"> </i></a>
+                                                    @else
+                                                        <a href="#" wire:click.prevent="changeStatus({{ $cabinet->id }})" title="active"><i class="fa fa-toggle-off text-danger icon-size"> </i></a>
+                                                    @endif
+                                                    
+                                                    <a href="{{ route('admin-edit-cabinet',['id_cabinet'=>$cabinet->id]) }}"><i class="fa fa-edit text-info icon-size"> </i></a>
                                                     <a href=""><i class="fa fa-trash-o text-danger icon-size"> </i></a>
                                                 </td>
                                             </tr>

@@ -87,7 +87,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     //Cabinets
     Route::get('/admin/cabinets/all',AdminCabinetsComponent::class)->name('admin-cabinets-all');
     Route::get('/admin/cabinets/add',AdminAddCabinetComponent::class)->name('admin-add-cabinet');
-    Route::get('/admin/cabinet/{slug}/edit',AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
+    Route::get('/admin/cabinet/{id_cabinet}/edit',AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
 
 
 

@@ -28,13 +28,16 @@ class AdminAddCabinetComponent extends Component
     public function clear()
     {
         $this->name = "";
+        $this->slug ="";
+        $this->status = "";
     }
+
+    
 
     public function updatedName()
     {
         $this->slug = Str::slug($this->name);
     }
-
     public function store()
     {
         $data = $this->validate([
@@ -51,8 +54,8 @@ class AdminAddCabinetComponent extends Component
     public function render()
     {
         $all_cabinets = TypeCabinet::orderBy('status','asc')->paginate(4);
-        $active_cabinets = TypeCabinet::all();
-        $desactive_cabinets = TypeCabinet::all();
+        $active_cabinets = TypeCabinet::where('status',0)->get();
+        $desactive_cabinets = TypeCabinet::where('status',1)->get();
         return view('livewire.admin.cabinets.admin-add-cabinet-component',compact('all_cabinets','active_cabinets','desactive_cabinets'))->layout('layouts.primary');
     }
 }

@@ -28,10 +28,10 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Ajouter Cabinet </h2>
+                            <h2>Edit Cabinet </h2>
                         </div>
                         <div class="body">
-                            <form wire:submit.prevent="store()">
+                            <form wire:submit.prevent="edit()">
                                 
                                 <div class="row clearfix">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -60,8 +60,8 @@
                                 <div class="row clearfix">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="email">Status</label>
-                                            <select wire:model="status" name="status" id="status" class="form-control" required>
+                                            <label for="status">Status</label>
+                                            <select wire:model.lazy="status" name="status" id="status" class="form-control" required>
                                                 <option value="">select status</option>
                                                 <option value="0">Active</option>
                                                 <option value="1">Inactive</option>
@@ -75,7 +75,7 @@
 
                                 <div class="row clearfix mt-3 text-right">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                        <button class="btn btn-primary">Ajouter</button>
+                                        <button class="btn btn-primary">Update</button>
                                         <a href="{{ route('admin-cabinets-all') }}" class="btn btn-danger">Annuler</a>
                                     </div>
                                 </div>

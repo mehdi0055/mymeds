@@ -13,12 +13,21 @@ class AdminCabinetsComponent extends Component
 
     public $search;
 
+
+    public function changeStatus($cabinet_id)
+    {
+        $cabinet = TypeCabinet::find($cabinet_id);
+        $cabinet->update(
+            ['status' => $cabinet->status == 0 ? 1 : 0,]
+        );
+    }
     
 
     public function render()
     {
+        $all_cabinets = TypeCabinet::paginate(3);
         $active_cabinets = TypeCabinet::where('status',0)->where("name","LIKE","%{$this->search}%")->paginate(3);
         $desactive_cabinets = TypeCabinet::where('status',1)->paginate(3);
-        return view('livewire.admin.cabinets.admin-cabinets-component',compact('active_cabinets','desactive_cabinets'))->layout('layouts.primary');
+        return view('livewire.admin.cabinets.admin-cabinets-component',compact('active_cabinets','desactive_cabinets','all_cabinets'))->layout('layouts.primary');
     }
 }

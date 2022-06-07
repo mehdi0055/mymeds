@@ -16,6 +16,6 @@ class TypeCabinet extends Model
         return $this->hasOne(Demande::class);
     }
 
-    protected $fillable = ['name','slug'];
+    protected $fillable = ['name','slug','status'];
 
 }
