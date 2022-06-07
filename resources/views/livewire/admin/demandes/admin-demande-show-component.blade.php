@@ -8,26 +8,48 @@
                                     class="fa fa-arrow-left"></i></a> Dashboard</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index-2.html"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Détaills demande</li>
+                            <li class="breadcrumb-item active">Détaills demandes</li>
                         </ul>
                     </div>
 
                 </div>
             </div>
 
+            <!-- Notification -->
+
+            @if (session()->has('demandeValider'))
+                <script>
+                    toastr.success('{{ session('demandeValider') }}');
+                </script>
+            @endif
+            @if (session()->has('demandeRefusée'))
+                <script>
+                    toastr.error('{{ session('demandeRefusée') }}');
+                </script>
+            @endif
+
+            <!-- End Notification -->
+
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="card profile-header">
-                        <div class="body text-center">
-                            <div class="profile-image mb-5"> <img
-                                    src="{{ asset('primary/assets/images/') }}/{{ $demande->logo_cabinet }}"
+                        <div class="body text-center "
+                            style="background-image: url({{ asset('primary/assets/images/bg-8.png') }});background-size:cover;background-repeat:no-repeat ">
+                            <div class="profile-image mb-3"> <img
+                                    src="{{ asset('primary/assets/images/') }}/{{ $demandes->logo_cabinet }}"
                                     width="140" class="rounded-circle" alt=""> </div>
                             <div>
-                                <h4 class="m-b-0 "><strong>{{ $demande->name_cabinet }}</strong></h4>
-                                <span>{{ $demande->lname . ' ' . $demande->fname }}</span>
+                                <h4 class="m-b-0 "><strong>{{ $demandes->name_cabinet }}</strong></h4>
+                                <span>{{ $demandes->lname . ' ' . $demandes->fname }}</span>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-12">
+
                     <div class="card">
                         <div class="header">
                             <h5 class="text-primary font-weight-bold">Information de cabinet</h5>
@@ -36,16 +58,16 @@
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12">
                                     <h6 class="font-weight-bold">Nom de cabinet : </h6>
-                                    <p>{{ $demande->lname . ' ' . $demande->fname }}</p>
+                                    <p>{{ $demandes->name_cabinet }}</p>
                                     <h6 class="font-weight-bold">Address email de cabinet : </h6>
-                                    <p>{{ $demande->email }}</p>
+                                    <p>{{ $demandes->email_cabinet }}</p>
 
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <h6 class="font-weight-bold">Telephone de cabinet : </h6>
-                                    <p>{{ $demande->phone }}</p>
+                                    <p>{{ $demandes->phone_cabinet }}</p>
                                     <h6 class="font-weight-bold">Date de creation : </h6>
-                                    <p>{{ $demande->created_at->format('Y-m-d') }}</p>
+                                    <p>{{ $demandes->created_at->format('Y-m-d') }}</p>
 
                                 </div>
                             </div>
@@ -53,7 +75,7 @@
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12">
                                     <h6 class="font-weight-bold">Type : </h6>
-                                    <p>{{ $demande->type->name }}</p>
+                                    <p>{{ $demandes->type->name }}</p>
                                 </div>
                             </div>
                             <div class="row clearfix">
@@ -61,7 +83,18 @@
                                 <div class="col-lg-12 col-md-12">
 
                                     <h6 class="font-weight-bold">Address : </h6>
-                                    <p>{{ $demande->address }}</p>
+                                    <p>{{ $demandes->address }}</p>
+
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+
+                                <div class="col-lg-12 col-md-12">
+
+                                    <h6 class="font-weight-bold">Status : </h6>
+                                    <p  class="badge  badge-{{ $demandes->status == '1' ? 'success' : ($demandes->status == '2' ? 'danger' : 'warning') }}">
+                                        {{ $demandes->status == '1' ? 'demandes valider' : ($demandes->status == '2' ? 'demandes refusée' : 'demandes en cours') }}</p>
 
                                 </div>
                             </div>
@@ -76,10 +109,12 @@
                         </div>
                         <div class="body  text-left  ">
                             <div class="row clearfix">
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="m-t-15">
-                                        <button class="btn btn-primary mr-3">Accepter la demande</button>
-                                        <button class="btn btn-danger">Refuser la demande</button>
+                                <div class="col-lg-12 col-md-12 ">
+                                    <div class="">
+                                        <button wire:click.prevent="valideDemande({{ $demandes->id }})"
+                                            class="btn btn-lg btn-primary mr-3">Accepter la demandes</button>
+                                        <button wire:click.prevent="refuseDemande({{ $demandes->id }})"
+                                            class="btn btn-lg btn-danger">Refuser la demandes</button>
                                     </div>
                                 </div>
                             </div>
@@ -93,16 +128,16 @@
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-12">
                                     <h6 class="font-weight-bold">Nom et prénom : </h6>
-                                    <p>{{ $demande->lname . ' ' . $demande->fname }}</p>
+                                    <p>{{ $demandes->lname . ' ' . $demandes->fname }}</p>
                                     <h6>Address email : </h6>
-                                    <p>{{ $demande->email }}</p>
+                                    <p>{{ $demandes->email }}</p>
 
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <h6 class="font-weight-bold">Telephone : </h6>
-                                    <p>{{ $demande->phone }}</p>
+                                    <p>{{ $demandes->phone }}</p>
                                     <h6 class="font-weight-bold">Date de creation : </h6>
-                                    <p>{{ $demande->created_at->format('Y-m-d') }}</p>
+                                    <p>{{ $demandes->created_at->format('Y-m-d') }}</p>
 
                                 </div>
                             </div>
@@ -110,30 +145,30 @@
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-12">
                                     <h6 class="font-weight-bold">CIN : </h6>
-                                    <p>{{ $demande->cin }}</p>
+                                    <p>{{ $demandes->cin }}</p>
                                     <h6 class="font-weight-bold">Code medecin : </h6>
-                                    <p>{{ $demande->code_doctor }}</p>
+                                    <p>{{ $demandes->code_doctor }}</p>
 
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <h6 class="font-weight-bold">Ville : </h6>
-                                    <p>{{ $demande->city }}</p>
+                                    <p>{{ $demandes->city }}</p>
                                     <h6 class="font-weight-bold">Code zip : </h6>
-                                    <p>{{ $demande->zipcode }}</p>
+                                    <p>{{ $demandes->zipcode }}</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12">
                                     <h6 class="font-weight-bold">Region : </h6>
-                                    <p>{{ $demande->state }}</p>
+                                    <p>{{ $demandes->state }}</p>
                                 </div>
                             </div>
 
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12">
                                     <h6 class="font-weight-bold">Address : </h6>
-                                    <p>{{ $demande->address_cabinet }} </p>
+                                    <p>{{ $demandes->address_cabinet }} </p>
                                 </div>
                             </div>
                         </div>
