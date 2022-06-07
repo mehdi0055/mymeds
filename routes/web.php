@@ -75,8 +75,8 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
     //Users
     Route::get('/admin/users',AdminUsersComponent::class)->name('admin-users');
-    Route::get('/admin/edit/user/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
-    Route::get('/admin/add/user',AdminAddUsersComponent::class)->name('admin-addUser');
+    Route::get('/admin/user/edit/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
+    Route::get('/admin/user/add',AdminAddUsersComponent::class)->name('admin-addUser');
 
     //Demandes
     Route::get('/admin/demandes/all',AdminDemandesComponent::class)->name('admin-demandes-all');
@@ -88,7 +88,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/cabinets/all',AdminCabinetsComponent::class)->name('admin-cabinets-all');
     Route::get('/admin/cabinets/add',AdminAddCabinetComponent::class)->name('admin-add-cabinet');
     Route::get('/admin/cabinet/{slug}/edit',AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
-    
+
 
 
     Route::get('/color/{color}',function($color){

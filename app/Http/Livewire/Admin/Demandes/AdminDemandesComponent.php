@@ -10,24 +10,29 @@ class AdminDemandesComponent extends Component
 {
 
     public $uid ;
-    public $demandeValider;
-    public $demandeRefuser;
+    public $CountdemandeValider;
+    public $CountdemandeRefuser;
+    public $CountdemandeEncours;
+    public $CountAllDemandes;
 
 
     public function confirmDeleteUser($id){
-
         $this->uid = $id;
-       }
+    }
 
     use WithPagination;
     public function render()
     {
 
-        $this->demandeValider = Demande::where('status',1)->get();
-        $this->demandeRefuser = Demande::where('status',2)->get();
-        $demandesValider = Demande::where('status',1)->paginate(5);
+        //Count demandes
+        $this->CountdemandeValider = Demande::where('status',1)->get()->count();
+        $this->CountdemandeRefuser = Demande::where('status',2)->get()->count();
+        $this->CountdemandeEncours = Demande::where('status',0)->get()->count();
+        $this->CountAllDemandes = Demande::all()->count();
 
-        $demandes = Demande::where('status',0)->paginate(5);
-        return view('livewire.admin.demandes.admin-demandes-component',['demandes'=>$demandes,'demandesValider'=>$demandesValider])->layout('layouts.primary');
+        $demandesValider = Demande::where('status',1)->paginate(5);
+        $demandesEncours = Demande::where('status',0)->paginate(5);
+        $demandesRefuser = Demande::where('status',2)->paginate(5);
+        return view('livewire.admin.demandes.admin-demandes-component',['demandesEncours'=>$demandesEncours,'demandesValider'=>$demandesValider,'demandesRefuser'=>$demandesRefuser])->layout('layouts.primary');
     }
 }

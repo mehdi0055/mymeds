@@ -26,7 +26,7 @@
                                                 style="font-size:46px"></i> </div>
                                         <div class="content">
                                             <div class="text">Demandes</div>
-                                            <h5 class="number">{{ $demandes->count() }}</h5>
+                                            <h5 class="number">{{ $CountAllDemandes }}</h5>
                                         </div>
                                     </div>
                                     <div class="carousel-item  ">
@@ -34,7 +34,7 @@
                                                 style="font-size:46px"></i> </div>
                                         <div class="content">
                                             <div class="text">Demandes Accepter</div>
-                                            <h5 class="number">{{ $demandeValider }}</h5>
+                                            <h5 class="number">{{ $CountdemandeValider }}</h5>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
@@ -42,7 +42,7 @@
                                                 style="font-size:46px"></i> </div>
                                         <div class="content">
                                             <div class="text">Demandes Refuser</div>
-                                            <h5 class="number">{{ $demandeRefuser }}</h5>
+                                            <h5 class="number">{{ $CountdemandeRefuser }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="content">
                                 <div class="text">Demandes Accepter</div>
-                                <h5 class="number ">{{ $demandeValider }}</h5>
+                                <h5 class="number ">{{ $CountdemandeValider }}</h5>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                             <div class="icon"><i class=" icon-ban" style="font-size:46px"></i> </div>
                             <div class="content">
                                 <div class="text">Demandes Refuser</div>
-                                <h5 class="number ">{{ $demandeRefuser }}</h5>
+                                <h5 class="number ">{{ $CountdemandeRefuser }}</h5>
                             </div>
                         </div>
                     </div>
@@ -111,19 +111,21 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-primary font-weight-bold">Liste Des demandes</h2>
+                            <h2 class="text-primary font-weight-bold">Liste Des demandes En cours </h2>
                             <ul class="header-dropdown">
-                                    <form id="navbar-search" class="navbar-form search-form">
-                                        <input wire:model="searchTerm"  class="form-control" placeholder="Search here..." type="text">
-                                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
-                                    </form>
+                                <form id="navbar-search" class="navbar-form search-form">
+                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                        type="text">
+                                    <button type="button" class="btn btn-default"><i
+                                            class="icon-magnifier"></i></button>
+                                </form>
                             </ul>
                         </div>
                         <div class="header">
                             <p class="float-md-right">
-                                <span class="badge badge-success">0 Demandes Accepte</span>
-                                <span class="badge badge-danger">2 Demandes Refuse</span>
-                                <span class="badge badge-warning">2 Demandes En cours</span>
+                                <span class="badge badge-success">{{ $CountdemandeValider }} Demandes Accepte</span>
+                                <span class="badge badge-danger">{{ $CountdemandeRefuser }} Demandes Refuse</span>
+                                <span class="badge badge-warning">{{ $CountdemandeEncours }} Demandes En cours</span>
                             </p>
                         </div>
                         <div class="body">
@@ -142,13 +144,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($demandes as $item)
+                                        @foreach ($demandesEncours as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td><img src="{{ asset('primary/assets/images/') }}/{{ $item->logo_cabinet }}"
-                                                    class="rounded-circle user-photo" alt="User Profile Picture"
-                                                    width="52" height="52"></td>
-                                                <td>{{ $item->lname .' ' . $item->fname }}</td>
+                                                        class="rounded-circle user-photo" alt="User Profile Picture"
+                                                        width="52" height="52"></td>
+                                                <td>{{ $item->lname . ' ' . $item->fname }}</td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->created_at->format('Y-m-d') }}</td>
@@ -159,8 +161,9 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('admin-demandes-show',$item->id) }}"
-                                                        title="Afficher"><i class="icon-eye text-primary icon-size "></i></a>
+                                                    <a href="{{ route('admin-demandes-show', $item->id) }}"
+                                                        title="Afficher"><i
+                                                            class="icon-eye text-primary icon-size "></i></a>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteUser({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
@@ -174,8 +177,8 @@
                                 </table>
                             </div>
                             <div class="d-flex justify-content-center">
-                                @if ($demandes->count())
-                                    {{ $demandes->links('livewire-pagination') }}
+                                @if ($demandesEncours->count())
+                                    {{ $demandesEncours->links('livewire-pagination') }}
                                 @endif
                             </div>
                         </div>
@@ -185,22 +188,23 @@
 
 
             <div class="row clearfix">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="card">
                         <div class="header">
                             <h2 class="text-primary font-weight-bold">Liste Des demandes validée</h2>
                             <ul class="header-dropdown">
-                                    <form id="navbar-search" class="navbar-form search-form">
-                                        <input wire:model="searchTerm"  class="form-control" placeholder="Search here..." type="text">
-                                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
-                                    </form>
+                                <form id="navbar-search" class="navbar-form search-form">
+                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                        type="text">
+                                    <button type="button" class="btn btn-default"><i
+                                            class="icon-magnifier"></i></button>
+                                </form>
                             </ul>
                         </div>
                         <div class="header">
                             <p class="float-md-right">
-                                <span class="badge badge-success">0 Demandes Accepte</span>
-                                <span class="badge badge-danger">2 Demandes Refuse</span>
-                                <span class="badge badge-warning">2 Demandes En cours</span>
+                                <span class="badge badge-success">{{ $CountdemandeValider }} Demandes Accepte</span>
+
                             </p>
                         </div>
                         <div class="body">
@@ -223,9 +227,9 @@
                                             <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td><img src="{{ asset('primary/assets/images/') }}/{{ $item->logo_cabinet }}"
-                                                    class="rounded-circle user-photo" alt="User Profile Picture"
-                                                    width="52" height="52"></td>
-                                                <td>{{ $item->lname .' ' . $item->fname }}</td>
+                                                        class="rounded-circle user-photo" alt="User Profile Picture"
+                                                        width="52" height="52"></td>
+                                                <td>{{ $item->lname . ' ' . $item->fname }}</td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->created_at->format('Y-m-d') }}</td>
@@ -236,8 +240,9 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('admin-demandes-show',$item->id) }}"
-                                                        title="Afficher"><i class="icon-eye text-primary icon-size "></i></a>
+                                                    <a href="{{ route('admin-demandes-show', $item->id) }}"
+                                                        title="Afficher"><i
+                                                            class="icon-eye text-primary icon-size "></i></a>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteUser({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
@@ -251,8 +256,88 @@
                                 </table>
                             </div>
                             <div class="d-flex justify-content-center">
-                                @if ($demandes->count())
-                                    {{ $demandes->links('livewire-pagination') }}
+                                @if ($demandesValider->count())
+                                    {{ $demandesValider->links('livewire-pagination') }}
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="text-primary font-weight-bold">Liste Des demandes Refusée</h2>
+                            <ul class="header-dropdown">
+                                <form id="navbar-search" class="navbar-form search-form">
+                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                        type="text">
+                                    <button type="button" class="btn btn-default"><i
+                                            class="icon-magnifier"></i></button>
+                                </form>
+                            </ul>
+                        </div>
+                        <div class="header">
+                            <p class="float-md-right">
+
+                                <span class="badge badge-danger">{{ $CountdemandeRefuser }} Demandes Refuse</span>
+
+                            </p>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table  table-hover js-basic-example dataTable table-custom">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Logo</th>
+                                            <th>Nom et Prénom</th>
+                                            <th>Telephone</th>
+                                            <th>Adresse email</th>
+                                            <th>Date de creation</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($demandesRefuser as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td><img src="{{ asset('primary/assets/images/') }}/{{ $item->logo_cabinet }}"
+                                                        class="rounded-circle user-photo" alt="User Profile Picture"
+                                                        width="52" height="52"></td>
+                                                <td>{{ $item->lname . ' ' . $item->fname }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->created_at->format('Y-m-d') }}</td>
+
+
+                                                <td><span
+                                                        class="badge badge-{{ $item->status == '1' ? 'success' : 'warning' }}">{{ $item->status == '1' ? 'Valider' : 'En cours' }}</span>
+                                                </td>
+
+                                                <td>
+                                                    <a href="{{ route('admin-demandes-show', $item->id) }}"
+                                                        title="Afficher"><i
+                                                            class="icon-eye text-primary icon-size "></i></a>
+                                                    <a href="#"
+                                                        wire:click.prevent="confirmDeleteUser({{ $item->id }})"
+                                                        data-toggle="modal" data-target="#confirmationDelete"
+                                                        title="Suprimer"><i
+                                                            class="icon-trash text-danger icon-size"></i></a>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                @if ($demandesRefuser->count())
+                                    {{ $demandesRefuser->links('livewire-pagination') }}
                                 @endif
                             </div>
                         </div>
@@ -264,4 +349,3 @@
         </div>
     </div>
 </div>
-
