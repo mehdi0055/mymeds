@@ -25,7 +25,7 @@ class AdminCabinetsComponent extends Component
 
     public function render()
     {
-        $all_cabinets = TypeCabinet::paginate(3);
+        $all_cabinets = TypeCabinet::where("name","like","%{$this->search}%")->orwhere('slug',"like","%{$this->search}%")->orwhere('id',$this->search)->paginate(3);
         $active_cabinets = TypeCabinet::where('status',0)->where("name","LIKE","%{$this->search}%")->paginate(3);
         $desactive_cabinets = TypeCabinet::where('status',1)->paginate(3);
         return view('livewire.admin.cabinets.admin-cabinets-component',compact('active_cabinets','desactive_cabinets','all_cabinets'))->layout('layouts.primary');

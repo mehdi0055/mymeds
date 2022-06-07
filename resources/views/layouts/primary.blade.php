@@ -229,12 +229,43 @@
                     <div class="tab-pane active" id="menu">
                         <nav class="sidebar-nav">
                             <ul class="main-menu metismenu">
-                                <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}"><a  href="{{ route('admin-dashboard') }}"><i
-                                            class="icon-home"></i><span>Dashboard</span></a></li>
-                                            <li class="{{ request()->routeIs('admin-demandes-all') ? 'active' : '' }}" ><a href="{{ route('admin-demandes-all') }}"><i class="icon-docs"></i>Demandes</a></li>
-                                <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}{{ request()->routeIs('admin-addUser') ? 'active' : '' }}{{ request()->routeIs('admin-editUser') ? 'active' : '' }}"><a href="{{ route('admin-users') }}"><i class="icon-users"></i>Users</a></li>
+
+                                @if(Route::has('login'))
+                                @auth
+                                    @if(Auth::user()->utype="ADM")
+                                        <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}">
+                                            <a  href="{{ route('admin-dashboard') }}"><i class="icon-home"></i> <span>Dashboard</span></a>
+                                        </li>
+                                        <li class="{{ request()->routeIs('admin-demandes-all') ? 'active' : '' }}" >
+                                            <a href="{{ route('admin-demandes-all') }}"><i class="icon-docs"></i>Manage Demandes</a>
+                                        </li>
+                                        <li class="@if(request()->routeIs('admin-users') ){{'active'}}@elseif(request()->routeIs('admin-addUser')){{'active'}}@elseif(request()->routeIs('admin-editUser')){{'active'}}@endif">
+                                            <a href="javascript:void(0);" aria-expanded="@if(request()->routeIs('admin-users') ){{'true'}}@elseif(request()->routeIs('admin-addUser')){{'true'}}@else{{'false'}}@endif"  class="has-arrow"><i class="icon-users"></i><span>Users</span> </a>
+                                            <ul aria-expanded="@if(request()->routeIs('admin-addUser') ){{'true'}}@elseif(request()->routeIs('admin-users')){{'true'}}@else{{'false' }}@endif"   class="{{ request()->routeIs('admin-users') ? 'collapse in' : '' }}{{ request()->routeIs('admin-addUser') ? 'collapse in' : '' }}">
+                                                <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}" ><a href="{{ route('admin-users') }}">All Users</a></li>
+                                                <li class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}" ><a  href="{{ route('admin-addUser') }}">Add User</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="@if(request()->routeIs('admin-add-cabinet') ){{'active'}}@elseif(request()->routeIs('admin-cabinets-all')){{'active'}}@elseif(request()->routeIs('admin-edit-cabinet')){{'active'}})@endif">
+                                            <a href="javascript:void(0);" aria-expanded="@if(request()->routeIs('admin-add-cabinet') ){{'true'}}@elseif(request()->routeIs('admin-cabinets-all')){{'true'}}@elseif(request()->routeIs('admin-edit-cabinet')){{'true'}}@else{{'false'}}@endif"  class="has-arrow"><i class="fa fa-hospital-o"></i><span>Type Cabinets</span> </a>
+                                            <ul aria-expanded="@if(request()->routeIs('admin-add-cabinet') ){{'true'}}@elseif(request()->routeIs('admin-cabinets-all')){{'true'}}@elseif(request()->routeIs('admin-edit-cabinet')){{'true'}}@else{{'false' }}@endif"   class="{{ request()->routeIs('admin-cabinets-all') ? 'collapse in' : '' }}{{ request()->routeIs('admin-add-cabinet') ? 'collapse in' : '' }}">
+                                                <li class="{{ request()->routeIs('admin-cabinets-all') ? 'active' : '' }}" ><a href="{{ route('admin-cabinets-all') }}">All Type cabinets</a></li>
+                                                <li class="{{ request()->routeIs('admin-add-cabinet') ? 'active' : '' }}" ><a  href="{{ route('admin-add-cabinet') }}">Add Type Cabinet</a></li>
+                                            </ul>
+                                        </li>
+                                    @endif
+                                @endauth    
+
+
+                                @endif
+
+
+                                
+                                            
+                                
                                 <li class="{{ request()->routeIs('admin-rendez_vous') ? 'active' : '' }}"><a href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
+                                    
                                 <li ><a href="#"><i class="icon-bubbles"></i>Contacts</a></li>
                                 <li class="{{ request()->routeIs('admin-blogs') ? 'active' : '' }}"><a href="{{ route('admin-blogs') }}"><i class="icon-puzzle"></i>Blog</a></li>
                             </ul>

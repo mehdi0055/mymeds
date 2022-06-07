@@ -43,7 +43,7 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th>#</th>
-                                            <th>name</th>
+                                            <th>Name</th>
                                             <th>Status</th>
                                             <th>Date</th>
                                             <th>Action</th>
