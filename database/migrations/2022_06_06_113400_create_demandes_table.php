@@ -31,7 +31,7 @@ class CreateDemandesTable extends Migration
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('type_cabinets')->onDelete('cascade');
             $table->string('address_cabinet')->nullable();
-            $table->string('logo_cabinet')->default('cabinet.png');
+            $table->string('logo_cabinet')->default('cabinet1.png');
             $table->bigInteger('delete')->default(0);
             $table->bigInteger('status')->default(0);
             $table->timestamps();

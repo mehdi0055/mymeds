@@ -11,13 +11,11 @@ use App\Mail\ContactMail;
 
 class HomeComponent extends Component
 {
-
     public $name;
     public $email;
     public $phone;
     public $time;
     public $date;
-
     public $nameContact;
     public $emailContact;
     public $phoneContact;
@@ -25,17 +23,16 @@ class HomeComponent extends Component
 
     public function updated($fields)
     {
-        $this->validateOnly($fields,[
-            'name'=>'required|min:2',
-            'email'=>'required|email',
-            'phone'=>'required|digits:10',
-            'time'=>'required',
-            'date'=>'required',
-
-            'nameContact'=>'required|min:2',
-            'emailContact'=>'required|email',
-            'phoneContact'=>'required|digits:10',
-            'message'=>'required|max:254',
+        $this->validateOnly($fields, [
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10',
+            'time' => 'required',
+            'date' => 'required',
+            'nameContact' => 'required|min:2',
+            'emailContact' => 'required|email',
+            'phoneContact' => 'required|digits:10',
+            'message' => 'required|max:254',
         ]);
     }
 
@@ -47,7 +44,6 @@ class HomeComponent extends Component
         $this->phone = "";
         $this->time = "";
         $this->date = "";
-
         $this->nameContact = "";
         $this->emailContact = "";
         $this->phoneContact = "";
@@ -58,11 +54,11 @@ class HomeComponent extends Component
     public function takeAppointement()
     {
         $datavalidate = $this->validate([
-            'name'=>'required|min:2',
-            'email'=>'required|email',
-            'phone'=>'required|digits:10',
-            'time'=>'required',
-            'date'=>'required',
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10',
+            'time' => 'required',
+            'date' => 'required',
         ]);
         RdvAdmin::create($datavalidate);
         $rdvAdminId = RdvAdmin::latest()->first()->id;
@@ -76,7 +72,7 @@ class HomeComponent extends Component
             'date' => $this->date,
             'subject' => $subject,
         ];
-        Mail::to($detailsClient['email'])->send(new AdminMails($detailsClient));
+        //Mail::to($detailsClient['email'])->send(new AdminMails($detailsClient));
 
         $subject = "Nouveau rendez vous a été crée";
         $detailsAdmin = [
@@ -88,22 +84,21 @@ class HomeComponent extends Component
             'date' => $this->date,
             'subject' => $subject,
         ];
-        Mail::to('midox0044@gmail.com')->send(new AdminMails($detailsAdmin));
+        //Mail::to('midox0044@gmail.com')->send(new AdminMails($detailsAdmin));
 
         $message = __('language.takeAppointement');
-        session()->flash('success',$message);
+        session()->flash('success', $message);
         $this->resetInput();
         $this->emit('success');
     }
 
-
     public function takeContactUs()
     {
         $datavalidate = $this->validate([
-            'nameContact'=>'required|min:2',
-            'emailContact'=>'required|email',
-            'phoneContact'=>'required|digits:10',
-            'message'=>'required',
+            'nameContact' => 'required|min:2',
+            'emailContact' => 'required|email',
+            'phoneContact' => 'required|digits:10',
+            'message' => 'required',
         ]);
         ContactUsAdmin::create($datavalidate);
         $subject = "Confirmation de l'envoie d'un nouvelle contacte d'aide";
@@ -114,15 +109,15 @@ class HomeComponent extends Component
             'message' => $this->message,
             'subject' => $subject,
         ];
-        Mail::to($detailsContact['emailContact'])->send(new ContactMail($detailsContact));
+        //Mail::to($detailsContact['emailContact'])->send(new ContactMail($detailsContact));
         $message = "Votre contacte envoyer avec succée";
-        session()->flash('addContact',$message);
+        session()->flash('addContact', $message);
         $this->resetInput();
     }
 
     public function render()
     {
         $title = __('language.home');
-        return view('livewire.home-component')->layout('layouts.landing',compact('title'));
+        return view('livewire.home-component')->layout('layouts.landing', compact('title'));
     }
 }

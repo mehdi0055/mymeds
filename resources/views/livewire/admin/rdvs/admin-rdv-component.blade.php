@@ -14,13 +14,96 @@
 
                 </div>
             </div>
-            <div class="row clearfix text-center ">
 
+            <!-- modals -->
+
+            <div wire:ignore.self class="modal fade" id="confirmationDelete" tabindex="-1" role="dialog">
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-light ">
+                            <h4 class="title" id="smallModalLabel">Confirmation</h4>
+                        </div>
+                        <div class="modal-body">Voulez-vous vraiment supprimer ce rendez vous ?
+                        </div>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="deleteRdv()" class="btn btn-danger">Oui</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Non</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="afficherRdv" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-light ">
+                            <h4 class="title" id="smallModalLabel">Detaills rendez vous </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row clearfix">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="name">Nom et prénom</label>
+                                        <input disabled wire:model="name" id="name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="phone">Telephone</label>
+                                        <input disabled wire:model="phone" id="phone" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="date">date</label>
+                                        <input disabled wire:model="date" id="date" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="time">Durée</label>
+                                        <input disabled wire:model="time" id="time" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="confirmeRdv()" class="btn btn-primary">Confirmée le rendez
+                                vous</button>
+                            <button wire:click.prevent="refuseRdv()" class="btn btn-danger">Refusée le rendez
+                                vous</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End modals -->
+
+            <!-- Notification -->
+
+            @if (session()->has('rdvDeleted'))
+                <script>
+                    toastr.error('{{ session('rdvDeleted') }}');
+                </script>
+            @endif
+
+            @if (session()->has('rdvConfirme'))
+                <script>
+                    toastr.success('{{ session('rdvConfirme') }}');
+                </script>
+            @endif
+
+            @if (session()->has('rdvRefuse'))
+                <script>
+                    toastr.error('{{ session('rdvRefuse') }}');
+                </script>
+            @endif
+
+            <!-- End Notification -->
+            <div class="row clearfix text-center ">
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="card top_counter p-3">
                         <div class="body">
-
-
                             <div id="top_counter1" class="carousel vert slide" data-ride="carousel"
                                 data-interval="2500">
                                 <div class="carousel-inner">
@@ -86,14 +169,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><button class="btn btn-primary" href="javascript:void(0);" title="Weekly"><i
-                                        class="fa fa-plus"></i> Ajouter
-                                    un
-                                    rendez vous</button></h2>
+                            <h2>Liste des rendez vous</h2>
                             <ul class="header-dropdown">
                                 <form id="navbar-search" class="navbar-form search-form">
-                                    <input wire:model="searchTerm"  class="form-control" placeholder="Search here..." type="text">
-                                    <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                        type="text">
+                                    <button type="button" class="btn btn-default"><i
+                                            class="icon-magnifier"></i></button>
                                 </form>
                             </ul>
                         </div>
@@ -130,8 +212,14 @@
                                                         class="badge badge-{{ $item->status == '0' ? 'warning' : ($item->status == '1' ? 'success' : 'danger') }}">{{ $item->status == '0' ? 'En cours' : ($item->status == '1' ? 'Confirmer' : 'Annuler') }}</span>
                                                 </th>
                                                 <td>
-                                                    <a title="Edit"><i class="icon-note icon-size text-primary"></i></a>
-                                                    <a title="Comment"><i
+                                                    <a href="" wire:click.prevent="afficherRdv({{ $item->id }})"
+                                                        data-toggle="modal" data-target="#afficherRdv"
+                                                        title="Afficher"><i
+                                                            class="icon-eye text-primary icon-size"></i></a>
+                                                    <a href=""
+                                                        wire:click.prevent="confirmDeleteRdv({{ $item->id }})"
+                                                        data-toggle="modal" data-target="#confirmationDelete"
+                                                        title="Supprimer"><i
                                                             class="icon-trash icon-size text-danger"></i></a>
                                                 </td>
                                             </tr>
