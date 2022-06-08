@@ -20,7 +20,7 @@ class CreateDemandesTable extends Migration
             $table->string('email',50)->unique();
             $table->string('phone',14)->unique();
             $table->string('cin',10)->unique();
-            $table->string('code_doctor',10)->unique();
+            $table->string('code_doctor',50)->unique();
             $table->string('state',50)->nullable();
             $table->string('city',50)->nullable();
             $table->string('zipcode',10)->nullable();

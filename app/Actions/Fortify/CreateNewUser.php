@@ -42,7 +42,7 @@ class CreateNewUser implements CreatesNewUsers
         //     'password' => Hash::make($input['password']),
         // ]);
 
-        return Demande::create(
+        Demande::create(
             [
                 'fname' => $input['fname'],
                 'lname' => $input['lname'],
@@ -62,5 +62,7 @@ class CreateNewUser implements CreatesNewUsers
             ]
         );
         
+        session()->flash('success_message','Thank you');
+        return redirect()->route('register');
     }
 }
