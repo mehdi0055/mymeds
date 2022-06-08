@@ -10,6 +10,7 @@ class TypeCabinet extends Model
     use HasFactory;
     protected $table ="type_cabinets";
 
+    
 
     public function demande()
     {
