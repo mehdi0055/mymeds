@@ -78,6 +78,7 @@
                         </div>
                         <div class="body">
                             <x-jet-validation-errors class="alert alert-danger" />
+                            
                             <form id="wizard_with_validation" action="{{ route('register') }}" method="POST" id="form-submit">
                                 @csrf
                                 <h3>Personal Information</h3>
@@ -491,11 +492,21 @@
     </div>
 
 </x-guest-layout>
-<script src="{{ asset('primary/assets/bundles/libscripts.bundle.js') }}"></script>
-<script src="{{ asset('primary/assets/bundles/vendorscripts.bundle.js') }}"></script>
-<script src="{{ asset('primary/assets/vendor/jquery-validation/jquery.validate.js') }}"></script>
-<script src="{{ asset('primary/assets/vendor/jquery-steps/jquery.steps.js') }}"></script>
-<script src="{{ asset('primary/assets/vendor/dropify/js/dropify.min.js') }}"></script>
-<script src="{{ asset('primary/assets/bundles/mainscripts.bundle.js') }}"></script>
-<script src="{{ asset('primary/assets/js/pages/forms/dropify.js') }}"></script>
-<script src="{{ asset('primary/assets/js/pages/forms/form-wizard.js') }}"></script>
+
+    <script src="{{ asset('primary/assets/bundles/libscripts.bundle.js') }}"></script>
+    <script src="{{ asset('primary/assets/bundles/vendorscripts.bundle.js') }}"></script>
+    <script src="{{ asset('primary/assets/vendor/jquery-validation/jquery.validate.js') }}"></script>
+    <script src="{{ asset('primary/assets/vendor/jquery-steps/jquery.steps.js') }}"></script>
+    <script src="{{ asset('primary/assets/vendor/dropify/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('primary/assets/bundles/mainscripts.bundle.js') }}"></script>
+    <script src="{{ asset('primary/assets/js/pages/forms/dropify.js') }}"></script>
+    <script src="{{ asset('primary/assets/js/pages/forms/form-wizard.js') }}"></script>
+    <script src="{{ asset('primary/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
+
+@if(session()->has('success_message'))
+<script>
+    swal('SUCCESSFULLY REGISTER', '{{ session('success_message') }}', 'success', {
+        Button: "ok",
+    });
+</script>
+@endif

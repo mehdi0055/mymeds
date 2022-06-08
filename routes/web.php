@@ -16,6 +16,7 @@ use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\CanceledRdvComponent;
+use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,7 @@ Route::get('/about-us',AboutComponent::class)->name('landing-about');
 Route::get('/contact-us',ContactComponent::class)->name('landing-contact');
 Route::get('/department',DepartmentComponent::class)->name('landing-department');
 Route::get('/cancelrendezvous/{idRdv}',CanceledRdvComponent::class)->name('cancel-rendezvous');
-
+// Route::get('/register',RegisterComponent::class)->name('landing-register');
 
 
 

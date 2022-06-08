@@ -61,8 +61,8 @@ class CreateNewUser implements CreatesNewUsers
                 'address_cabinet' => $input['address_cabinet']
             ]
         );
-        
-        session()->flash('success_message','Thank you');
-        return redirect()->route('register');
+
+        // session()->flash('success_message','Thank you');
+        // return redirect()->route('register');
     }
 }

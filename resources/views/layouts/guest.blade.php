@@ -42,7 +42,9 @@
     <link rel="stylesheet" href="{{ asset('primary/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/css/color_skins.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/dropify/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('primary/assets/vendor/sweetalert/sweetalert.css') }}">
     @livewireStyles
+    
 </head>
 
 <body class="theme-cyan">
@@ -50,5 +52,6 @@
     {{ $slot }}
 
     @livewireScripts
+    
 </body>
 </html>
