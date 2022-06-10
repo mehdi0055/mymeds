@@ -96,7 +96,7 @@
                                             <input type="email" class="form-control" placeholder="Your email address *" name="email" required>
                                         </div>
                                         <div class="form-group form-float  col-6">
-                                            <input type="number" class="form-control" placeholder="Your phone number *" name="phone" required>
+                                            <input type="text" class="form-control" placeholder="Your phone number *" name="phone" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -144,7 +144,7 @@
                                             @php
                                                 $types = App\Models\TypeCabinet::orderBy('name','asc')->where('status',0)->get();
                                             @endphp
-                                            <select name="type_id" class="form-control" id="type_id">
+                                            <select name="type_id" class="form-control" id="type_id" required>
                                                 <option value="">select type cabinet</option>
                                                 @foreach ($types as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -158,7 +158,7 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                                <h3>Finish</h3>
+                                <h3>Terms & Condition</h3>
                                 <fieldset>
                                     <div class="row">
                                         <div class="form-group form-float col-12">
@@ -169,7 +169,7 @@
                                         <div class="form-group form-float col-12">
                                             <div class="fancy-checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="terms" id="terms" required>
+                                                    <input type="checkbox" name="acceptTerms" id="terms" required>
                                                     <span></span>
                                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
     'terms_of_service' => '<a target="_blank" href="#termsModal" data-toggle="modal" data-target="#termsModal" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
@@ -180,6 +180,7 @@
                                         </div>
                                     </div>
                                 </fieldset>
+                                
                                 
 
                             </form>

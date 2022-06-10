@@ -238,7 +238,7 @@
                                                 <a href="{{ route('admin-dashboard') }}"><i class="icon-home"></i>
                                                     <span>Dashboard</span></a>
                                             </li>
-                                            <li class="{{ request()->routeIs('admin-demandes-all') ? 'active' : '' }}">
+                                            <li class="@if(request()->routeIs('admin-demandes-all') || request()->routeIs('admin-demandes-show')) {{ 'active' }} @endif">
                                                 <a href="{{ route('admin-demandes-all') }}"><i
                                                         class="icon-docs"></i>Manage Demandes</a>
                                             </li>

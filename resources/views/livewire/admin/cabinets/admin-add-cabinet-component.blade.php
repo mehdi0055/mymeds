@@ -48,7 +48,7 @@
                                 <div class="row clearfix">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="slug">adresse e-mail</label>
+                                            <label for="slug">Slug</label>
                                             <input wire:model="slug" id="slug" required type="text" class="form-control" placeholder="slug">
                                             @error('slug')
                                                 <span class="text-danger">{{ $message }}</span>
