@@ -33,7 +33,7 @@
                         <div class="body">
                             <div class="row clearfix mb-4">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <img src="{{ asset('primary/assets/images/users/'.$profile) }}" width="100"
+                                    <img src="{{ asset('primary/assets/images/users/' . $profile) }}" width="100"
                                         height="100" alt="" style="border-radius: 50px;">
                                 </div>
                             </div>
@@ -110,11 +110,11 @@
                                 </div>
                             </div> -->
 
-                            <div class="row clearfix mt-3">
+                            <div class="row clearfix mt-3 text-right">
                                 <div class="col-sm-12">
                                     <button wire:click.prevent="update()" type="submit"
-                                        class="btn btn-primary">Modifier</button>
-                                    <a href="{{ route('admin-users') }}" class="btn btn-danger">Annuler</a>
+                                        class="btn btn-primary">Update</button>
+                                    <a href="{{ route('admin-users') }}" class="btn btn-danger">Back</a>
                                 </div>
                             </div>
 

@@ -11,21 +11,16 @@ class AdminUsersComponent extends Component
     public $searchTerm;
     public $uid ;
     public $name;
-    public function activeUser($id){
+
+    public function changeStatus($id){
         $user = User::find($id);
-        $user->active = 1;
+        $user->active = $user->active == 0 ? 1 : 0;
         $user->save();
         $message = "L'utilisateur a été activée";
         session()->flash('userActive',$message);
     }
 
-    public function inactiveUser($id){
-        $user = User::find($id);
-        $user->active = 0;
-        $user->save();
-        $message = "L'utilisateur a été Inactivée";
-        session()->flash('userInactive',$message);
-    }
+
 
     public function confirmDeleteUser($id){
      $user = User::find($id);

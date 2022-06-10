@@ -127,15 +127,18 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                <a href="{{ route('admin-addUser') }}" class="btn  btn-primary" href="javascript:void(0);" title="Weekly"><i
-                                        class="fa fa-plus"></i> Ajouter un utilisateur
+                                <a href="{{ route('admin-addUser') }}" class="btn  btn-primary"
+                                    href="javascript:void(0);" title="Weekly"><i class="fa fa-plus"></i> Ajouter un
+                                    utilisateur
                                 </a>
                             </h2>
                             <ul class="header-dropdown">
-                                    <form id="navbar-search" class="navbar-form search-form">
-                                        <input wire:model="searchTerm"  class="form-control" placeholder="Search here..." type="text">
-                                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
-                                    </form>
+                                <form id="navbar-search" class="navbar-form search-form">
+                                    <input wire:model="searchTerm" class="form-control" placeholder="Search here..."
+                                        type="text">
+                                    <button type="button" class="btn btn-default"><i
+                                            class="icon-magnifier"></i></button>
+                                </form>
                             </ul>
                         </div>
                         <div class="header">
@@ -160,39 +163,29 @@
                                     <tbody>
                                         @foreach ($users as $item)
                                             <tr>
-                                                <td><img src="{{ asset('primary/assets/images/users/'. $item->profile_photo_path) }}"
+                                                <td><img src="{{ asset('primary/assets/images/users/' . $item->profile_photo_path) }}"
                                                         class="rounded-circle user-photo" alt="User Profile Picture"
                                                         width="52" height="52"></td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
+                                                        class="badge badge-{{ $item->active == '0' ? 'success' : 'danger' }}">{{ $item->active == '0' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    @if ($item->active == 1)
-                                                        <a href="#"
-                                                            wire:click.prevent="inactiveUser({{ $item->id }})"
-                                                            title="Inactive"><i
-                                                                class="fa fa-toggle-on text-success icon-size"
-                                                                style="font-size:1.2em"></i></a>
-                                                    @else
-                                                        <a href="#"
-                                                            wire:click.prevent="activeUser({{ $item->id }})"
-                                                            title="Active"><i
-                                                                class="fa fa-toggle-off text-danger icon-size"
-                                                                style="font-size:1.2em"></i></a>
-                                                    @endif
+                                                    <a href="#" wire:click.prevent="changeStatus({{ $item->id }})"
+                                                        title="{{ $item->active == 0 ? 'incative' : 'active' }}"><i
+                                                            class="{{ $item->active == 0 ? 'fa fa-toggle-on text-success' : 'fa fa-toggle-off text-danger' }} icon-size"></i></a>
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin-editUser', $item->id) }}"
-                                                        title="Edit"><i class="icon-note text-primary icon-size "></i></a>
+                                                        title="Edit"><i
+                                                            class="icon-note text-primary icon-size "></i></a>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteUser({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
                                                         title="Comment"><i
                                                             class="icon-trash text-danger icon-size"></i></a>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>

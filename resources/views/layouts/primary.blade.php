@@ -250,7 +250,7 @@
                                                         class="icon-users"></i><span>Users</span> </a>
                                                 <ul aria-expanded="@if (request()->routeIs('admin-addUser')) {{ 'true' }}@elseif(request()->routeIs('admin-users')){{ 'true' }}@else{{ 'false' }} @endif"
                                                     class="{{ request()->routeIs('admin-users') ? 'collapse in' : '' }}{{ request()->routeIs('admin-addUser') ? 'collapse in' : '' }}">
-                                                    <li class="{{ request()->routeIs('admin-users') ? 'active' : '' }}">
+                                                    <li class="@if (request()->routeIs('admin-users') || request()->routeIs('admin-editUser'))  {{ 'active' }} @endif">
                                                         <a href="{{ route('admin-users') }}">All Users</a>
                                                     </li>
                                                     <li
@@ -260,15 +260,15 @@
                                                 </ul>
                                             </li>
                                             <li
-                                                class="@if (request()->routeIs('admin-add-cabinet')) {{ 'active' }}@elseif(request()->routeIs('admin-cabinets-all')){{ 'active' }}@elseif(request()->routeIs('admin-edit-cabinet')){{ 'active' }}) @endif">
+                                                class="@if(request()->routeIs('admin-add-cabinet') || request()->routeIs('admin-cabinets-all') || request()->routeIs('admin-edit-cabinet') ){{'active'}} @endif">
                                                 <a href="javascript:void(0);"
-                                                    aria-expanded="@if (request()->routeIs('admin-add-cabinet')) {{ 'true' }}@elseif(request()->routeIs('admin-cabinets-all')){{ 'true' }}@elseif(request()->routeIs('admin-edit-cabinet')){{ 'true' }}@else{{ 'false' }} @endif"
+                                                    aria-expanded="@if(request()->routeIs('admin-add-cabinet') || request()->routeIs('admin-cabinets-all') || request()->routeIs('admin-edit-cabinet') ){{'true'}}@endif"
                                                     class="has-arrow"><i class="fa fa-hospital-o"></i><span>Type
                                                         Cabinets</span> </a>
-                                                <ul aria-expanded="@if (request()->routeIs('admin-add-cabinet')) {{ 'true' }}@elseif(request()->routeIs('admin-cabinets-all')){{ 'true' }}@elseif(request()->routeIs('admin-edit-cabinet')){{ 'true' }}@else{{ 'false' }} @endif"
+                                                <ul aria-expanded="@if(request()->routeIs('admin-add-cabinet') || request()->routeIs('admin-cabinets-all') || request()->routeIs('admin-edit-cabinet') ){{'true'}}@endif"
                                                     class="{{ request()->routeIs('admin-cabinets-all') ? 'collapse in' : '' }}{{ request()->routeIs('admin-add-cabinet') ? 'collapse in' : '' }}">
                                                     <li
-                                                        class="{{ request()->routeIs('admin-cabinets-all') ? 'active' : '' }}">
+                                                        class="@if(request()->routeIs('admin-cabinets-all') || request()->routeIs('admin-edit-cabinet') ){{'active'}}@endif">
                                                         <a href="{{ route('admin-cabinets-all') }}">All Type cabinets</a>
                                                     </li>
                                                     <li
