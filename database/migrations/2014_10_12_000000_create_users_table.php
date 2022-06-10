@@ -18,14 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('slug')->unique();
-            $table->string('phone')->unique();
-            $table->string('city')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->default('male.png');
-            $table->enum('gender',['female','male'])->default('male');
             $table->string('utype')->default('USR');
             $table->bigInteger('delete')->default(0);
             $table->bigInteger('active')->default(0);

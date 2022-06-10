@@ -24,7 +24,8 @@ class Demande extends Model
         'phone_cabinet',
         'email_cabinet',
         'type_id',
-        'address_cabinet'
+        'address_cabinet',
+        'status',
     ];
     public function type()
     {

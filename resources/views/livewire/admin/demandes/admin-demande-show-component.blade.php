@@ -18,14 +18,15 @@
 
             <!-- Notification -->
 
-            @if (session()->has('demandeValider'))
+            @if (session()->has('message_success'))
                 <script>
-                    toastr.success('{{ session('demandeValider') }}');
+                    toastr.success('{{ session('message_success') }}');
                 </script>
             @endif
-            @if (session()->has('demandeRefusée'))
+
+            @if (session()->has('message_danger'))
                 <script>
-                    toastr.error('{{ session('demandeRefusée') }}');
+                    toastr.error('{{ session('message_danger') }}');
                 </script>
             @endif
 

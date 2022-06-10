@@ -51,12 +51,23 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="name">Nom et prénom</label>
-                                            <input wire:model="name" id="name" type="text" class="form-control"
-                                                placeholder="Ahmed Alaoui">
-                                            @error('name')
+                                            <label for="lname">Nom </label>
+                                            <input wire:model="lname" id="lname" type="text" class="form-control"
+                                                placeholder="Ahmed ">
+                                            @error('lname')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="fname">prénom</label>
+                                            <input wire:model="fname" id="fname" type="text" class="form-control"
+                                                placeholder=" Alaoui">
+                                            @error('fname')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -64,7 +75,7 @@
 
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="email">adresse e-mail</label>
                                             <input wire:model="email" id="email" type="email" class="form-control"
@@ -74,25 +85,27 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="city">Ville</label>
-                                            <input wire:model="city" id="city" type="text" class="form-control"
-                                                placeholder="RABAT">
-                                            @error('city')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
 
 
                                 </div>
                                 <div class="row clearfix">
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="city">CIN</label>
+                                            <input wire:model="cin" id="cin" type="text" class="form-control"
+                                                placeholder="xxxxxxxx">
+                                            @error('cin')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
-                                            <select wire:model="gender" name="gender" id="gender" class="form-control">
+                                            <select wire:model="gender" name="gender" id="gender"
+                                                class="form-control">
                                                 <option value="male">Homme</option>
                                                 <option value="female">Femme</option>
                                             </select>
@@ -102,12 +115,14 @@
                                         </div>
                                     </div>
 
+
+
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="phone">Phone</label>
-                                            <input wire:model="phone" id="phone" type="number" class="form-control"
-                                                placeholder="0611526658">
-                                            @error('phone')
+                                            <label for="phone">Code medecin</label>
+                                            <input wire:model="code_doctor" id="code_doctor" type="text" class="form-control"
+                                                placeholder="DR100">
+                                            @error('code_doctor')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -130,9 +145,7 @@
                                         <a href="{{ route('admin-users') }}" class="btn btn-danger">Back</a>
                                     </div>
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
                 </div>

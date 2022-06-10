@@ -167,7 +167,7 @@
                     <div class="dropdown">
                         <span>{{ __('language.welcome') }},</span>
                         <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown">
-                            <strong>DR. {{ Auth::user()->name .' '. Auth::user()->name  }} </strong>
+                            <strong>DR. {{ Auth::user()->doctor->fname .' '. Auth::user()->doctor->lname  }} </strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right account">
                             <li><a href="doctor-profile.html"><i class="icon-user"></i>{{ __('language.profile') }}</a></li>

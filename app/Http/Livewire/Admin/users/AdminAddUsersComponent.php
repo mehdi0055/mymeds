@@ -2,8 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
-
-
+use App\Models\Doctor;
 use Livewire\Component;
 use App\Models\User;
 use Carbon\Carbon;
@@ -18,43 +17,39 @@ use Livewire\WithPagination;
 class AdminAddUsersComponent extends Component
 {
     use WithFileUploads;
-    public $name;
+    public $fname;
+    public $lname;
     public $email;
-    public $phone;
-    public $city;
-    public $gender;
     public $password;
     public $profile;
+    public $cin;
+    public $gender;
+    public $code_doctor;
+
 
     public function resetFormSubmitted()
     {
-        $this->name = "";
+        $this->lname = "";
+        $this->fname = "";
         $this->email = "";
-        $this->phone = "";
-        $this->city = "";
-        $this->gender = "";
     }
 
     //check validation after the user finish typing in the fields
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required',
+            'lname' => 'required',
+            'fname' => 'required',
             'email' => 'required|email|unique:users',
-            'phone' => 'required|max:10',
-            'gender' => 'required',
-            'city' => 'required',
         ]);
     }
 
     public function addNewUser()
     {
         $this->validate([
-            'name' => 'required|min:2',
+            'lname' => 'required|min:2',
+            'fname' => 'required|min:2',
             'email' => 'required|email|unique:users',
-            'phone' => 'required|max:10',
-            'gender' => 'required',
-            'city' => 'required',
         ]);
 
         if ($this->profile) {
@@ -70,15 +65,23 @@ class AdminAddUsersComponent extends Component
 
         $password = "123456789";
         $this->password = Hash::make($password);
-        User::insert([
-            'name' => Str::upper($this->name),
+        $user = User::create([
+            'name' => Str::upper($this->lname.' '.$this->fname),
             'email' => $this->email,
             'password' => $this->password,
             'profile_photo_path' => $imagename,
+            'slug' => $this->lname,
             'utype' => 'ADM',
-            'phone' => $this->phone,
-            'gender' => $this->gender,
-            'city' => $this->city,
+        ]);
+
+        $doctor = Doctor::create([
+            'fname' => $this->fname,
+            'lname' => $this->lname ,
+            'email_personel' => $this->email ,
+            'cin' => $this->cin,
+            'code_doctor' => $this->code_doctor,
+            'user_id' => $user->id ,
+
         ]);
         $message = "L'utilisateur a été Crée";
         session()->flash('newUserAdded', $message);

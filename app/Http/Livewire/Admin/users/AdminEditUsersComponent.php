@@ -24,9 +24,6 @@ class AdminEditUsersComponent extends Component
         $user = User::find($this->idUser);
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->phone = $user->phone;
-        $this->gender = $user->gender;
-        $this->city = $user->city;
         $this->profile = $user->profile_photo_path;
     }
 
@@ -34,9 +31,6 @@ class AdminEditUsersComponent extends Component
     {
         $user = User::find($this->idUser);
         $user->name = $this->name;
-        $user->phone = $this->phone;
-        $user->city = $this->city;
-        $user->gender = $this->gender;
         $user->save();
         $message = "L'utilisateur a été modifié";
         session()->flash('userUpdated', $message);
