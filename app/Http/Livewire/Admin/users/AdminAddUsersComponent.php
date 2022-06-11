@@ -76,6 +76,7 @@ class AdminAddUsersComponent extends Component
             'phone_cabinet' => 'required|unique:cabinets|max:10|min:10',
             'email_cabinet' => 'required|email|unique:cabinets',
             'type_id' => 'required',
+
         ]);
 
         if ($this->profile) {
@@ -98,6 +99,7 @@ class AdminAddUsersComponent extends Component
             'profile_photo_path' => $imagename,
             'slug' => $this->lname,
             'utype' => 'USR',
+            'role_id' => 1,
         ]);
 
         $doctor = Doctor::create([

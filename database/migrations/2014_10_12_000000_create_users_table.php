@@ -27,6 +27,8 @@ return new class extends Migration
             $table->bigInteger('delete')->default(0);
             $table->bigInteger('active')->default(0);
             $table->string('theme')->default('theme-purple');
+            $table->bigInteger('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
     }

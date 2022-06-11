@@ -32,7 +32,7 @@
                                 <div class=" p-2"><img src="{{ asset('primary/assets/images/bg-6.png') }}"
                                         class="user-photo" alt="User Profile Picture" width="160"></div>
                                 <div class=" p-5">
-                                    <h2 class="font-weight-normal">Bienvenu <span class="font-weight-bold">DR.{{ Auth::user()->name }}</span>  dans votre cabinet {{ Auth::user()->doctor->cabinet->type->name }} </h2>
+                                    <h2 class="font-weight-normal">Bienvenu <span class="font-weight-bold">DR.{{ Auth::user()->name }}</span>  dans votre  {{ Auth::user()->doctor->cabinet->typeCabinet->name }} </h2>
                                 </div>
                             </div>
                         </div>

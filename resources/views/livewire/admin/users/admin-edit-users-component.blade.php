@@ -37,6 +37,7 @@
                                         height="100" alt="" style="border-radius: 50px;">
                                 </div>
                             </div>
+                            <h6 class="mb-3 mt-3 font-weight-bold text-primary">Information perssonnel </h6>
                             <div class="row clearfix">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
@@ -47,29 +48,32 @@
                                 </div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="email">adresse e-mail</label>
-                                        <input disabled wire:model="email" id="email" type="email"
-                                            class="form-control" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="city">Ville</label>
-                                        <input wire:model="city" id="city" type="text" class="form-control"
-                                            placeholder="RABAT">
-                                        @error('city')
+                                        <input wire:model="email" id="email" type="email" class="form-control"
+                                            placeholder="Ahmed@mymed.ma" disabled>
+                                        @error('email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
+
+
                             </div>
-
-
                             <div class="row clearfix">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="city">CIN</label>
+                                        <input wire:model="cin" id="cin" type="text" class="form-control"
+                                            placeholder="xxxxxxxx">
+                                        @error('cin')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="gender">Gender</label>
                                         <select wire:model="gender" name="gender" id="gender" class="form-control">
@@ -82,22 +86,69 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
-                                        <label for="phone">Phone</label>
-                                        <input wire:model="phone" id="phone" type="number" class="form-control"
-                                            placeholder="0611526658">
-                                        @error('phone')
+                                        <label for="phone">Code medecin</label>
+                                        <input wire:model="code_doctor" id="code_doctor" type="text"
+                                            class="form-control" placeholder="DR100">
+                                        @error('code_doctor')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
 
+                            </div>
+                            <h6 class="mb-3 mt-3 font-weight-bold text-primary">Information Cabinet </h6>
+                            <div class="row clearfix">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
-                                        <label for="address">Adresse</label>
-                                        <textarea name="address" id="address" rows="4" class="form-control"></textarea>
-                                        @error('address')
+                                        <label for="name_cabinet">Name cabinet</label>
+                                        <input wire:model="name_cabinet" id="name_cabinet" type="text"
+                                            class="form-control" placeholder="Cabinet xxxx">
+                                        @error('name_cabinet')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email_cabinet">Email cabinet</label>
+                                        <input wire:model="email_cabinet" id="email_cabinet" type="email"
+                                            class="form-control" placeholder="Cabinet@mymed.ma" disabled>
+                                        @error('email_cabinet')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="phone_cabinet">phone cabinet</label>
+                                        <input wire:model="phone_cabinet" id="phone" type="text" class="form-control"
+                                            placeholder="06 xx xx xx xx">
+                                        @error('phone_cabinet')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="type_id">Type cabinet</label>
+                                        <select wire:model="type_id" name="type_id" class="form-control" id="type_id">
+                                            <option value="">select type cabinet</option>
+                                            @foreach ($types as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('type_id')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>

@@ -28,6 +28,8 @@ class User extends Authenticatable
         'email',
         'password',
         'slug',
+        'role_id',
+        'profile_photo_path',
         'theme'
     ];
 

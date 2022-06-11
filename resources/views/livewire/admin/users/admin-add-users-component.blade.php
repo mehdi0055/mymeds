@@ -50,6 +50,8 @@
                                             type="file" name="profile" wire:model="profile" class="form-control">
                                     </div>
                                 </div>
+
+                                <h6 class="mb-3 mt-3 font-weight-bold text-primary">Information perssonnel </h6>
                                 <div class="row clearfix">
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
