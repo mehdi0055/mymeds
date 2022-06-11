@@ -89,7 +89,6 @@
 
                                 </div>
                                 <div class="row clearfix">
-
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="city">CIN</label>
@@ -120,8 +119,8 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="phone">Code medecin</label>
-                                            <input wire:model="code_doctor" id="code_doctor" type="text" class="form-control"
-                                                placeholder="DR100">
+                                            <input wire:model="code_doctor" id="code_doctor" type="text"
+                                                class="form-control" placeholder="DR100">
                                             @error('code_doctor')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -131,12 +130,78 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="address">Adresse</label>
-                                            <textarea name="address" id="address" rows="4" class="form-control"></textarea>
+                                            <textarea wire:model="address" name="address" id="address" rows="4" class="form-control"></textarea>
                                             @error('address')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
+                                </div>
+
+
+
+                                    <h6 class="mb-3 mt-3 font-weight-bold text-primary">Information Cabinet </h6>
+
+
+
+                                <div class="row clearfix">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name_cabinet">Name cabinet</label>
+                                            <input wire:model="name_cabinet" id="name_cabinet" type="text" class="form-control"
+                                                placeholder="Cabinet xxxx">
+                                            @error('name_cabinet')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="email_cabinet">Email cabinet</label>
+                                            <input wire:model="email_cabinet" id="email_cabinet" type="email" class="form-control"
+                                                placeholder="Cabinet@mymed.ma">
+                                            @error('email_cabinet')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="phone_cabinet">phone cabinet</label>
+                                            <input wire:model="phone_cabinet" id="phone" type="text" class="form-control"
+                                                placeholder="06 xx xx xx xx">
+                                            @error('phone_cabinet')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="type_id">Type cabinet</label>
+                                            <select wire:model="type_id" name="type_id" class="form-control" id="type_id" >
+                                                <option value="">select type cabinet</option>
+                                                @foreach ($types as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('type_id')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row clearfix">
+
                                 </div>
 
                                 <div class="row clearfix mt-3  text-right">
@@ -182,22 +247,12 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
+                                                        class="badge badge-{{ $item->active == '0' ? 'success' : 'danger' }}">{{ $item->active == '0' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    @if ($item->active == 1)
-                                                        <a href="#"
-                                                            wire:click.prevent="inactiveUser({{ $item->id }})"
-                                                            title="Inactive"><i
-                                                                class="fa fa-toggle-on text-success icon-size"
-                                                                style="font-size:1.2em"></i></a>
-                                                    @else
-                                                        <a href="#"
-                                                            wire:click.prevent="activeUser({{ $item->id }})"
-                                                            title="Active"><i
-                                                                class="fa fa-toggle-off text-danger icon-size"
-                                                                style="font-size:1.2em"></i></a>
-                                                    @endif
+                                                    <a href="#" wire:click.prevent="changeStatus({{ $item->id }})"
+                                                        title="{{ $item->active == 0 ? 'incative' : 'active' }}"><i
+                                                            class="{{ $item->active == 0 ? 'fa fa-toggle-on text-success' : 'fa fa-toggle-off text-danger' }} icon-size"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -217,3 +272,9 @@
         </div>
     </div>
 </div>
+@push('scripts')
+<script src="{{ asset('primary/assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js') }}"></script>
+
+    <script src="{{ asset('primary/assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
+    <script src="{{ asset('primary/assets/js/pages/forms/advanced-form-elements.js') }}"></script>
+@endpush

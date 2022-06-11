@@ -48,6 +48,7 @@ return array(
     'App\\Models\\Demande' => $baseDir . '/app/Models/Demande.php',
     'App\\Models\\Doctor' => $baseDir . '/app/Models/Doctor.php',
     'App\\Models\\RdvAdmin' => $baseDir . '/app/Models/RdvAdmin.php',
+    'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\TypeCabinet' => $baseDir . '/app/Models/TypeCabinet.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

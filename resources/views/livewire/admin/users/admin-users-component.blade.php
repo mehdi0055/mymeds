@@ -171,6 +171,7 @@
                                                 <td><span
                                                         class="badge badge-{{ $item->active == '0' ? 'success' : 'danger' }}">{{ $item->active == '0' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
+
                                                 <td>
                                                     <a href="#" wire:click.prevent="changeStatus({{ $item->id }})"
                                                         title="{{ $item->active == 0 ? 'incative' : 'active' }}"><i

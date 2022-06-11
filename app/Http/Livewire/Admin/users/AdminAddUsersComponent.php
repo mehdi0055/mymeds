@@ -5,6 +5,9 @@ namespace App\Http\Livewire\Admin\Users;
 use App\Models\Doctor;
 use Livewire\Component;
 use App\Models\User;
+use App\Models\Cabinet;
+
+use App\Models\TypeCabinet;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +28,11 @@ class AdminAddUsersComponent extends Component
     public $cin;
     public $gender;
     public $code_doctor;
+    public $address;
+    public $name_cabinet;
+    public $phone_cabinet;
+    public $email_cabinet;
+    public $type_id;
 
 
     public function resetFormSubmitted()
@@ -32,6 +40,10 @@ class AdminAddUsersComponent extends Component
         $this->lname = "";
         $this->fname = "";
         $this->email = "";
+        $this->name_cabinet = "";
+        $this->phone_cabinet = "";
+        $this->email_cabinet = "";
+        $this->address = "";
     }
 
     //check validation after the user finish typing in the fields
@@ -41,15 +53,29 @@ class AdminAddUsersComponent extends Component
             'lname' => 'required',
             'fname' => 'required',
             'email' => 'required|email|unique:users',
+            'cin' => 'required|unique:doctors',
+            'address' => 'required',
+            'code_doctor' => 'required|unique:doctors',
+            'name_cabinet' => 'required|unique:cabinets',
+            'phone_cabinet' => 'required|unique:cabinets|max:10|min:10',
+            'email_cabinet' => 'required|email|unique:cabinets',
+            'type_id' => 'required',
         ]);
     }
 
     public function addNewUser()
     {
         $this->validate([
-            'lname' => 'required|min:2',
-            'fname' => 'required|min:2',
+            'lname' => 'required',
+            'fname' => 'required',
             'email' => 'required|email|unique:users',
+            'cin' => 'required|unique:doctors',
+            'address' => 'required',
+            'code_doctor' => 'required|unique:doctors',
+            'name_cabinet' => 'required|unique:cabinets',
+            'phone_cabinet' => 'required|unique:cabinets|max:10|min:10',
+            'email_cabinet' => 'required|email|unique:cabinets',
+            'type_id' => 'required',
         ]);
 
         if ($this->profile) {
@@ -71,7 +97,7 @@ class AdminAddUsersComponent extends Component
             'password' => $this->password,
             'profile_photo_path' => $imagename,
             'slug' => $this->lname,
-            'utype' => 'ADM',
+            'utype' => 'USR',
         ]);
 
         $doctor = Doctor::create([
@@ -79,31 +105,31 @@ class AdminAddUsersComponent extends Component
             'lname' => $this->lname ,
             'email_personel' => $this->email ,
             'cin' => $this->cin,
+            'address' => $this->address,
             'code_doctor' => $this->code_doctor,
+            'role_id' => 1,
             'user_id' => $user->id ,
 
+        ]);
+
+        $cabinet = Cabinet::create([
+            'name_cabinet' => $this->name_cabinet,
+            'email_cabinet' => $this->email_cabinet,
+            'phone_cabinet' => $this->phone_cabinet,
+            'type_id' =>$this->type_id,
+            'doctor_id' => $doctor->id,
         ]);
         $message = "L'utilisateur a été Crée";
         session()->flash('newUserAdded', $message);
         $this->resetFormSubmitted();
     }
 
-    public function activeUser($id)
-    {
+    public function changeStatus($id){
         $user = User::find($id);
-        $user->active = 1;
+        $user->active = $user->active == 0 ? 1 : 0;
         $user->save();
         $message = "L'utilisateur a été activée";
-        session()->flash('userActive', $message);
-    }
-
-    public function inactiveUser($id)
-    {
-        $user = User::find($id);
-        $user->active = 0;
-        $user->save();
-        $message = "L'utilisateur a été Inactivée";
-        session()->flash('userInactive', $message);
+        session()->flash('userActive',$message);
     }
 
 
@@ -111,8 +137,9 @@ class AdminAddUsersComponent extends Component
     use WithPagination;
     public function render()
     {
+        $types = TypeCabinet::where('status',0)->get();
         $users = User::where('delete', 0)
             ->orderBy('id', 'ASC')->paginate(2);
-        return view('livewire.admin.users.admin-add-users-component', ['users' => $users])->layout('layouts.primary');
+        return view('livewire.admin.users.admin-add-users-component', ['users' => $users,'types'=>$types])->layout('layouts.primary');
     }
 }

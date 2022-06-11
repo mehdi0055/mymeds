@@ -10,11 +10,16 @@ class TypeCabinet extends Model
     use HasFactory;
     protected $table ="type_cabinets";
 
-    
+
 
     public function demande()
     {
-        return $this->hasOne(Demande::class);
+        return $this->hasMany(Demande::class);
+    }
+
+    public function cabinet()
+    {
+        return $this->hasMany(Cabinet::class);
     }
 
     protected $fillable = ['name','slug','status'];

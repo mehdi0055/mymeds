@@ -309,37 +309,37 @@
                     <div class="tab-pane p-l-15 p-r-15" id="setting">
                         <h6>Choose Skin</h6>
                         <ul class="choose-skin list-unstyled">
-                            <li data-theme="purple"> <a href="{{ route('change-color', 'theme-purple') }}">
+                            <li data-theme="purple"> <a href="{{ route('change-color-admin', 'theme-purple') }}">
                                     <div class="purple"></div>
                                     <span>Purple</span>
                                 </a>
 
                             </li>
-                            <li data-theme="blue"> <a href="{{ route('change-color', 'theme-blue') }}">
+                            <li data-theme="blue"> <a href="{{ route('change-color-admin', 'theme-blue') }}">
                                     <div class="blue"></div>
                                     <span>Blue</span>
                                 </a>
 
                             </li>
-                            <li data-theme="cyan"><a href="{{ route('change-color', 'theme-cyan') }}">
+                            <li data-theme="cyan"><a href="{{ route('change-color-admin', 'theme-cyan') }}">
                                     <div class="cyan"></div>
                                     <span>Cyan</span>
                                 </a>
 
                             </li>
-                            <li data-theme="green"><a href="{{ route('change-color', 'theme-green') }}">
+                            <li data-theme="green"><a href="{{ route('change-color-admin', 'theme-green') }}">
                                     <div class="green"></div>
                                     <span>Green</span>
                                 </a>
 
                             </li>
-                            <li data-theme="orange"> <a href="{{ route('change-color', 'theme-orange') }}">
+                            <li data-theme="orange"> <a href="{{ route('change-color-admin', 'theme-orange') }}">
                                     <div class="orange"></div>
                                     <span>Orange</span>
                                 </a>
 
                             </li>
-                            <li data-theme="blush"><a href="{{ route('change-color', 'theme-blush') }}">
+                            <li data-theme="blush"><a href="{{ route('change-color-admin', 'theme-blush') }}">
                                     <div class="blush"></div>
                                     <span>Blush</span>
                                 </a>
@@ -413,7 +413,7 @@
         });
     </script>
 
-
+    @stack('scripts')
 
 
 </body>

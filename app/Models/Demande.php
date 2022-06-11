@@ -27,7 +27,7 @@ class Demande extends Model
         'address_cabinet',
         'status',
     ];
-    public function type()
+    public function typeCabinet()
     {
         return $this->belongsTo(TypeCabinet::class, 'type_id');
     }

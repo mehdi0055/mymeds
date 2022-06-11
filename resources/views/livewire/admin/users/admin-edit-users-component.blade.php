@@ -154,22 +154,12 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
+                                                        class="badge badge-{{ $item->active == '0' ? 'success' : 'danger' }}">{{ $item->active == '0' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    @if ($item->active == 1)
-                                                        <a href="#"
-                                                            wire:click.prevent="inactiveUser({{ $item->id }})"
-                                                            title="Inactive"><i
-                                                                class="fa fa-toggle-on text-success icon-size"
-                                                                style="font-size:1.2em"></i></a>
-                                                    @else
-                                                        <a href="#"
-                                                            wire:click.prevent="activeUser({{ $item->id }})"
-                                                            title="Active"><i
-                                                                class="fa fa-toggle-off text-danger icon-size"
-                                                                style="font-size:1.2em"></i></a>
-                                                    @endif
+                                                    <a href="#" wire:click.prevent="changeStatus({{ $item->id }})"
+                                                        title="{{ $item->active == 0 ? 'incative' : 'active' }}"><i
+                                                            class="{{ $item->active == 0 ? 'fa fa-toggle-on text-success' : 'fa fa-toggle-off text-danger' }} icon-size"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

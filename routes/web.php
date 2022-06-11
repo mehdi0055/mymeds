@@ -92,12 +92,12 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
 
 
-    Route::get('/color/{color}',function($color){
+    Route::get('/color/admin{color}',function($color){
         $user = User::find( auth()->user()->id);
         $user->theme = $color;
         $user->save();
         return redirect()->route('admin-dashboard');
-    })->name('change-color');
+    })->name('change-color-admin');
 
 });
 
@@ -107,6 +107,13 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 Route::middleware('auth','auth:sanctum')->group(function(){
 
     Route::get('/user/dashboard',UserDashboardComponent::class)->name('user-dashboard');
+
+    Route::get('/color/user{color}',function($color){
+        $user = User::find( auth()->user()->id);
+        $user->theme = $color;
+        $user->save();
+        return redirect()->route('user-dashboard');
+    })->name('change-color-user');
 
 });
 

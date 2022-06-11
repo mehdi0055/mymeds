@@ -11,5 +11,15 @@ class Cabinet extends Model
     protected $table="cabinets";
     protected $fillable = ['name_cabinet','email_cabinet','phone_cabinet','address_cabinet','logo_cabinet','theme_cabinet','type_id','doctor_id'];
 
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id');
+    }
+
+    public function typeCabinet()
+    {
+        return $this->belongsTo(TypeCabinet::class, 'type_id');
+    }
+
 
 }

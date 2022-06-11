@@ -614,6 +614,7 @@ class ComposerStaticInit705b0b0c19fa279d67d38927d2c5e97b
         'App\\Models\\Demande' => __DIR__ . '/../..' . '/app/Models/Demande.php',
         'App\\Models\\Doctor' => __DIR__ . '/../..' . '/app/Models/Doctor.php',
         'App\\Models\\RdvAdmin' => __DIR__ . '/../..' . '/app/Models/RdvAdmin.php',
+        'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\TypeCabinet' => __DIR__ . '/../..' . '/app/Models/TypeCabinet.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
