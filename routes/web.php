@@ -24,6 +24,8 @@ use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\Roles\UserRolesComponent;
 use App\Http\Livewire\User\Roles\UserAddRolesComponent;
 
+use App\Http\Livewire\User\Permissions\UserPermissionsComponent;
+
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -118,6 +120,12 @@ Route::middleware('auth','auth:sanctum')->group(function(){
     //Roles
     Route::get('/user/roles/all',UserRolesComponent::class)->name('user-roles');
     Route::get('/user/role/add',UserAddRolesComponent::class)->name('user-add-role');
+
+    //Permissions
+
+    Route::get('/user/permissions/all/{idRole}',UserPermissionsComponent::class)->name('user-permission');
+
+
 
     Route::get('/color/user{color}',function($color){
         $user = User::find( auth()->user()->id);

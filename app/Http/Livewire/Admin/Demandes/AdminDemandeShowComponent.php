@@ -37,6 +37,7 @@ class AdminDemandeShowComponent extends Component
             'slug' =>$slug,
             'email' => $demande->email,
             'password' => $password,
+            'role_id' =>1,
         ]);
 
         $doctor = Doctor::create([
@@ -50,6 +51,7 @@ class AdminDemandeShowComponent extends Component
             'zipcode' => $demande->zipcode,
             'address' => $demande->address,
             'user_id' => $user->id,
+
 
         ]);
 

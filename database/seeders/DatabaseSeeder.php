@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Role;
+use App\Models\Permission;
 use App\Models\User;
 use App\Models\TypeCabinet;
 
@@ -22,6 +23,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+
+        Permission::create(
+            [
+                'name' => 'Ajouter',
+                'slug' => 'add-add',
+            ]
+        );
+
+        Permission::create(
+            [
+                'name' => 'Supprimer',
+                'slug' => 'delete-delete',
+            ]
+        );
 
 
         Role::create(
@@ -73,7 +89,6 @@ class DatabaseSeeder extends Seeder
             'email_personel' => 'Mehdi@gmail.com',
             'cin' => 'D55621',
             'code_doctor' => 'DR1',
-            'role_id' => 1,
             'user_id' => $user->id ,
         ]);
 

@@ -77,7 +77,7 @@
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12">
                                     <h6 class="font-weight-bold">Type : </h6>
-                                    <p>{{ $demandes->type->name }}</p>
+                                    <p>{{ $demandes->typeCabinet->name }}</p>
                                 </div>
                             </div>
                             <div class="row clearfix">

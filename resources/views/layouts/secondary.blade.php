@@ -232,7 +232,7 @@
                                     @auth
                                         @if (Auth::user()->utype = 'USR')
                                             <li class="{{ request()->routeIs('admin-dashboard') ? 'active' : '' }}">
-                                                <a href="{{ route('admin-dashboard') }}"><i class="icon-home"></i>
+                                                <a href="{{ route('user-dashboard') }}"><i class="icon-home"></i>
                                                     <span>Dashboard</span></a>
                                             </li>
 
@@ -267,13 +267,13 @@
                                 @endif
 
                                 <li
-                                    class="@if (request()->routeIs('admin-users')) {{ 'active' }}@elseif(request()->routeIs('admin-addUser')){{ 'active' }}@elseif(request()->routeIs('admin-editUser')){{ 'active' }} @endif">
+                                    class="@if (request()->routeIs('user-roles')) {{ 'active' }}@elseif(request()->routeIs('user-add-role')){{ 'active' }} @endif">
                                     <a href="javascript:void(0);"
-                                        aria-expanded="@if (request()->routeIs('admin-users')) {{ 'true' }}@elseif(request()->routeIs('admin-addUser')){{ 'true' }}@else{{ 'false' }} @endif"
+                                        aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@else{{ 'false' }} @endif"
                                         class="has-arrow"><i class="icon-settings"></i><span>Settings</span> </a>
-                                    <ul aria-expanded="@if (request()->routeIs('admin-addUser')) {{ 'true' }}@elseif(request()->routeIs('admin-users')){{ 'true' }}@else{{ 'false' }} @endif"
-                                        class="{{ request()->routeIs('admin-users') ? 'collapse in' : '' }}{{ request()->routeIs('admin-addUser') ? 'collapse in' : '' }}">
-                                        <li class="@if (request()->routeIs('user-roles') || request()->routeIs('user-roles')) {{ 'active' }} @endif">
+                                    <ul aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@else{{ 'false' }} @endif"
+                                        class="{{ request()->routeIs('user-roles') ? 'collapse in' : '' }}{{ request()->routeIs('user-roles') ? 'collapse in' : '' }}">
+                                        <li class="@if (request()->routeIs('user-roles') || request()->routeIs('user-add-role')) {{ 'active' }} @endif">
                                             <a href="{{ route('user-roles') }}"> Role permission</a>
                                         </li>
                                         <li class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
@@ -380,31 +380,11 @@
     @livewireScripts
 
     <script>
-        window.livewire.on('userDeleted', () => {
-            $('#confirmationDelete').modal('hide');
-        });
-    </script>
-    <script>
-        window.livewire.on('demandeDeleted', () => {
-            $('#confirmationDelete').modal('hide');
-        });
-    </script>
-    <script>
-        window.livewire.on('rdvDeleted', () => {
+        window.livewire.on('roleDeleted', () => {
             $('#confirmationDelete').modal('hide');
         });
     </script>
 
-    <script>
-        window.livewire.on('rdvConfirme', () => {
-            $('#afficherRdv').modal('hide');
-        });
-    </script>
-    <script>
-        window.livewire.on('rdvRefuse', () => {
-            $('#afficherRdv').modal('hide');
-        });
-    </script>
 
 
 
