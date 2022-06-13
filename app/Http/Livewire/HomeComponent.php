@@ -20,6 +20,7 @@ class HomeComponent extends Component
     public $emailContact;
     public $phoneContact;
     public $message;
+    public $subjectContact;
 
     public function updated($fields)
     {
@@ -29,10 +30,12 @@ class HomeComponent extends Component
             'phone' => 'required|digits:10',
             'time' => 'required',
             'date' => 'required',
+
             'nameContact' => 'required|min:2',
             'emailContact' => 'required|email',
             'phoneContact' => 'required|digits:10',
             'message' => 'required|max:254',
+            'subjectContact' => 'required'
         ]);
     }
 
@@ -48,6 +51,7 @@ class HomeComponent extends Component
         $this->emailContact = "";
         $this->phoneContact = "";
         $this->message = "";
+        $this->subjectContact = "";
     }
 
 
@@ -71,6 +75,7 @@ class HomeComponent extends Component
             'time' => $this->time,
             'date' => $this->date,
             'subject' => $subject,
+            
         ];
         //Mail::to($detailsClient['email'])->send(new AdminMails($detailsClient));
 
@@ -94,13 +99,19 @@ class HomeComponent extends Component
 
     public function takeContactUs()
     {
+
         $datavalidate = $this->validate([
             'nameContact' => 'required|min:2',
             'emailContact' => 'required|email',
             'phoneContact' => 'required|digits:10',
             'message' => 'required',
+            'subjectContact' => 'required'
         ]);
+
+        
         ContactUsAdmin::create($datavalidate);
+
+        
         $subject = "Confirmation de l'envoie d'un nouvelle contacte d'aide";
         $detailsContact = [
             'nameContact' => $this->nameContact,

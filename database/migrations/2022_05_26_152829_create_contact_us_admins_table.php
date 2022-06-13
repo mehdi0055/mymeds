@@ -15,10 +15,17 @@ class CreateContactUsAdminsTable extends Migration
     {
         Schema::create('contact_us_admins', function (Blueprint $table) {
             $table->id();
-            $table->string('nameContact',50);
-            $table->string('emailContact',50);
-            $table->string('phoneContact',14);
-            $table->string('message',255);
+            $table->string('nameContact')->nullable();
+            $table->text('subjectContact')->nullable();
+            $table->string('emailContact')->nullable();
+            $table->string('phoneContact')->nullable();
+            $table->longText('message')->nullable();
+            $table->boolean('archive')->nullable()->default(0);
+            $table->boolean('trash')->nullable()->default(0);
+            $table->boolean('read')->nullable()->default(0);
+            $table->boolean('delete')->nullable()->default(0);
+            $table->boolean('start')->nullable()->default(0);
+            $table->boolean('permenant')->nullable()->default(0);
             $table->timestamps();
         });
     }

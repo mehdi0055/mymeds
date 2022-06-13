@@ -10,5 +10,5 @@ class ContactUsAdmin extends Model
     use HasFactory;
 
     protected $table = "contact_us_admins";
-    protected $fillable = ['nameContact','emailContact','phoneContact','message'];
+    protected $fillable = ['nameContact','emailContact','phoneContact','message','subjectContact','archive','trash','read','delete','start','permanent'];
 }

@@ -23,8 +23,11 @@
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/sweetalert/sweetalert.css') }}" />
     <link rel="stylesheet" href="{{ asset('primary/assets/vendor/dropify/css/dropify.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('primary/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('primary/assets/css/inbox.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('primary/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
+    
     @livewireStyles
 </head>
 
@@ -291,7 +294,7 @@
                                         href="{{ route('admin-rendez_vous') }}"><i
                                             class="icon-calendar"></i>Appointment</a></li>
 
-                                <li><a href="#"><i class="icon-bubbles"></i>Contacts</a></li>
+                                <li><a href="{{ route('admin-contact') }}"><i class="icon-bubbles"></i>Contacts</a></li>
                                 <li class="{{ request()->routeIs('admin-blogs') ? 'active' : '' }}"><a
                                         href="{{ route('admin-blogs') }}"><i class="icon-puzzle"></i>Blog</a>
                                 </li>

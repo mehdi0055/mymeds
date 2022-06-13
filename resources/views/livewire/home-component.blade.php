@@ -681,11 +681,11 @@
                             <ul>
                                 <li>
                                     <h5><i class="flaticon-call"></i> {{ __('language.Phone') }}</h5>
-                                    <span>+44-20-7328-4499</span>
+                                    <span>+212-99-9999-9999</span>
                                 </li>
                                 <li>
                                     <h5><i class="flaticon-email"></i> {{ __('language.Email') }}</h5>
-                                    <span>mymed@gmail.com</span>
+                                    <span>support@mymed.ma</span>
                                 </li>
                             </ul>
                         </div>
@@ -697,10 +697,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input wire:model.lazy="nameContact" class="form-control"
-                                            id="nameContact" name="nameContact"
-                                            placeholder="{{ __('language.Name') }}" type="text">
-
+                                        <input wire:model.lazy="nameContact" class="form-control" id="nameContact" name="nameContact" placeholder="{{ __('language.Name') }}" type="text">
                                         @error('nameContact')
                                             <span class="alert-error">{{ $message }}</span>
                                         @enderror
@@ -708,9 +705,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input wire:model.lazy="emailContact" class="form-control"
-                                            id="emailContact" name="emailContact"
-                                            placeholder="{{ __('language.Email') }}*" type="email">
+                                        <input wire:model.lazy="emailContact" class="form-control" id="emailContact" name="emailContact" placeholder="{{ __('language.Email') }}*" type="email">
                                         @error('emailContact')
                                             <span class="alert-error">{{ $message }}</span>
                                         @enderror
@@ -718,18 +713,23 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input wire:model.lazy="phoneContact" class="form-control"
-                                            id="phoneContact" name="phoneContact"
-                                            placeholder="{{ __('language.Phone') }}" type="text">
+                                        <input wire:model.lazy="phoneContact" class="form-control" id="phoneContact" name="phoneContact" placeholder="{{ __('language.Phone') }}" type="text">
                                         @error('phoneContact')
                                             <span class="alert-error">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input wire:model.lazy="subjectContact" class="form-control" id="subjectContact" name="subjectContact" placeholder="Subject" type="text">
+                                        @error('subjectContact')
+                                            <span class="alert-error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
                                     <div class="form-group comments">
-                                        <textarea wire:model.lazy="message" class="form-control" id="comments" name="comments"
-                                            placeholder="{{ __('language.Message') }} *"></textarea>
+                                        <textarea wire:model.lazy="message" class="form-control" id="comments" name="comments" placeholder="{{ __('language.Message') }} *"></textarea>
                                         @error('message')
                                             <span class="alert-error">{{ $message }}</span>
                                         @enderror
