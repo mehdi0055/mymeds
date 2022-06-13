@@ -6,6 +6,8 @@ use App\Http\Livewire\Admin\rdvs\AdminRdvComponent;
 use App\Http\Livewire\Admin\users\AdminUsersComponent;
 use App\Http\Livewire\Admin\users\AdminEditUsersComponent;
 use App\Http\Livewire\Admin\users\AdminAddUsersComponent;
+
+
 use App\Http\Livewire\Admin\demandes\AdminDemandesComponent;
 use App\Http\Livewire\Admin\demandes\AdminDemandeShowComponent;
 use App\Http\Livewire\Admin\blogs\AdminBlogComponent;
@@ -19,8 +21,13 @@ use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\CanceledRdvComponent;
+
 use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\Roles\UserRolesComponent;
+use App\Http\Livewire\User\Roles\UserAddRolesComponent;
+
+
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -74,14 +81,19 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
 
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin-dashboard');
+<<<<<<< HEAD
     Route::get('/admin/rendez_vous',AdminRdvComponent::class)->name('admin-rendez_vous');
     Route::get('/admin/blogs',AdminBlogComponent::class)->name('admin-blogs');
     Route::get('/admin/contact/{folder?}',AdminContactComponent::class)->name('admin-contact');
     Route::get('/admin/contact/{contact_id}/show',AdminShowMessageComponent::class)->name('admin-show-message');
     // Route::get('/admin/contact/folder/archive',AdminArchivedMessagesComponent::class)->name('admin-folder-archive');
+=======
+    Route::get('/admin/rendez_vous/all',AdminRdvComponent::class)->name('admin-rendez_vous');
+    Route::get('/admin/blogs/all',AdminBlogComponent::class)->name('admin-blogs');
+>>>>>>> ad5072d231346253466730c5732bbf1921cce011
 
     //Users
-    Route::get('/admin/users',AdminUsersComponent::class)->name('admin-users');
+    Route::get('/admin/users/all',AdminUsersComponent::class)->name('admin-users');
     Route::get('/admin/user/edit/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
     Route::get('/admin/user/add',AdminAddUsersComponent::class)->name('admin-addUser');
 
@@ -113,6 +125,10 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 Route::middleware('auth','auth:sanctum')->group(function(){
 
     Route::get('/user/dashboard',UserDashboardComponent::class)->name('user-dashboard');
+
+    //Roles
+    Route::get('/user/roles/all',UserRolesComponent::class)->name('user-roles');
+    Route::get('/user/role/add',UserAddRolesComponent::class)->name('user-add-role');
 
     Route::get('/color/user{color}',function($color){
         $user = User::find( auth()->user()->id);
