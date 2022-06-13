@@ -49,29 +49,25 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name"
-                                        type="text">
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email*"
-                                        type="email">
+                                    <input class="form-control" id="email" name="email" placeholder="Email*" type="email">
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" placeholder="Phone"
-                                        type="text">
+                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Tell Us About Project *"></textarea>
+                                    <textarea class="form-control" id="comments" name="comments" placeholder="Tell Us About Project *"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">

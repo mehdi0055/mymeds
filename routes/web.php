@@ -14,6 +14,9 @@ use App\Http\Livewire\Admin\blogs\AdminBlogComponent;
 use App\Http\Livewire\Admin\Cabinets\AdminAddCabinetComponent;
 use App\Http\Livewire\Admin\Cabinets\AdminCabinetsComponent;
 use App\Http\Livewire\Admin\Cabinets\AdminEditCabinetComponent;
+use App\Http\Livewire\Admin\Contacts\AdminArchivedMessagesComponent;
+use App\Http\Livewire\Admin\Contacts\AdminContactComponent;
+use App\Http\Livewire\Admin\Contacts\AdminShowMessageComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\HomeComponent;
@@ -80,8 +83,16 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
 
 
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin-dashboard');
+<<<<<<< HEAD
+    Route::get('/admin/rendez_vous',AdminRdvComponent::class)->name('admin-rendez_vous');
+    Route::get('/admin/blogs',AdminBlogComponent::class)->name('admin-blogs');
+    Route::get('/admin/contact/{folder?}',AdminContactComponent::class)->name('admin-contact');
+    Route::get('/admin/contact/{contact_id}/show',AdminShowMessageComponent::class)->name('admin-show-message');
+    // Route::get('/admin/contact/folder/archive',AdminArchivedMessagesComponent::class)->name('admin-folder-archive');
+=======
     Route::get('/admin/rendez_vous/all',AdminRdvComponent::class)->name('admin-rendez_vous');
     Route::get('/admin/blogs/all',AdminBlogComponent::class)->name('admin-blogs');
+>>>>>>> ad5072d231346253466730c5732bbf1921cce011
 
     //Users
     Route::get('/admin/users/all',AdminUsersComponent::class)->name('admin-users');
@@ -92,7 +103,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/demandes/all',AdminDemandesComponent::class)->name('admin-demandes-all');
     Route::get('//admin/demandes/show/{idDemande}',AdminDemandeShowComponent::class)->name('admin-demandes-show');
 
-
+    
 
     //Cabinets
     Route::get('/admin/cabinets/all',AdminCabinetsComponent::class)->name('admin-cabinets-all');
