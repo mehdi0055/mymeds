@@ -37,7 +37,7 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Name role</label>
-                                            <input  wire:model="name" required id="name" type="text" class="form-control" placeholder="Type Cabinet Name">
+                                            <input wire:model="name" required id="name" type="text" class="form-control" placeholder="Name Role">
                                             @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -49,7 +49,7 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <input wire:model="description" id="description"  type="text" class="form-control" placeholder="description">
+                                            <input wire:model="description" id="description"  type="text" class="form-control" placeholder="Description">
                                             @error('description')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -90,10 +90,10 @@
                     <div class="card">
 
                         <div class="header">
-                            <h2>Liste Cabinets</h2>
+                            <h2>Liste Roles</h2>
                             <p class="float-md-right">
-                                <span class="badge badge-success">{{ $active_cabinets->count() }} Active</span>
-                                <span class="badge badge-danger">{{ $desactive_cabinets->count() }} Inactive</span>
+                                <span class="badge badge-success">{{ $active_role->count() }} Active</span>
+                                <span class="badge badge-danger">{{ $desactive_role->count() }} Inactive</span>
                             </p>
                         </div>
                         <div class="body">
@@ -103,25 +103,27 @@
                                         <tr>
                                             <th>#</th>
                                             <th>name</th>
+                                            <th>Description</th>
                                             <th>Status</th>
                                             <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($all_cabinets as $cabinet)
+                                        @foreach($all_roles as $item)
                                             <tr>
-                                                <td>{{ $cabinet->id }}</td>
-                                                <td>{{ $cabinet->name }}</td>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->description }}</td>
                                                 <td>
-                                                    <span class="{{ $cabinet->status == 0  ? 'badge badge-success' : 'badge badge-danger' }}">
-                                                        {{ $cabinet->status == 0  ? 'Active' : 'Desactive' }}
+                                                    <span class="{{ $item->isActive == 0  ? 'badge badge-success' : 'badge badge-danger' }}">
+                                                        {{ $item->isActive == 0  ? 'Active' : 'Desactive' }}
                                                     </span>
                                                 </td>
-                                                <td>{{ $cabinet->created_at }}</td>
+                                                <td>{{ $item->created_at->format('Y-m-d') }}</td>
                                                 <td>
                                                     {{-- <a href="" title="show"><i class="fa fa-eye text-warning icon-size"> </i></a> --}}
-                                                    <a href="" title="edit"><i class="fa fa-edit text-info icon-size"> </i></a>
+                                                    <a href="" title="permission"><i class="fa fa-key text-info icon-size"> </i></a>
                                                     <a href="" title="delete"><i class="fa fa-trash-o text-danger icon-size"> </i></a>
                                                 </td>
                                             </tr>
@@ -130,7 +132,7 @@
                                 </table>
                             </div>
                             <div class="d-flex justify-content-center">
-                                    {{ $all_cabinets->links('livewire-pagination') }}
+                                    {{ $all_roles->links('livewire-pagination') }}
                             </div>
                         </div>
                     </div>
@@ -140,3 +142,4 @@
         </div>
     </div>
 </div>
+

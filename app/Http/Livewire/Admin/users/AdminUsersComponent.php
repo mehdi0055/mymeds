@@ -41,7 +41,7 @@ class AdminUsersComponent extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm. '%';
-        $users = User::where('name','LIKE',$searchTerm)->where('delete',0)
+        $users = User::where('name','LIKE',$searchTerm)->where('delete',0)->where('utype','USR')
         ->orderBy('id', 'ASC')->paginate(2);
         return view('livewire.admin.users.admin-users-component',['users'=>$users])->layout('layouts.primary');
     }
