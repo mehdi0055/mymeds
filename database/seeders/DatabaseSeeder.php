@@ -27,14 +27,28 @@ class DatabaseSeeder extends Seeder
 
         Permission::create(
             [
-                'name' => 'Ajouter',
+                'name' => 'View',
+                'slug' => 'view-view',
+            ]
+        );
+
+        Permission::create(
+            [
+                'name' => 'Add',
                 'slug' => 'add-add',
             ]
         );
 
         Permission::create(
             [
-                'name' => 'Supprimer',
+                'name' => 'Edit',
+                'slug' => 'edit-edit',
+            ]
+        );
+
+        Permission::create(
+            [
+                'name' => 'Delete',
                 'slug' => 'delete-delete',
             ]
         );

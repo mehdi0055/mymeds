@@ -267,13 +267,14 @@
                                 @endif
 
                                 <li
-                                    class="@if (request()->routeIs('user-roles')) {{ 'active' }}@elseif(request()->routeIs('user-add-role')){{ 'active' }} @endif">
+                                    class="@if (request()->routeIs('user-roles')) {{ 'active' }}@elseif(request()->routeIs('user-add-role')){{ 'active' }}@elseif(request()->routeIs('user-permission')){{ 'active' }} @endif">
                                     <a href="javascript:void(0);"
-                                        aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@else{{ 'false' }} @endif"
-                                        class="has-arrow"><i class="icon-settings"></i><span>Settings</span> </a>
-                                    <ul aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@else{{ 'false' }} @endif"
+                                        aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@elseif(request()->routeIs('user-permission')){{ 'true' }}@else{{ 'false' }} @endif"
+                                        class="has-arrow"><i class="icon-settings"></i><span>Settings</span>
+                                    </a>
+                                    <ul aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@elseif(request()->routeIs('user-permission')){{ 'true' }}@else{{ 'false' }} @endif"
                                         class="{{ request()->routeIs('user-roles') ? 'collapse in' : '' }}{{ request()->routeIs('user-roles') ? 'collapse in' : '' }}">
-                                        <li class="@if (request()->routeIs('user-roles') || request()->routeIs('user-add-role')) {{ 'active' }} @endif">
+                                        <li class="@if (request()->routeIs('user-roles') || request()->routeIs('user-add-role') || request()->routeIs('user-permission')) {{ 'active' }} @endif">
                                             <a href="{{ route('user-roles') }}"> Role permission</a>
                                         </li>
                                         <li class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
@@ -285,9 +286,6 @@
 
                                     </ul>
                                 </li>
-
-
-
                             </ul>
                         </nav>
                     </div>

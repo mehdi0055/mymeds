@@ -16,60 +16,68 @@
                 </div>
             </div>
 
+            <!-- Notification -->
+            @if (session()->has('success_message'))
+                <script>
+                    toastr.success('{{ session('success_message') }}');
+                </script>
+            @endif
 
-
+            <!-- End Notification -->
 
             <div class="row clearfix">
                 <div class="col-lg-12">
+
+
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Liste Des Permissions de role <span class="font-weight-bold">{{ $name }}</span>
+                                Liste Des Permissions de role <span
+                                    class="font-weight-bold text-primary">{{ $Role->name }}</span>
                             </h2>
                             <ul class="header-dropdown">
-                                <form id="navbar-search" class="navbar-form search-form">
-                                    <input wire:model.debounce.500ms="search" class="form-control"
-                                        placeholder="Search here..." type="text">
-                                    <button type="button" class="btn btn-default"><i
-                                            class="icon-magnifier"></i></button>
-                                </form>
+
                             </ul>
                         </div>
                         <div class="header">
 
                         </div>
                         <div class="body">
-                            <div class="table-responsive">
-                                <table class="table  table-hover js-basic-example dataTable table-custom">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Date</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($all_permissions as $item)
+                            <form wire:submit.prevent="changePermission()">
+                                <div class="table-responsive">
+                                    <table class="table  table-hover js-basic-example dataTable table-custom "
+                                        cellspacing="2">
+                                        <thead class="thead-light">
                                             <tr>
-                                                <td>{{ $item->id }}</td>
-                                                <td>{{ $item->name }}</td>
-
-
-                                                <td>{{ $item->created_at }}</td>
-
-                                                <td>
-
-                                                    <input type="checkbox" name="">
-                                                </td>
+                                                <th>Module Name</th>
+                                                @foreach ($all_permissions as $item)
+                                                    <th>{{ $item->name }}</th>
+                                                @endforeach
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                {{ $all_permissions->links('livewire-pagination') }}
-                            </div>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Module Name</th>
+                                                @foreach ($all_permissions as $item)
+                                                    <th>{{ $item->name }}</th>
+                                                @endforeach
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>Employee</td>
+                                                @foreach ($all_permissions as $item)
+                                                    <td><input wire:model="permission" value="{{ $item->id }}"
+                                                            name="permission[]" type="checkbox"></td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="d-flex justify-content-center mt-5">
+                                    <button class="btn btn-info">Modifier</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
