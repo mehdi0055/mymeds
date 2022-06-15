@@ -178,13 +178,16 @@
                                                             class="{{ $item->active == 0 ? 'fa fa-toggle-on text-success' : 'fa fa-toggle-off text-danger' }} icon-size"></i></a>
                                                 </td>
                                                 <td>
+                                                    <a href="{{ route('admin-showUser',$item->id) }}"
+                                                        title="Show"><i
+                                                            class="icon-eye text-success icon-size "></i></a>
                                                     <a href="{{ route('admin-editUser', $item->id) }}"
                                                         title="Edit"><i
                                                             class="icon-note text-primary icon-size "></i></a>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteUser({{ $item->id }})"
                                                         data-toggle="modal" data-target="#confirmationDelete"
-                                                        title="Comment"><i
+                                                        title="Remove"><i
                                                             class="icon-trash text-danger icon-size"></i></a>
                                                 </td>
                                             </tr>

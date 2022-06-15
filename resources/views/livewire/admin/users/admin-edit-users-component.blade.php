@@ -47,6 +47,23 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row clearfix">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="phone">Telephone</label>
+                                        <input wire:model="phone" type="text" class="form-control"
+                                           >
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email">City</label>
+                                        <input wire:model="name" type="text" class="form-control"
+                                            placeholder="First Name">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row clearfix">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
@@ -58,8 +75,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-
                             </div>
                             <div class="row clearfix">
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">

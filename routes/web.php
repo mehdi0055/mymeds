@@ -5,6 +5,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\rdvs\AdminRdvComponent;
 use App\Http\Livewire\Admin\users\AdminUsersComponent;
 use App\Http\Livewire\Admin\users\AdminEditUsersComponent;
+use App\Http\Livewire\Admin\users\AdminShowUsersComponent;
 use App\Http\Livewire\Admin\users\AdminAddUsersComponent;
 
 
@@ -95,6 +96,7 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/users/all',AdminUsersComponent::class)->name('admin-users');
     Route::get('/admin/user/edit/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
     Route::get('/admin/user/add',AdminAddUsersComponent::class)->name('admin-addUser');
+    Route::get('/admin/user/show/{idUser}',AdminShowUsersComponent::class)->name('admin-showUser');
 
     //Demandes
     Route::get('/admin/demandes/all',AdminDemandesComponent::class)->name('admin-demandes-all');
@@ -127,6 +129,7 @@ Route::middleware('auth','auth:sanctum')->group(function(){
 
     //Permissions
     Route::get('/user/permissions/all/{idRole}',UserPermissionsComponent::class)->name('user-permission');
+    Route::get('/user/user/show/{idUser}',AdminShowUsersComponent::class)->name('user-showUser');
 
     //Settings
     Route::get('/user/settings/cabinet/show/',UserSettingsComponent::class)->name('user-settings-cabinet');
