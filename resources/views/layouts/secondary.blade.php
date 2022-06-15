@@ -28,7 +28,7 @@
     @livewireStyles
 </head>
 
-<body class="{{ Auth::user()->theme }}">
+<body id="body-theme" class="{{ Auth::user()->doctor->cabinet->theme_cabinet }}">
 
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -267,12 +267,12 @@
                                 @endif
 
                                 <li
-                                    class="@if (request()->routeIs('user-roles')) {{ 'active' }}@elseif(request()->routeIs('user-add-role')){{ 'active' }}@elseif(request()->routeIs('user-permission')){{ 'active' }} @endif">
+                                    class="@if (request()->routeIs('user-roles')) {{ 'active' }}@elseif(request()->routeIs('user-add-role')){{ 'active' }}@elseif(request()->routeIs('user-permission')){{ 'active' }}@elseif(request()->routeIs('user-settings-cabinet')){{ 'active' }} @endif">
                                     <a href="javascript:void(0);"
-                                        aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@elseif(request()->routeIs('user-permission')){{ 'true' }}@else{{ 'false' }} @endif"
+                                        aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@elseif(request()->routeIs('user-permission')){{ 'true' }}@elseif(request()->routeIs('user-settings-cabinet')){{ 'active' }}@else{{ 'false' }} @endif"
                                         class="has-arrow"><i class="icon-settings"></i><span>Settings</span>
                                     </a>
-                                    <ul aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@elseif(request()->routeIs('user-permission')){{ 'true' }}@else{{ 'false' }} @endif"
+                                    <ul aria-expanded="@if (request()->routeIs('user-roles')) {{ 'true' }}@elseif(request()->routeIs('user-add-role')){{ 'true' }}@elseif(request()->routeIs('user-permission')){{ 'true' }}@elseif(request()->routeIs('user-settings-cabinet')){{ 'active' }}@else{{ 'false' }} @endif"
                                         class="{{ request()->routeIs('user-roles') ? 'collapse in' : '' }}{{ request()->routeIs('user-roles') ? 'collapse in' : '' }}">
                                         <li class="@if (request()->routeIs('user-roles') || request()->routeIs('user-add-role') || request()->routeIs('user-permission')) {{ 'active' }} @endif">
                                             <a href="{{ route('user-roles') }}"> Role permission</a>
@@ -280,8 +280,8 @@
                                         <li class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
                                             <a href="{{ route('admin-addUser') }}">User profile</a>
                                         </li>
-                                        <li class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
-                                            <a href="{{ route('admin-addUser') }}">General setting</a>
+                                        <li class="@if (request()->routeIs('user-settings-cabinet')) {{ 'active' }} @endif">
+                                            <a href="{{ route('user-settings-cabinet') }}">General setting</a>
                                         </li>
 
                                     </ul>
@@ -382,7 +382,6 @@
             $('#confirmationDelete').modal('hide');
         });
     </script>
-
 
 
 

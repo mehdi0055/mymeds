@@ -38,7 +38,7 @@
                         <div class="body text-center "
                             style="background-image: url({{ asset('primary/assets/images/bg-8.png') }});background-size:cover;background-repeat:no-repeat ">
                             <div class="profile-image mb-3"> <img
-                                    src="{{ asset('primary/assets/images/') }}/{{ $demandes->logo_cabinet }}"
+                                    src="{{ asset('primary/assets/images/cabinet/') }}/{{ $demandes->logo_cabinet }}"
                                     width="140" class="rounded-circle" alt=""> </div>
                             <div>
                                 <h4 class="m-b-0 "><strong>{{ $demandes->name_cabinet }}</strong></h4>

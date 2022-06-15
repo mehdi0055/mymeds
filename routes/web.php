@@ -27,9 +27,8 @@ use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\Roles\UserRolesComponent;
 use App\Http\Livewire\User\Roles\UserAddRolesComponent;
 
-use App\Http\Controllers\PermissionController;
-
 use App\Http\Livewire\User\Permissions\UserPermissionsComponent;
+use App\Http\Livewire\User\Settings\UserSettingsComponent;
 
 
 use Illuminate\Support\Facades\App;
@@ -82,8 +81,6 @@ Route::get('/language/{local}',function($local){
 
 //Admin Routes
 Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
-
-
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin-dashboard');
     Route::get('/admin/rendez_vous',AdminRdvComponent::class)->name('admin-rendez_vous');
     Route::get('/admin/blogs',AdminBlogComponent::class)->name('admin-blogs');
@@ -94,7 +91,6 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/rendez_vous/all',AdminRdvComponent::class)->name('admin-rendez_vous');
     Route::get('/admin/blogs/all',AdminBlogComponent::class)->name('admin-blogs');
 
-
     //Users
     Route::get('/admin/users/all',AdminUsersComponent::class)->name('admin-users');
     Route::get('/admin/user/edit/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
@@ -104,14 +100,10 @@ Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
     Route::get('/admin/demandes/all',AdminDemandesComponent::class)->name('admin-demandes-all');
     Route::get('//admin/demandes/show/{idDemande}',AdminDemandeShowComponent::class)->name('admin-demandes-show');
 
-
-
     //Cabinets
     Route::get('/admin/cabinets/all',AdminCabinetsComponent::class)->name('admin-cabinets-all');
     Route::get('/admin/cabinets/add',AdminAddCabinetComponent::class)->name('admin-add-cabinet');
     Route::get('/admin/cabinet/{id_cabinet}/edit',AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
-
-
 
     Route::get('/color/admin{color}',function($color){
         $user = User::find( auth()->user()->id);
@@ -135,9 +127,9 @@ Route::middleware('auth','auth:sanctum')->group(function(){
 
     //Permissions
     Route::get('/user/permissions/all/{idRole}',UserPermissionsComponent::class)->name('user-permission');
-    //Route::get('/user/permissions/all/{idRole}',[PermissionController::class,'index'])->name('user-permission');
-    //Route::post('/user/permissions/add/{idRole}',[PermissionController::class,'changePermission'])->name('user-permission-add');
 
+    //Settings
+    Route::get('/user/settings/cabinet/show/',UserSettingsComponent::class)->name('user-settings-cabinet');
 
 
     Route::get('/color/user{color}',function($color){
