@@ -55,6 +55,7 @@ return array(
     'App\\Models\\Permission' => $baseDir . '/app/Models/Permission.php',
     'App\\Models\\RdvAdmin' => $baseDir . '/app/Models/RdvAdmin.php',
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
+    'App\\Models\\RoleHasPermission' => $baseDir . '/app/Models/RoleHasPermission.php',
     'App\\Models\\Role_permission' => $baseDir . '/app/Models/Role_permission.php',
     'App\\Models\\TypeCabinet' => $baseDir . '/app/Models/TypeCabinet.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
