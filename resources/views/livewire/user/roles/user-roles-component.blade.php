@@ -9,6 +9,7 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('user-dashboard') }}"><i
                                         class="icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="#">Cabinet</a></li>
                             <li class="breadcrumb-item active">Role permission</li>
                         </ul>
                     </div>

@@ -599,6 +599,7 @@ class ComposerStaticInit705b0b0c19fa279d67d38927d2c5e97b
         'App\\Http\\Livewire\\DepartmentComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/DepartmentComponent.php',
         'App\\Http\\Livewire\\HomeComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/HomeComponent.php',
         'App\\Http\\Livewire\\User\\Permissions\\UserPermissionsComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/User/Permissions/UserPermissionsComponent.php',
+        'App\\Http\\Livewire\\User\\Personnels\\UserPersonnelsComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/User/Personnels/UserPersonnelsComponent.php',
         'App\\Http\\Livewire\\User\\Roles\\UserAddRolesComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/User/Roles/UserAddRolesComponent.php',
         'App\\Http\\Livewire\\User\\Roles\\UserRolesComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/User/Roles/UserRolesComponent.php',
         'App\\Http\\Livewire\\User\\Settings\\UserSettingsComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/User/Settings/UserSettingsComponent.php',

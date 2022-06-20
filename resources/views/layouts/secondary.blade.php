@@ -237,28 +237,28 @@
                                             </li>
 
                                             <li
-                                                class="@if (request()->routeIs('admin-users')) {{ 'active' }}@elseif(request()->routeIs('admin-addUser')){{ 'active' }}@elseif(request()->routeIs('admin-editUser')){{ 'active' }} @endif">
+                                                class="@if (request()->routeIs('user-personnels-cabinet')) {{ 'active' }}@elseif(request()->routeIs('user-add-personnels-cabinet')){{ 'active' }} @endif">
                                                 <a href="javascript:void(0);"
-                                                    aria-expanded="@if (request()->routeIs('admin-users')) {{ 'true' }}@elseif(request()->routeIs('admin-addUser')){{ 'true' }}@else{{ 'false' }} @endif"
+                                                    aria-expanded="@if (request()->routeIs('user-personnels-cabinet')) {{ 'true' }}@elseif(request()->routeIs('user-add-personnels-cabinet')){{ 'true' }}@else{{ 'false' }} @endif"
                                                     class="has-arrow"><i
                                                         class="icon-users"></i><span>people</span> </a>
-                                                <ul aria-expanded="@if (request()->routeIs('admin-addUser')) {{ 'true' }}@elseif(request()->routeIs('admin-users')){{ 'true' }}@else{{ 'false' }} @endif"
-                                                    class="{{ request()->routeIs('admin-users') ? 'collapse in' : '' }}{{ request()->routeIs('admin-addUser') ? 'collapse in' : '' }}">
+                                                <ul aria-expanded="@if (request()->routeIs('user-personnels-cabinet')) {{ 'true' }}@elseif(request()->routeIs('user-add-personnels-cabinet')){{ 'true' }}@else{{ 'false' }} @endif"
+                                                    class="{{ request()->routeIs('user-personnels-cabinet') ? 'collapse in' : '' }}{{ request()->routeIs('user-add-personnels-cabinet') ? 'collapse in' : '' }}">
                                                     <li
-                                                        class="@if (request()->routeIs('admin-users') || request()->routeIs('admin-editUser')) {{ 'active' }} @endif">
-                                                        <a href="{{ route('admin-users') }}"> list users</a>
+                                                        class="@if (request()->routeIs('user-personnels-cabinet')) {{ 'active' }} @endif">
+                                                        <a href="{{ route('user-personnels-cabinet') }}"> List personels</a>
+                                                    </li>
+                                                    <li
+                                                        class="{{ request()->routeIs('user-add-personnels-cabinet') ? 'active' : '' }}">
+                                                        <a href="{{ route('user-add-personnels-cabinet') }}">Add personel</a>
                                                     </li>
                                                     <li
                                                         class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
-                                                        <a href="{{ route('admin-addUser') }}">Add User</a>
+                                                        <a href="{{ route('admin-addUser') }}">List patient</a>
                                                     </li>
                                                     <li
                                                         class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
-                                                        <a href="{{ route('admin-addUser') }}">list patient</a>
-                                                    </li>
-                                                    <li
-                                                        class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
-                                                        <a href="{{ route('admin-addUser') }}">add patient</a>
+                                                        <a href="{{ route('admin-addUser') }}">Add patient</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -278,7 +278,7 @@
                                             <a href="{{ route('user-roles') }}"> Role permission</a>
                                         </li>
                                         <li class="{{ request()->routeIs('admin-addUser') ? 'active' : '' }}">
-                                            <a href="{{ route('admin-addUser') }}">User profile</a>
+                                            <a href="#">User profile</a>
                                         </li>
                                         <li class="@if (request()->routeIs('user-settings-cabinet')) {{ 'active' }} @endif">
                                             <a href="{{ route('user-settings-cabinet') }}">General setting</a>

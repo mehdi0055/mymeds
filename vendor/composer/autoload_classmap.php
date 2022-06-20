@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Livewire\\DepartmentComponent' => $baseDir . '/app/Http/Livewire/DepartmentComponent.php',
     'App\\Http\\Livewire\\HomeComponent' => $baseDir . '/app/Http/Livewire/HomeComponent.php',
     'App\\Http\\Livewire\\User\\Permissions\\UserPermissionsComponent' => $baseDir . '/app/Http/Livewire/User/Permissions/UserPermissionsComponent.php',
+    'App\\Http\\Livewire\\User\\Personnels\\UserPersonnelsComponent' => $baseDir . '/app/Http/Livewire/User/Personnels/UserPersonnelsComponent.php',
     'App\\Http\\Livewire\\User\\Roles\\UserAddRolesComponent' => $baseDir . '/app/Http/Livewire/User/Roles/UserAddRolesComponent.php',
     'App\\Http\\Livewire\\User\\Roles\\UserRolesComponent' => $baseDir . '/app/Http/Livewire/User/Roles/UserRolesComponent.php',
     'App\\Http\\Livewire\\User\\Settings\\UserSettingsComponent' => $baseDir . '/app/Http/Livewire/User/Settings/UserSettingsComponent.php',

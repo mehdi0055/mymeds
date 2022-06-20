@@ -30,6 +30,8 @@ use App\Http\Livewire\User\Roles\UserAddRolesComponent;
 
 use App\Http\Livewire\User\Permissions\UserPermissionsComponent;
 use App\Http\Livewire\User\Settings\UserSettingsComponent;
+use App\Http\Livewire\User\Personnels\UserPersonnelsComponent;
+use App\Http\Livewire\User\Personnels\UserAddPersonnelsComponent;
 
 
 use Illuminate\Support\Facades\App;
@@ -59,11 +61,11 @@ use App\Models\User;
 
 
 //Public routes
-Route::get('/',HomeComponent::class)->name('landing-home');
-Route::get('/about-us',AboutComponent::class)->name('landing-about');
-Route::get('/contact-us',ContactComponent::class)->name('landing-contact');
-Route::get('/department',DepartmentComponent::class)->name('landing-department');
-Route::get('/cancelrendezvous/{idRdv}',CanceledRdvComponent::class)->name('cancel-rendezvous');
+Route::get('/', HomeComponent::class)->name('landing-home');
+Route::get('/about-us', AboutComponent::class)->name('landing-about');
+Route::get('/contact-us', ContactComponent::class)->name('landing-contact');
+Route::get('/department', DepartmentComponent::class)->name('landing-department');
+Route::get('/cancelrendezvous/{idRdv}', CanceledRdvComponent::class)->name('cancel-rendezvous');
 // Route::get('/register',RegisterComponent::class)->name('landing-register');
 
 
@@ -73,75 +75,75 @@ Route::get('/cancelrendezvous/{idRdv}',CanceledRdvComponent::class)->name('cance
 
 //Language change
 
-Route::get('/language/{local}',function($local){
+Route::get('/language/{local}', function ($local) {
     App::setLocale($local);
-    session(['lang'=>$local]);
+    session(['lang' => $local]);
     return back();
 })->name('change-language');
 
 
 //Admin Routes
-Route::middleware('auth','auth:sanctum','adminauth')->group(function(){
-    Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin-dashboard');
-    Route::get('/admin/rendez_vous',AdminRdvComponent::class)->name('admin-rendez_vous');
-    Route::get('/admin/blogs',AdminBlogComponent::class)->name('admin-blogs');
-    Route::get('/admin/contact/{folder?}',AdminContactComponent::class)->name('admin-contact');
-    Route::get('/admin/contact/{contact_id}/show',AdminShowMessageComponent::class)->name('admin-show-message');
+Route::middleware('auth', 'auth:sanctum', 'adminauth')->group(function () {
+    Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin-dashboard');
+    Route::get('/admin/rendez_vous', AdminRdvComponent::class)->name('admin-rendez_vous');
+    Route::get('/admin/blogs', AdminBlogComponent::class)->name('admin-blogs');
+    Route::get('/admin/contact/{folder?}', AdminContactComponent::class)->name('admin-contact');
+    Route::get('/admin/contact/{contact_id}/show', AdminShowMessageComponent::class)->name('admin-show-message');
     // Route::get('/admin/contact/folder/archive',AdminArchivedMessagesComponent::class)->name('admin-folder-archive');
 
-    Route::get('/admin/rendez_vous/all',AdminRdvComponent::class)->name('admin-rendez_vous');
-    Route::get('/admin/blogs/all',AdminBlogComponent::class)->name('admin-blogs');
+    Route::get('/admin/rendez_vous/all', AdminRdvComponent::class)->name('admin-rendez_vous');
+    Route::get('/admin/blogs/all', AdminBlogComponent::class)->name('admin-blogs');
 
     //Users
-    Route::get('/admin/users/all',AdminUsersComponent::class)->name('admin-users');
-    Route::get('/admin/user/edit/{idUser}',AdminEditUsersComponent::class)->name('admin-editUser');
-    Route::get('/admin/user/add',AdminAddUsersComponent::class)->name('admin-addUser');
-    Route::get('/admin/user/show/{idUser}',AdminShowUsersComponent::class)->name('admin-showUser');
+    Route::get('/admin/users/all', AdminUsersComponent::class)->name('admin-users');
+    Route::get('/admin/user/edit/{idUser}', AdminEditUsersComponent::class)->name('admin-editUser');
+    Route::get('/admin/user/add', AdminAddUsersComponent::class)->name('admin-addUser');
+    Route::get('/admin/user/show/{idUser}', AdminShowUsersComponent::class)->name('admin-showUser');
 
     //Demandes
-    Route::get('/admin/demandes/all',AdminDemandesComponent::class)->name('admin-demandes-all');
-    Route::get('//admin/demandes/show/{idDemande}',AdminDemandeShowComponent::class)->name('admin-demandes-show');
+    Route::get('/admin/demandes/all', AdminDemandesComponent::class)->name('admin-demandes-all');
+    Route::get('//admin/demandes/show/{idDemande}', AdminDemandeShowComponent::class)->name('admin-demandes-show');
 
     //Cabinets
-    Route::get('/admin/cabinets/all',AdminCabinetsComponent::class)->name('admin-cabinets-all');
-    Route::get('/admin/cabinets/add',AdminAddCabinetComponent::class)->name('admin-add-cabinet');
-    Route::get('/admin/cabinet/{id_cabinet}/edit',AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
+    Route::get('/admin/cabinets/all', AdminCabinetsComponent::class)->name('admin-cabinets-all');
+    Route::get('/admin/cabinets/add', AdminAddCabinetComponent::class)->name('admin-add-cabinet');
+    Route::get('/admin/cabinet/{id_cabinet}/edit', AdminEditCabinetComponent::class)->name('admin-edit-cabinet');
 
-    Route::get('/color/admin{color}',function($color){
-        $user = User::find( auth()->user()->id);
+    Route::get('/color/admin{color}', function ($color) {
+        $user = User::find(auth()->user()->id);
         $user->theme = $color;
         $user->save();
         return redirect()->route('admin-dashboard');
     })->name('change-color-admin');
-
 });
 
 
 
 //Route users
-Route::middleware('auth','auth:sanctum')->group(function(){
+Route::middleware('auth', 'auth:sanctum')->group(function () {
 
-    Route::get('/user/dashboard',UserDashboardComponent::class)->name('user-dashboard');
+    Route::get('/user/dashboard', UserDashboardComponent::class)->name('user-dashboard');
 
     //Roles
-    Route::get('/user/roles/all',UserRolesComponent::class)->name('user-roles');
-    Route::get('/user/role/add',UserAddRolesComponent::class)->name('user-add-role');
+    Route::get('/user/roles/all', UserRolesComponent::class)->name('user-roles');
+    Route::get('/user/role/add', UserAddRolesComponent::class)->name('user-add-role');
 
     //Permissions
-    Route::get('/user/permissions/all/{idRole}',UserPermissionsComponent::class)->name('user-permission');
-    Route::get('/user/user/show/{idUser}',AdminShowUsersComponent::class)->name('user-showUser');
+    Route::get('/user/permissions/all/{idRole}', UserPermissionsComponent::class)->name('user-permission');
+
 
     //Settings
-    Route::get('/user/settings/cabinet/show/',UserSettingsComponent::class)->name('user-settings-cabinet');
+    Route::get('/user/settings/cabinet/show/', UserSettingsComponent::class)->name('user-settings-cabinet');
+
+    //Personnels
+    Route::get('/user/personnels/cabinet/all/', UserPersonnelsComponent::class)->name('user-personnels-cabinet');
+    Route::get('/user/personnels/cabinet/add/', UserAddPersonnelsComponent::class)->name('user-add-personnels-cabinet');
 
 
-    Route::get('/color/user{color}',function($color){
-        $user = User::find( auth()->user()->id);
+    Route::get('/color/user{color}', function ($color) {
+        $user = User::find(auth()->user()->id);
         $user->theme = $color;
         $user->save();
         return redirect()->route('user-dashboard');
     })->name('change-color-user');
-
 });
-
-
