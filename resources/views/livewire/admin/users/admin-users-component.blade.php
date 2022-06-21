@@ -109,16 +109,7 @@
                     toastr.error('{{ session('userDeleted') }}');
                 </script>
             @endif
-            @if (session()->has('userActive'))
-                <script>
-                    toastr.success('{{ session('userActive') }}');
-                </script>
-            @endif
-            @if (session()->has('userInactive'))
-                <script>
-                    toastr.error('{{ session('userInactive') }}');
-                </script>
-            @endif
+
 
             <!-- End Notification -->
 

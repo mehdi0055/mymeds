@@ -48,6 +48,7 @@
                                             <th>Telephone</th>
                                             <th>CIN</th>
                                             <th>Date d'embauche</th>
+                                            <th>Profession</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -59,6 +60,8 @@
                                                 <td>{{ $item->phone_personel }}</td>
                                                 <td>{{ $item->cin }}</td>
                                                 <td>{{ $item->date_embauche }}</td>
+                                                <td><span
+                                                    class="badge badge-primary">{{$item->profession}}</span></td>
                                                 <td>
                                                     <a href="#"
                                                         wire:click.prevent="confirmDeleteRole({{ $item->id }})"

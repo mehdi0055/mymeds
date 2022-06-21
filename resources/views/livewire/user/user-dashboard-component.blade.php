@@ -24,15 +24,15 @@
             <!-- End Notification -->
 
             <div class="row clearfix">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body"
-                            style="background-image: url({{ asset('primary/assets/images/bg-5.png') }}) ">
+                            style="background-image: url({{ asset('primary/assets/images/bg-11.png') }});background-size:cover">
                             <div class="d-flex flex-nowrap">
-                                <div class=" p-2"><img src="{{ asset('primary/assets/images/bg-6.png') }}"
-                                        class="user-photo" alt="User Profile Picture" width="160"></div>
-                                <div class=" p-5">
-                                    <h2 class="font-weight-normal">Bienvenu <span class="font-weight-bold">DR.{{ Auth::user()->name }}</span>  dans votre  {{ Auth::user()->doctor->cabinet->typeCabinet->name }} </h2>
+                                <div class=""><img src="{{ asset('primary/assets/images/bg-9.png') }}"
+                                        class="user-photo" alt="User Profile Picture" width="200"></div>
+                                <div class="p-5">
+                                    <h2 class="font-weight-normal"><span class="font-weight-bold">Bienvenu</span>  medecin dans votre cabinet </h2>
                                 </div>
                             </div>
                         </div>
@@ -44,26 +44,6 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="row clearfix">
 
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-                            <div class="card ">
-
-                                <div class="body  text-center text-light p-5 rounded bg-info " >
-                                    <i class="fa fa-calendar" style="font-size:40px"></i>
-                                    <h5>120</h5>
-                                    <span>Rendez vous</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-                            <div class="card ">
-
-                                <div class="body bg-primary text-center text-light p-5 rounded ">
-                                    <i class="fa fa-user-md" style="font-size:40px"></i>
-                                    <h5>120</h5>
-                                    <span>Medecins</span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                             <div class="card top_counter  ">
                                 <div class="body">
@@ -184,58 +164,65 @@
             </div>
 
             <div class="row clearfix">
-
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2 class="text-primary font-weight-bold">Liste Utilisateur</h2>
-
+                            <h2>
+                                Liste Personnels
+                            </h2>
+                            <ul class="header-dropdown">
+                                <form id="navbar-search" class="navbar-form search-form">
+                                    <input wire:model.debounce.500ms="search" class="form-control"
+                                        placeholder="Search here..." type="text">
+                                    <button type="button" class="btn btn-default"><i
+                                            class="icon-magnifier"></i></button>
+                                </form>
+                            </ul>
+                        </div>
+                        <div class="header">
                             <p class="float-md-right">
-                                <span class="badge badge-success">0 Active</span>
-                                <span class="badge badge-danger">2 Inactive</span>
+                                <span class="badge badge-success">0 Has account</span>
+                                <span class="badge badge-danger">0 Has no account</span>
                             </p>
-
                         </div>
                         <div class="body">
-
                             <div class="table-responsive">
                                 <table class="table  table-hover js-basic-example dataTable table-custom">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Avatar</th>
-                                            <th>Nom</th>
-                                            <th>Adresse email</th>
-                                            <th>Ville</th>
+                                            <th>#</th>
+                                            <th>Nom et prénom</th>
                                             <th>Telephone</th>
-
-                                            <th>Statue</th>
-
+                                            <th>CIN</th>
+                                            <th>Date d'embauche</th>
+                                            <th>Profession</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $item)
+                                        @foreach ($personnels as $item)
                                             <tr>
-                                                <td><img src="{{ asset('primary/assets/images/users/' . $item->profile_photo_path) }}"
-                                                        class="rounded-circle user-photo" alt="User Profile Picture"
-                                                        width="45" height="45"></td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->email }}</td>
-                                                <td>{{ $item->city }}</td>
-                                                <td>{{ $item->phone }}</td>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->lname }} {{ $item->fname }}</td>
+                                                <td>{{ $item->phone_personel }}</td>
+                                                <td>{{ $item->cin }}</td>
+                                                <td>{{ $item->date_embauche }}</td>
                                                 <td><span
-                                                        class="badge badge-{{ $item->active == '1' ? 'success' : 'danger' }}">{{ $item->active == '1' ? 'Active' : 'Inactive' }}</span>
+                                                    class="badge badge-primary">{{$item->profession}}</span></td>
+                                                <td>
+                                                    <a href="#"
+                                                        wire:click.prevent="confirmDeleteRole({{ $item->id }})"
+                                                        data-toggle="modal" data-target="#confirmationDelete"
+                                                        title="Comment"><i
+                                                            class="icon-trash text-danger icon-size"></i></a>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
-
                             <div class="d-flex justify-content-center">
-                                @if ($users->count())
-                                    {{ $users->links('livewire-pagination') }}
-                                @endif
+                                {{ $personnels->links('livewire-pagination') }}
                             </div>
                         </div>
                     </div>

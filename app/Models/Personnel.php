@@ -10,5 +10,5 @@ class Personnel extends Model
     use HasFactory;
 
     protected $table = "personnels";
-    protected $fillable = ['lname', 'fname', 'gender', 'date_birth', 'cin', 'phone_personel', 'email_personel', 'state', 'city', 'zipcode', 'address', 'profession', 'date_embauche', 'salaire', 'has_account','active','delete'];
+    protected $fillable = ['cabinet_id','lname', 'fname', 'gender', 'date_birth', 'cin', 'phone_personel', 'email_personel', 'state', 'city', 'zipcode', 'address', 'profession', 'date_embauche', 'salaire', 'has_account','active','delete'];
 }

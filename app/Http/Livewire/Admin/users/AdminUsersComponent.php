@@ -16,8 +16,7 @@ class AdminUsersComponent extends Component
         $user = User::find($id);
         $user->active = $user->active == 0 ? 1 : 0;
         $user->save();
-        $message = "L'utilisateur a été activée";
-        session()->flash('userActive',$message);
+
     }
 
 
@@ -41,7 +40,7 @@ class AdminUsersComponent extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm. '%';
-        $users = User::where('name','LIKE',$searchTerm)->where('delete',0)->where('utype','USR')
+        $users = User::where('name','LIKE',$searchTerm)->where('delete',0)->where('utype','USR')->where('role_id',1)
         ->orderBy('id', 'ASC')->paginate(2);
         return view('livewire.admin.users.admin-users-component',['users'=>$users])->layout('layouts.primary');
     }

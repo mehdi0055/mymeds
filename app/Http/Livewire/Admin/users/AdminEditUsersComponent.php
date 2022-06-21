@@ -19,6 +19,8 @@ class AdminEditUsersComponent extends Component
     public $profile;
     public $cin;
     public $code_doctor;
+    public $phone;
+    public $city;
     public $address;
     public $name_cabinet;
     public $phone_cabinet;
@@ -35,6 +37,8 @@ class AdminEditUsersComponent extends Component
         $this->cin = $user->doctor->cin;
         $this->code_doctor = $user->doctor->code_doctor;
         $this->address = $user->doctor->address;
+        $this->phone = $user->doctor->phone_personel;
+        $this->city = $user->doctor->city;
         $this->name_cabinet = $user->doctor->cabinet->name_cabinet;
         $this->phone_cabinet = $user->doctor->cabinet->phone_cabinet;
         $this->email_cabinet = $user->doctor->cabinet->email_cabinet;
@@ -51,6 +55,8 @@ class AdminEditUsersComponent extends Component
         $doctor->cin = $this->cin;
         $doctor->code_doctor = $this->code_doctor;
         $doctor->address = $this->address;
+        $doctor->phone_personel = $this->phone;
+        $doctor->city = $this->city;
         $doctor->save();
         $cabinet = Cabinet::where('doctor_id',$doctor->id)->first();
         $cabinet->type_id = $this->type_id;
@@ -71,7 +77,7 @@ class AdminEditUsersComponent extends Component
     use WithPagination;
     public function render()
     {
-        $users = User::where('delete', 0)
+        $users = User::where('delete', 0)->where('utype','USR')->where('role_id',1)
         ->orderBy('id', 'ASC')->paginate(2);
         $types = TypeCabinet::where('status',0)->get();
         return view('livewire.admin.users.admin-edit-users-component', ['users' => $users,'types'=>$types])->layout('layouts.primary');

@@ -42,8 +42,7 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="email">Nom et prénom</label>
-                                        <input wire:model="name" type="text" class="form-control"
-                                            placeholder="First Name">
+                                        <input wire:model="name" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -52,15 +51,13 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="phone">Telephone</label>
-                                        <input wire:model="phone" type="text" class="form-control"
-                                           >
+                                        <input wire:model="phone" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                     <div class="form-group">
-                                        <label for="email">City</label>
-                                        <input wire:model="name" type="text" class="form-control"
-                                            placeholder="First Name">
+                                        <label for="city">City</label>
+                                        <input wire:model="city" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +66,7 @@
                                     <div class="form-group">
                                         <label for="email">adresse e-mail</label>
                                         <input wire:model="email" id="email" type="email" class="form-control"
-                                            placeholder="Ahmed@mymed.ma" disabled>
+                                            disabled>
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -80,8 +77,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="city">CIN</label>
-                                        <input wire:model="cin" id="cin" type="text" class="form-control"
-                                            placeholder="xxxxxxxx">
+                                        <input wire:model="cin" id="cin" type="text" class="form-control">
                                         @error('cin')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -107,7 +103,7 @@
                                     <div class="form-group">
                                         <label for="phone">Code medecin</label>
                                         <input wire:model="code_doctor" id="code_doctor" type="text"
-                                            class="form-control" placeholder="DR100">
+                                            class="form-control">
                                         @error('code_doctor')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -121,7 +117,7 @@
                                     <div class="form-group">
                                         <label for="name_cabinet">Name cabinet</label>
                                         <input wire:model="name_cabinet" id="name_cabinet" type="text"
-                                            class="form-control" placeholder="Cabinet xxxx">
+                                            class="form-control">
                                         @error('name_cabinet')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -134,7 +130,7 @@
                                     <div class="form-group">
                                         <label for="email_cabinet">Email cabinet</label>
                                         <input wire:model="email_cabinet" id="email_cabinet" type="email"
-                                            class="form-control" placeholder="Cabinet@mymed.ma" disabled>
+                                            class="form-control" disabled>
                                         @error('email_cabinet')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -144,8 +140,8 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="phone_cabinet">phone cabinet</label>
-                                        <input wire:model="phone_cabinet" id="phone" type="text" class="form-control"
-                                            placeholder="06 xx xx xx xx">
+                                        <input wire:model="phone_cabinet" id="phone" type="text"
+                                            class="form-control">
                                         @error('phone_cabinet')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -157,7 +153,8 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="type_id">Type cabinet</label>
-                                        <select wire:model="type_id" name="type_id" class="form-control" id="type_id">
+                                        <select wire:model="type_id" name="type_id" class="form-control"
+                                            id="type_id">
                                             <option value="">select type cabinet</option>
                                             @foreach ($types as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -223,7 +220,8 @@
                                                         class="badge badge-{{ $item->active == '0' ? 'success' : 'danger' }}">{{ $item->active == '0' ? 'Active' : 'Inactive' }}</span>
                                                 </td>
                                                 <td>
-                                                    <a href="#" wire:click.prevent="changeStatus({{ $item->id }})"
+                                                    <a href="#"
+                                                        wire:click.prevent="changeStatus({{ $item->id }})"
                                                         title="{{ $item->active == 0 ? 'incative' : 'active' }}"><i
                                                             class="{{ $item->active == 0 ? 'fa fa-toggle-on text-success' : 'fa fa-toggle-off text-danger' }} icon-size"></i></a>
                                                 </td>

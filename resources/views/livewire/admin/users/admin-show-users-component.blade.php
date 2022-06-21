@@ -16,7 +16,6 @@
 
                 </div>
             </div>
-
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
                     <div class="card profile-header">
@@ -33,84 +32,84 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="col-lg-6 col-md-12">
-
-
-                <div class="card">
-                    <div class="header">
-                        <h5 class="text-primary font-weight-bold">Information Personel</h5>
-                    </div>
-                    <div class="body   ">
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-12">
-                                <h6 class="font-weight-bold">Nom et prénom : </h6>
-                                <p>{{ $user->doctor->lname . ' ' . $user->doctor->fname }}</p>
-
-
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <h6 class="font-weight-bold">Telephone : </h6>
-                                <p>{{ $user->doctor->phone_personel }}</p>
-                            </div>
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h5 class="text-primary font-weight-bold">Information Personel</h5>
                         </div>
-                        <hr>
+                        <div class="body   ">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12">
+                                    <h6 class="font-weight-bold">Nom et prénom : </h6>
+                                    <p>{{ $user->doctor->lname . ' ' . $user->doctor->fname }}</p>
 
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-12">
-                                <h6>Address email : </h6>
-                                <p>{{ $user->doctor->email_personel }}</p>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <h6 class="font-weight-bold">Region : </h6>
-                                <p>{{ $user->doctor->state }}</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-12">
 
-                                <h6 class="font-weight-bold">Code Médecin : </h6>
-                                <p>{{ $user->doctor->code_doctor }}</p>
-
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <h6 class="font-weight-bold">Telephone : </h6>
+                                    <p>{{ $user->doctor->phone_personel }}</p>
+                                </div>
                             </div>
-                            <div class="col-lg-6 col-md-12">
-
-                                <h6 class="font-weight-bold">Code zip : </h6>
-                                <p>{{ $user->doctor->zipcode }}</p>
+                            <hr>
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12">
+                                    <h6>Address email : </h6>
+                                    <p>{{ $user->doctor->email_personel }}</p>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <h6 class="font-weight-bold">Region : </h6>
+                                    <p>{{ $user->doctor->state }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row clearfix">
-                            <div class="col-lg-12 col-md-12">
-                                <h6 class="font-weight-bold">Region : </h6>
-                                <p>{{ $user->doctor->state }}</p>
-                            </div>
-                        </div>
-
-                        <div class="row clearfix">
-                            <div class="col-lg-12 col-md-12">
-                                <h6 class="font-weight-bold">Address : </h6>
-                                <p>{{ $user->doctor->address }} </p>
-                            </div>
-                        </div>
-
-                        <div class="row clearfix mt-3 text-right">
-                            <div class="col-sm-12">
-                                <a href="{{ route('admin-editUser',$user->id) }}"
-                                    class="btn btn-primary">Modifier</a>
-                                <a href="{{ route('admin-users') }}" class="btn btn-danger">Back</a>
+                            <div class="row clearfix mt-3 text-right">
+                                <div class="col-sm-12">
+                                    <a href="{{ route('admin-editUser', $user->id) }}"
+                                        class="btn btn-primary">Modifier</a>
+                                    <a href="{{ route('admin-users') }}" class="btn btn-danger">Back</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h5 class="text-primary font-weight-bold"></h5>
+                        </div>
+                        <div class="body   ">
+
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12">
+
+                                    <h6 class="font-weight-bold">Code Médecin : </h6>
+                                    <p>{{ $user->doctor->code_doctor }}</p>
+
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+
+                                    <h6 class="font-weight-bold">Code zip : </h6>
+                                    <p>{{ $user->doctor->zipcode }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12">
+                                    <h6 class="font-weight-bold">City : </h6>
+                                    <p>{{ $user->doctor->city }}</p>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <h6 class="font-weight-bold">Address : </h6>
+                                    <p>{{ $user->doctor->address }} </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 </div>

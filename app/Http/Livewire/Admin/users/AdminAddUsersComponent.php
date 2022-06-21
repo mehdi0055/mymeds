@@ -27,6 +27,7 @@ class AdminAddUsersComponent extends Component
     public $profile;
     public $cin;
     public $gender;
+    public $phone;
     public $code_doctor;
     public $address;
     public $name_cabinet;
@@ -140,7 +141,7 @@ class AdminAddUsersComponent extends Component
     public function render()
     {
         $types = TypeCabinet::where('status',0)->get();
-        $users = User::where('delete', 0)
+        $users = User::where('delete', 0)->where('utype','USR')->where('role_id',1)
             ->orderBy('id', 'ASC')->paginate(2);
         return view('livewire.admin.users.admin-add-users-component', ['users' => $users,'types'=>$types])->layout('layouts.primary');
     }

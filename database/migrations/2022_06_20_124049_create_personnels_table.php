@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePersonnelsTable extends Migration
@@ -15,6 +16,8 @@ class CreatePersonnelsTable extends Migration
     {
         Schema::create('personnels', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('cabinet_id')->unsigned();
+            $table->foreign('cabinet_id')->references('id')->on('cabinets')->onDelete('cascade');
             $table->string('lname');
             $table->string('fname');
             $table->enum('gender', ['female', 'male'])->default('male');
